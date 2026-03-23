@@ -1,0 +1,41 @@
+services:
+  db:
+    image: docker.io/library/postgres:16
+    environment:
+      POSTGRES_DB: wikiwelp
+      POSTGRES_USER: wikiwelp
+      POSTGRES_PASSWORD: wikiwelp
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./backend
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/wikiwelp
+      SPRING_DATASOURCE_USERNAME: wikiwelp
+      SPRING_DATASOURCE_PASSWORD: wikiwelp
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+    ports:
+      - "8080:8080"
+    volumes:
+      - mvn_deps:/root/.m2
+
+  frontend:
+    build:
+      context: ./frontend
+    depends_on:
+      - backend
+    volumes:
+      - node_deps:/app/node_modules
+    ports:
+      - "3000:80"
+
+volumes:
+  db_data:
+  mvn_deps:
+  node_deps:
