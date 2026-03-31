@@ -1,5 +1,10 @@
 # WikiWelp
 
+## Project structure
+
+- **backend**: The backend for the site written in [**Java**](https://www.java.com/en/) with [**Spring Boot framework**](https://spring.io/projects/spring-boot)
+- **frontend**: The frontend for the site written in [**Angular**](https://angular.dev/)
+
 ## Start project
 
 ```bash
