@@ -13,7 +13,6 @@ export class App {
   private http = inject(HttpClient);
   private baseUrl = environment.apiUrl;
 
-  protected readonly title = signal('wikiwelp-frontend');
   protected readonly pingResult = signal('');
 
   constructor() {
