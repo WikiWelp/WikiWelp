@@ -1,0 +1,22 @@
+<section>
+    <h1 [appHighlight]="colore">Wikipedia</h1>
+    <p *ngIf="servizio.isLoggedIn()">Benvenuto</p>
+</section>
+
+<section>
+    <p>Cerca qualunque cosa tu desideri</p>
+</section>
+
+<section>
+    <div class="search">
+        <input type="text" placeholder="Cerca...">
+        <button matButton>Vai!</button>
+    </div>
+</section>
+
+<section>
+  <div class="button-row">
+    <button matButton routerLink="/login">Login</button>
+    <button matButton routerLink="/register">Register</button>
+  </div>
+</section>

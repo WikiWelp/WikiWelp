@@ -1,0 +1,41 @@
+<section>
+  <h1>Crea Account</h1>
+</section>
+
+<mat-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Inserisci la tua email</ng-template>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="firstCtrl" required (input)="onInput($event)">
+      </mat-form-field>
+      <div>
+        <button matButton matStepperNext>>></button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup" label="Inserisci la tua password">
+    <form [formGroup]="secondFormGroup">
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="secondCtrl" required (input)="onInput($event)">
+      </mat-form-field>
+      <div>
+        <button matButton matStepperPrevious><<</button>
+        <button matButton matStepperNext>>></button>
+      </div>
+    </form>
+  </mat-step>
+  
+  <mat-step>
+    <ng-template matStepLabel>Fatto!</ng-template>
+    <p>Clicca "Avanti" per completare la registrazione</p>
+    <div>
+      <button matButton matStepperPrevious><<</button>
+      <button matButton (click)="submitRegistration()" routerLink="/">Avanti</button>
+    </div>
+  </mat-step>
+</mat-stepper>
