@@ -2,18 +2,28 @@ import { OnInit, OnDestroy, AfterContentChecked, AfterContentInit, AfterViewChec
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+<<<<<<< HEAD
 import { HighlightDirective } from '../../direttive/highlight/highlight';
 import { ServizioService } from '../../services/servizio.service';
+=======
+import { HighlightDirective } from '../../direttive/highlight/highlight.directive';
+import { ServizioService } from '../../services/servizio.service';
+import { RouterLink } from "@angular/router";
+>>>>>>> origin/branchRomualdo
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
+<<<<<<< HEAD
   imports: [MatCardModule, 
           MatButtonModule, 
           CommonModule, 
           HighlightDirective, 
           RouterModule],
+=======
+  imports: [MatCardModule, MatButtonModule, CommonModule, HighlightDirective, RouterLink, RouterModule],
+>>>>>>> origin/branchRomualdo
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -49,5 +59,10 @@ AfterContentInit, AfterViewChecked, AfterViewInit, DoCheck, OnDestroy, OnChanges
   ngOnInit(): void {
     console.log("ngOnInit")
   }
+<<<<<<< HEAD
 
 }
+=======
+}
+
+>>>>>>> origin/branchRomualdo

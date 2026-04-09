@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Component, inject} from '@angular/core';
+=======
+import { Component, inject } from '@angular/core';
+>>>>>>> origin/branchRomualdo
 import {FormBuilder, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -19,11 +23,19 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     RouterLink,
     MatSelectModule
+<<<<<<< HEAD
   ],
+=======
+],
+>>>>>>> origin/branchRomualdo
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/branchRomualdo
   onInput(event:Event){
     console.log((<HTMLInputElement>event.target).value)
   }
@@ -45,5 +57,8 @@ export class RegisterComponent {
       password: this.secondFormGroup.value.secondCtrl,
     });
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/branchRomualdo
 }
