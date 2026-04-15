@@ -9,9 +9,9 @@
 
 ```bash
 # with podman-compose
-podman-compose down && podman-compose up --build -d
+podman-compose down; podman-compose up --build -d
 # with docker-compose
-docker-compose down && docker-compose up --build -d
+docker-compose down; docker-compose up --build -d
 ```
 
 Then visit the page on [http://localhost:3000](http://localhost:3000)
