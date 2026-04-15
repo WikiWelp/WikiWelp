@@ -26,6 +26,17 @@ export class LoginComponent {
     password: ['', [Validators.required]]
   })
 
-  
+    submitLogin(){
+    const email = this.formGroup.get('email')?.value;
+    const password = this.formGroup.get('password')?.value;
+
+    console.log({
+      email,
+      password
+    });
+
+    this.router.navigate(['/']);
+  }
+
 
 }
