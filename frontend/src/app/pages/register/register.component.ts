@@ -30,7 +30,7 @@ export class RegisterComponent {
     password: ['', Validators.required],
   });
 
-    submitRegistration() {
+  submitRegistration() {
     const email = this.firstFormGroup.get('email')?.value;
     const password = this.secondFormGroup.get('password')?.value;
 

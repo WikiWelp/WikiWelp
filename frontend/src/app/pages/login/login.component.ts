@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-    constructor(private router: Router) {}
+  constructor(private router: Router) {}
 
   private _formBuilder = inject(FormBuilder);
 
@@ -26,7 +26,7 @@ export class LoginComponent {
     password: ['', [Validators.required]]
   })
 
-    submitLogin(){
+  submitLogin(){
     const email = this.formGroup.get('email')?.value;
     const password = this.formGroup.get('password')?.value;
 
