@@ -9,14 +9,10 @@
       <ng-template matStepLabel>Inserisci la tua email</ng-template>
       <mat-form-field>
         <mat-label>Email</mat-label>
-        <input matInput type="email" formControlName="firstCtrl" required (input)="onInput($event)">
+        <input matInput type="email" formControlName="email" required>
       </mat-form-field>
       <div>
-<<<<<<< HEAD
-        <button mat-Button matStepperNext>>></button>
-=======
-        <button matButton matStepperNext>>></button>
->>>>>>> origin/branchRomualdo
+        <button matStepperNext>>></button>
       </div>
     </form>
   </mat-step>
@@ -25,16 +21,11 @@
     <form [formGroup]="secondFormGroup">
       <mat-form-field>
         <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="secondCtrl" required (input)="onInput($event)">
+        <input matInput type="password" formControlName="password" required>
       </mat-form-field>
       <div>
-<<<<<<< HEAD
-        <button mat-Button matStepperPrevious><<</button>
-        <button mat-Button matStepperNext>>></button>
-=======
-        <button matButton matStepperPrevious><<</button>
-        <button matButton matStepperNext>>></button>
->>>>>>> origin/branchRomualdo
+        <button matStepperPrevious><<</button>
+        <button matStepperNext>>></button>
       </div>
     </form>
   </mat-step>
@@ -43,13 +34,8 @@
     <ng-template matStepLabel>Fatto!</ng-template>
     <p>Clicca "Avanti" per completare la registrazione</p>
     <div>
-<<<<<<< HEAD
-      <button mat-Button matStepperPrevious><<</button>
-      <button mat-Button (click)="submitRegistration()" routerLink="/">Avanti</button>
-=======
-      <button matButton matStepperPrevious><<</button>
-      <button matButton (click)="submitRegistration()" routerLink="/">Avanti</button>
->>>>>>> origin/branchRomualdo
+      <button matStepperPrevious><<</button>
+      <button (click)="submitRegistration()">Avanti</button>
     </div>
   </mat-step>
 </mat-stepper>

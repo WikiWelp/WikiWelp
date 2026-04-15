@@ -1,64 +1,48 @@
-<<<<<<< HEAD
-import { Component, inject} from '@angular/core';
-=======
 import { Component, inject } from '@angular/core';
->>>>>>> origin/branchRomualdo
-import {FormBuilder, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatButtonModule} from '@angular/material/button';
-import { RouterLink } from "@angular/router";
-import { MatSelectModule } from '@angular/material/select';
+import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatStepperModule } from '@angular/material/stepper';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [
-    MatButtonModule,
     MatStepperModule,
-    FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule,
-    RouterLink,
-    MatSelectModule
-<<<<<<< HEAD
+    MatInputModule
   ],
-=======
-],
->>>>>>> origin/branchRomualdo
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/branchRomualdo
-  onInput(event:Event){
-    console.log((<HTMLInputElement>event.target).value)
-  }
+  constructor(private router: Router) {}
 
   private _formBuilder = inject(FormBuilder);
 
   isLinear = true;
 
   firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
+    email: ['', [Validators.required]],
   });
+
   secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
+    password: ['', Validators.required],
   });
 
   submitRegistration() {
-    console.log({
-      email: this.firstFormGroup.value.firstCtrl,
-      password: this.secondFormGroup.value.secondCtrl,
-    });
-  }
-<<<<<<< HEAD
+    const email = this.firstFormGroup.get('email')?.value;
+    const password = this.secondFormGroup.get('password')?.value;
 
-=======
->>>>>>> origin/branchRomualdo
+    console.log({
+      email,
+      password,
+    });
+
+    this.router.navigate(['/']);
+  }
 }
