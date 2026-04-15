@@ -13,7 +13,7 @@ export class App {
   private http = inject(HttpClient);
   private baseUrl = environment.apiUrl;
 
-  protected readonly pingResult = signal('');
+  protected pingResult = signal('');
 
   constructor() {
     this.http.get(`${this.baseUrl}/api/ping`, { responseType: 'text' })
