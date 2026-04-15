@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ServizioService } from '../../services/servizio.service';
 import { RouterModule } from '@angular/router';
 
 
@@ -14,5 +15,5 @@ import { RouterModule } from '@angular/router';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+  constructor(public servizio: ServizioService) {}
 }
