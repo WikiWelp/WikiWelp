@@ -41,4 +41,6 @@ export class RegisterComponent {
 
     this.router.navigate(['/']);
   }
+
+  isLinear=false;
 }
