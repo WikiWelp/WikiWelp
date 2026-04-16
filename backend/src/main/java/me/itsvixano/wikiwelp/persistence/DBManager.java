@@ -1,5 +1,7 @@
 package me.itsvixano.wikiwelp.persistence;
 
+import me.itsvixano.wikiwelp.persistence.dao.IUserDao;
+import me.itsvixano.wikiwelp.persistence.dao.UserDao;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -10,6 +12,7 @@ import java.sql.SQLException;
 @Component
 public class DBManager {
     private Connection connection = null;
+    private IUserDao userDao = null;
 
     @Value("${spring.datasource.url}")
     private String url;
@@ -17,6 +20,13 @@ public class DBManager {
     private String username;
     @Value("${spring.datasource.password}")
     private String password;
+
+    public IUserDao getUserDao() {
+        if (userDao == null) {
+            userDao = new UserDao(getConnection());
+        }
+        return userDao;
+    }
 
     public Connection getConnection() {
         try {
