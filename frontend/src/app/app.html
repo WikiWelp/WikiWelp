@@ -1,5 +1,16 @@
 <main class="main">
   <p>API ping {{ pingResult() }}</p>
+
+  <h2>Create User</h2>
+  <input type="email" (input)="userCreateEmail = $any($event.target).value" placeholder="Email" />
+  <input type="password" (input)="userCreatePassword = $any($event.target).value" placeholder="Password" />
+  <button (click)="createUser()">Create</button>
+  <p>{{ createUserResult() }}</p>
+
+  <h2>Find User</h2>
+  <input type="email" (input)="userFindEmail = $any($event.target).value" placeholder="Email" />
+  <button (click)="findUser()">Find</button>
+  <p>{{ findUserResult() }}</p>
 </main>
 
 <router-outlet />
