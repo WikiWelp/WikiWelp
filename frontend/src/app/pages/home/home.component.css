@@ -1,0 +1,28 @@
+section {
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  text-align: center;
+  margin:20px 0;
+}
+
+h1 {
+    color: cornflowerblue;
+}
+
+button{
+    color: white;
+    background-color:dodgerblue;
+    border-color:cornflowerblue;
+}
+
+.button-row {
+  max-width: 600px;
+  display: flex;
+  gap: 10px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+}

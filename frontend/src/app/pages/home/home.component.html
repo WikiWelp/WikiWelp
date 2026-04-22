@@ -1,0 +1,29 @@
+<section>
+    <h1>Wikiwelp</h1>
+</section>
+
+<section>
+    <img src="images/logo.png" width="500" height="600">
+</section>
+
+<section>
+    <p *ngIf="servizio.isLoggedIn()">Benvenuto</p>
+</section>
+
+<section>
+    <p>Cerca qualunque cosa tu desideri</p>
+</section>
+
+<section>
+    <div class="search">
+        <input type="text" placeholder="Cerca...">
+        <button>Vai!</button>
+    </div>
+</section>
+
+<section>
+  <div class="button-row">
+    <button routerLink="/login">Login</button>
+    <button routerLink="/register">Register</button>
+  </div>
+</section>
