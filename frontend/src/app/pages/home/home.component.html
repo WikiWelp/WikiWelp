@@ -3,11 +3,11 @@
 </section>
 
 <section>
-    <img src="images/logo.png" width="500" height="600">
+    <p *ngIf="servizio.isLoggedIn()">Benvenuto</p>
 </section>
 
 <section>
-    <p *ngIf="servizio.isLoggedIn()">Benvenuto</p>
+    <img src="images/logo.svg">
 </section>
 
 <section>

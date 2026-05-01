@@ -1,9 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject} from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
 import { Router } from '@angular/router';
+import { ServizioService } from '../../services/servizio.service';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,9 @@ import { Router } from '@angular/router';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+              private servizio: ServizioService
+  ) {}
 
   private _formBuilder = inject(FormBuilder);
 
@@ -38,6 +41,8 @@ export class RegisterComponent {
       email,
       password,
     });
+
+    this.servizio.setRegister(true);
 
     this.router.navigate(['/']);
   }
