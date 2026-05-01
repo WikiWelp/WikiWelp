@@ -3,6 +3,7 @@ import {FormBuilder, Validators, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { Router } from '@angular/router';
+import { ServizioService } from '../../services/servizio.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+              private servizio: ServizioService
+  ) {}
 
   private _formBuilder = inject(FormBuilder);
 
@@ -34,6 +37,8 @@ export class LoginComponent {
       email,
       password
     });
+
+    this.servizio.setLogin(true);
 
     this.router.navigate(['/']);
   }

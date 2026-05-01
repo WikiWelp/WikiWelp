@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ServizioService {
-  login: boolean = false;
+  private login: boolean = false;
 
   setLogin(status: boolean){
     this.login=status;
