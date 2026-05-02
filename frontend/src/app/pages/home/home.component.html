@@ -23,7 +23,11 @@
 
 <section>
   <div class="button-row">
-    <button routerLink="/login">Login</button>
-    <button routerLink="/register">Register</button>
+    <button *ngIf="!servizio.isLoggedIn()" routerLink="/login">Login</button>
+    <button *ngIf="!servizio.isLoggedIn()" routerLink="/register">Registrati</button>
+
+    <button *ngIf="servizio.isLoggedIn()" (click)="logout()">Logout</button>
+    <button *ngIf="servizio.isLoggedIn()">Crea</button>
+
   </div>
 </section>

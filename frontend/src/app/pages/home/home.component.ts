@@ -29,6 +29,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  logout(){
+    this.servizio.setLogin(false);
+  }
+
   ngOnInit(){
     if(this.servizio.isLoggedIn() && !this.loginShown){
       this.loginShown=true;
