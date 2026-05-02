@@ -1,4 +1,4 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -17,13 +17,11 @@ export class App {
   private http = inject(HttpClient);
   private baseUrl = environment.apiUrl;
 
-  protected readonly pingResult = signal('');
+  isDark=false;
 
-  constructor() {
-    this.http.get(`${this.baseUrl}/api/ping`, { responseType: 'text' })
-      .subscribe({
-        next: (text) => this.pingResult.set(text),
-        error: () => this.pingResult.set('error')
-      });
+  toggleDarkMode(){
+    this.isDark=!this.isDark;
+    document.body.classList.toggle('darkMode');
   }
+
 }
