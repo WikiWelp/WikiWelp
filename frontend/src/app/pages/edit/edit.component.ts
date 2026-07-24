@@ -11,7 +11,7 @@ import { RichTextEditorModule, ToolbarService, LinkService, ImageService, HtmlEd
     ImageService, 
     HtmlEditorService
   ],
-  templateUrl: './edit.html',
-  styleUrl: './edit.css',
+  templateUrl: './edit.component.html',
+  styleUrl: './edit.component.css',
 })
 export class EditComponent {}
