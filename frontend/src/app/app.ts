@@ -8,7 +8,8 @@ import { RichTextEditorModule } from '@syncfusion/ej2-angular-richtexteditor';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet,
-            RouterModule
+            RouterModule,
+            RichTextEditorModule
             ],
   templateUrl: './app.html',
   styleUrl: './app.css'
