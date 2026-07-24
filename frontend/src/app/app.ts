@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
+import { RichTextEditorModule } from '@syncfusion/ej2-angular-richtexteditor';
 
 @Component({
   selector: 'app-root',
