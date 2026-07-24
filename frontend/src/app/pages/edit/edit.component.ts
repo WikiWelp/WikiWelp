@@ -3,6 +3,7 @@ import { RichTextEditorModule, ToolbarService, LinkService, ImageService, HtmlEd
 
 @Component({
   selector: 'app-edit',
+  standalone: true,
   imports: [RichTextEditorModule],
   providers: [
     ToolbarService, 
@@ -13,4 +14,4 @@ import { RichTextEditorModule, ToolbarService, LinkService, ImageService, HtmlEd
   templateUrl: './edit.html',
   styleUrl: './edit.css',
 })
-export class Edit {}
+export class EditComponent {}

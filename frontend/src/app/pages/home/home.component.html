@@ -27,7 +27,7 @@
     <button *ngIf="!servizio.isLoggedIn()" routerLink="/register">Registrati</button>
 
     <button *ngIf="servizio.isLoggedIn()" (click)="logout()">Logout</button>
-    <button *ngIf="servizio.isLoggedIn()">Crea</button>
+    <button *ngIf="servizio.isLoggedIn()" routerLink="/edit"> Crea</button>
 
   </div>
 </section>
