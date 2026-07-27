@@ -36,3 +36,15 @@ button{
     background-color:dodgerblue;
     border-color:cornflowerblue;
 }
+
+h1 {
+    color: cornflowerblue;
+}
+
+section {
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  text-align: center;
+  margin:20px 0;
+}
