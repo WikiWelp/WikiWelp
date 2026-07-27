@@ -29,9 +29,6 @@ body.darkMode{
 
 button{
     cursor: pointer;
-}
-
-button{
     color: white;
     background-color:dodgerblue;
     border-color:cornflowerblue;
