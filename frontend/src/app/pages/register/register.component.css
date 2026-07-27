@@ -10,12 +10,6 @@ h1 {
     color: cornflowerblue;
 }
 
-button {
-    color: white;
-    background-color:dodgerblue;
-    border-color:cornflowerblue;
-}
-
 .mat-stepper-horizontal {
   margin-top: 8px;
 }
