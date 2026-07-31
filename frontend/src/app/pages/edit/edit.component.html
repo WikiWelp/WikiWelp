@@ -1,7 +1,16 @@
-<ejs-richtexteditor>
-    <ng-template #valueTemplate>
-        <p>
-            edit.
-        </p>
+<div class="editor-container">
+    <ejs-richtexteditor
+    #mioEditor
+    [toolbarSettings]="impostazioniToolbar"
+    (toolbarClick)="gestisciClickToolbar($event, mioEditor)">
+
+    <ng-template #impostazioniToolbarTemplate>
+      <button class="e-tbar-btn">
+        <span class="e-btn-icon e-icons e-save"></span>
+      </button>
     </ng-template>
-</ejs-richtexteditor>
+
+    </ejs-richtexteditor>
+
+
+</div>
