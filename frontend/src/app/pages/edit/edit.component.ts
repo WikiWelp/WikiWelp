@@ -26,6 +26,7 @@ export class EditComponent {
       'Bold', 'Italic', 'Underline', '|',
       'Formats', 'Alignments', 'OrderedList', 'UnorderedList', '|',
       'CreateLink', 'Image', 'CreateTable', '|',
+      'Undo', 'Redo', '|',
       {
         tooltipText: 'Salva',
         template: '<button class="e-tbar-btn e-btn" id="save_btn"><span class="e-btn-icon e-icons e-save"></span><span class="e-tbar-btn-text">Salva</span></button>',
