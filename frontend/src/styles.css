@@ -1,12 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 body{
     background-color: white;
-    color:black;
+    color:cornflowerblue;
 }
 
 body.darkMode{
     background-color: black;
-    color: white;
+    color: dodgerblue;
 }
 
 .dark-toggle {
@@ -19,12 +19,10 @@ body.darkMode{
   border-radius: 50%;
 
   background-color: black;
-  color: white;
 }
 
 .dark-toggle.dark{
     background-color: white;
-    color: black;
 }
 
 .custom_button{
