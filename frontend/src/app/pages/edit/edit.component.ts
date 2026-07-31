@@ -30,7 +30,7 @@ export class EditComponent implements OnInit{
     customButtons: [{
       name: 'BottoneSalva',
       tooltipText: 'Salva',
-      template: '#impostazioniToolbarTemplate'
+      template: '<button class="e-tbar-btn"><span class="e-btn-icon e-icons e-save"></span></button>'
     }]
 
   };
