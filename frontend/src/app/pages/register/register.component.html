@@ -12,7 +12,7 @@
         <input matInput type="email" formControlName="email" required>
       </mat-form-field>
       <div>
-        <button matStepperNext>>></button>
+        <button class="custom_button" matStepperNext>>></button>
       </div>
     </form>
   </mat-step>
@@ -24,8 +24,8 @@
         <input matInput type="password" formControlName="password" required>
       </mat-form-field>
       <div>
-        <button matStepperPrevious><<</button>
-        <button matStepperNext>>></button>
+        <button class="custom_button" matStepperPrevious><<</button>
+        <button class="custom_button" matStepperNext>>></button>
       </div>
     </form>
   </mat-step>
@@ -34,8 +34,8 @@
     <ng-template matStepLabel>Fatto!</ng-template>
     <p>Clicca "Avanti" per completare la registrazione</p>
     <div>
-      <button matStepperPrevious><<</button>
-      <button (click)="submitRegistration()">Avanti</button>
+      <button class="custom_button" matStepperPrevious><<</button>
+      <button class="custom_button" (click)="submitRegistration()">Avanti</button>
     </div>
   </mat-step>
 </mat-stepper>

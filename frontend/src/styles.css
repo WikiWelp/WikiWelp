@@ -27,14 +27,14 @@ body.darkMode{
     color: black;
 }
 
-button{
+.custom_button{
     cursor: pointer;
     color: white;
     background-color:dodgerblue;
     border-color:cornflowerblue;
 }
 
-h1 {
+.custom_h1 {
     color: cornflowerblue;
 }
 
