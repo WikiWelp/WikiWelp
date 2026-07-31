@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ToolbarSettingsModel } from '@syncfusion/ej2-angular-richtexteditor';
+import { Component} from '@angular/core';
 import { RichTextEditorModule, ToolbarService, TableService, LinkService, ImageService, HtmlEditorService} from '@syncfusion/ej2-angular-richtexteditor';
 
 
@@ -21,7 +20,7 @@ import { RichTextEditorModule, ToolbarService, TableService, LinkService, ImageS
 export class EditComponent {
 
   // Definizione della toolbar con il tasto personalizzato
-  public tools: ToolbarSettingsModel = {
+  public customToolbar: Object = {
     items: [
       'Bold', 'Italic', 'Underline', '|',
       'Formats', 'Alignments', 'OrderedList', 'UnorderedList', '|',
