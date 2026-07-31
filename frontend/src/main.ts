@@ -3,7 +3,7 @@ import { appConfig } from './app/app.config';
 import { App } from './app/app';
 
 import { registerLicense } from '@syncfusion/ej2-base';
-registerLicense('Ngo9BigBOggjHTQxAR8/V1JAaF5cX2pCfFN0Q35Zd0NwdUVHY1ZVRXxeQ1ZhSXxVdkJhXH5ddHVUR2VUUE19XEY=');
+registerLicense('Ngo9BigBOggjHTQxAR8/V1JAaF5cX2pCd1p/TH5YfUNzdUVEY1ZUTXxaS1ZhSXxVdkJgWH5edXFXQWJdVkJ9XEY=');
 
 bootstrapApplication(App, appConfig)
   .catch((err) => console.error(err));
