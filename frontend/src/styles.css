@@ -1,4 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@syncfusion/ej2-base/styles/material.css'; /**/
+@import '@syncfusion/ej2-icons/styles/material.css'; /*Icone grafiche dei pulsanti*/
+@import '@syncfusion/ej2-buttons/styles/material.css'; /*pulsanti classici*/
+@import '@syncfusion/ej2-splitbuttons/styles/material.css'; /*pulsanti speciali*/
+@import '@syncfusion/ej2-inputs/styles/material.css'; /*campi di testo*/
+@import '@syncfusion/ej2-lists/styles/material.css'; /*elenchi e liste*/
+@import '@syncfusion/ej2-navigations/styles/material.css'; /*toolbar*/
+@import '@syncfusion/ej2-popups/styles/material.css'; /*finestre a comparsa*/
+@import '@syncfusion/ej2-richtexteditor/styles/material.css'; /*stile del contenitore dell'editor*/
+
 body{
     background-color: white;
     color:cornflowerblue;
