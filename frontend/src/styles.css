@@ -9,6 +9,10 @@
 @import '@syncfusion/ej2-popups/styles/material.css'; /*finestre a comparsa*/
 @import '@syncfusion/ej2-richtexteditor/styles/material.css'; /*stile del contenitore dell'editor*/
 
+.e-richtexteditor .e-toolbar .e-icons {
+    color: dodgerblue;
+}
+
 body{
     background-color: white;
     color:cornflowerblue;
