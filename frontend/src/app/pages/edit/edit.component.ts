@@ -28,7 +28,7 @@ export class EditComponent {
       'Undo', 'Redo', '|',
       {
         tooltipText: 'Salva',
-        template: '<button class="e-tbar-btn e-btn custom_button" id="save_btn"><span class="e-btn-icon e-icons e-save"></span><span class="e-tbar-btn-text">Salva</span></button>',
+        template: '<button class="e-tbar-btn e-btn custom_button" id="save_btn"> <span class="e-tbar-btn-text">Salva</span></button>',
         click: this.onSave.bind(this)
       }
     ]
