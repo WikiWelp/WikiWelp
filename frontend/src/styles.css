@@ -17,7 +17,7 @@ body{
 
 .e-richtexteditor .e-toolbar {
     background-color: lightgray;
-    border-color: cornflowerblue;
+    border: 2px solid cornflowerblue;
 }
 
 .e-richtexteditor .e-toolbar .e-toolbar-items {
