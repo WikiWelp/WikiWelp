@@ -28,6 +28,11 @@ body{
     color: cornflowerblue !important;
 }
 
+.e-rte-dropdown-menu {
+    background-color: lightgray;
+    color: cornflowerblue;
+}
+
 .e-richtexteditor .e-toolbar .e-icons {
     color: cornflowerblue !important;
 }
@@ -51,8 +56,13 @@ body.darkMode .e-richtexteditor .e-toolbar .e-toolbar-item .e-tbar-btn {
 
 /*Colore pulsanti a tendina toolbar*/
 body.darkMode .e-richtexteditor .e-toolbar .e-dropdown-btn {
-    background-color: gray !important;
+    background-color: black !important;
     color: dodgerblue !important;
+}
+
+body.darkMode .e-rte-dropdown-menu {
+    background-color: black;
+    color: dodgerblue;
 }
 
 /*Colore icone toolbar*/
