@@ -24,8 +24,8 @@ body{
 }
 
 .e-richtexteditor .e-toolbar .e-dropdown-btn {
-    background-color: lightgray;
-    color: cornflowerblue;
+    background-color: lightgray !important;
+    color: cornflowerblue !important;
 }
 
 .e-richtexteditor .e-toolbar .e-icons {
@@ -51,8 +51,8 @@ body.darkMode .e-richtexteditor .e-toolbar .e-toolbar-item .e-tbar-btn {
 
 /*Colore pulsanti a tendina toolbar*/
 body.darkMode .e-richtexteditor .e-toolbar .e-dropdown-btn {
-    background-color: gray;
-    color: dodgerblue;
+    background-color: gray !important;
+    color: dodgerblue !important;
 }
 
 /*Colore icone toolbar*/
