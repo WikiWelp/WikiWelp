@@ -34,7 +34,6 @@ export class EditComponent {
     ]
   };
 
-  // Funzione temporanea (puoi lasciarla vuota o con un console.log per ora)
   onSave(): void {
     console.log('Pulsante Salva cliccato!');
   }

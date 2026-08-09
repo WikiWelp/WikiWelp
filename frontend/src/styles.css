@@ -10,7 +10,7 @@
 @import '@syncfusion/ej2-richtexteditor/styles/material.css'; /*stile del contenitore dell'editor*/
 
 .e-richtexteditor .e-toolbar .e-icons {
-    color: dodgerblue;
+    color: cornflowerblue;
 }
 
 body{
@@ -21,6 +21,10 @@ body{
 body.darkMode{
     background-color: black;
     color: dodgerblue;
+}
+
+body.darkMode .e-richtexteditor .e-toolbar .e-icons {
+    color: dodgerblue !important;
 }
 
 .dark-toggle {
