@@ -15,12 +15,16 @@ body{
     color:cornflowerblue;
 }
 
+.e-richtexteditor .e-toolbar {
+    background-color: lightgray;
+}
+
 .e-richtexteditor .e-toolbar .e-toolbar-item .e-tbar-btn {
-    background-color: grey;
+    background-color: lightgray;
 }
 
 .e-richtexteditor .e-toolbar .e-dropdown-btn {
-    background-color: grey;
+    background-color: lightgray;
     color: cornflowerblue;
 }
 
@@ -36,7 +40,7 @@ body.darkMode{
 }
 
 /*Colore toolbar*/
-body.darkmode .e-richtexteditor .e-toolbar {
+body.darkMode .e-richtexteditor .e-toolbar {
     background-color: gray;
 }
 
@@ -48,7 +52,7 @@ body.darkMode .e-richtexteditor .e-toolbar .e-toolbar-item .e-tbar-btn {
 /*Colore pulsanti a tendina toolbar*/
 body.darkMode .e-richtexteditor .e-toolbar .e-dropdown-btn {
     background-color: gray;
-    color: dodgerblue;;
+    color: dodgerblue;
 }
 
 /*Colore icone toolbar*/
