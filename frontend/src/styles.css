@@ -19,6 +19,10 @@ body{
     background-color: lightgray;
 }
 
+.e-richtexteditor .e-toolbar .e-toolbar-items {
+    background-color: lightgray;
+}
+
 .e-richtexteditor .e-toolbar .e-toolbar-item .e-tbar-btn {
     background-color: lightgray;
 }
@@ -72,7 +76,7 @@ body.darkMode .e-rte-dropdown-menu {
 
 /*Colore icone pulsante a tendina*/
 body.darkMode .e-rte-dropdown-menu .e-icons {
-    color: dodgerblue;
+    color: dodgerblue !important;
 }
 
 /*Colore icone toolbar*/
