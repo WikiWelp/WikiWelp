@@ -9,6 +9,7 @@
 @import '@syncfusion/ej2-popups/styles/material.css'; /*finestre a comparsa*/
 @import '@syncfusion/ej2-richtexteditor/styles/material.css'; /*stile del contenitore dell'editor*/
 
+
 .e-richtexteditor .e-toolbar .e-icons {
     color: cornflowerblue;
 }
@@ -18,14 +19,25 @@ body{
     color:cornflowerblue;
 }
 
+/*Dark mode*/
 body.darkMode{
     background-color: black;
     color: dodgerblue;
 }
 
+body.darkmode .e-richtexteditor .e-toolbar {
+    background-color: gray;
+}
+
+body.darkMode .e-richtexteditor .e-toolbar .e-toolbar-item .e-tbar-btn {
+    background-color: black;
+}
+
 body.darkMode .e-richtexteditor .e-toolbar .e-icons {
     color: dodgerblue !important;
 }
+
+/**/
 
 .dark-toggle {
   position: fixed;
