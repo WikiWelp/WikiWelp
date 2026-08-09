@@ -25,7 +25,7 @@ body{
 }
 
 .e-richtexteditor .e-toolbar .e-toolbar-separator {
-    background-color: cornflowerblue;
+    background-color: cornflowerblue !important;
 }
 
 .e-richtexteditor .e-toolbar .e-toolbar-item .e-tbar-btn {
