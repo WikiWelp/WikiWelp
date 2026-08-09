@@ -60,6 +60,7 @@ body.darkMode{
 /*Colore toolbar*/
 body.darkMode .e-richtexteditor .e-toolbar {
     background-color: gray;
+    border: 2px solid dodgerblue;
 }
 
 /*Colore contenitore dei pulsanti della toolbar*/
