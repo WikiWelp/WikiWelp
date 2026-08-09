@@ -57,6 +57,11 @@ body.darkMode .e-richtexteditor .e-toolbar {
     background-color: gray;
 }
 
+/*Colore contenitore dei pulsanti della toolbar*/
+body.darkMode .e-richtexteditor .e-toolbar .e-toolbar-items {
+    background-color: gray;
+}
+
 /*Colore pulsanti toolbar*/
 body.darkMode .e-richtexteditor .e-toolbar .e-toolbar-item .e-tbar-btn {
     background-color: black;
@@ -68,13 +73,13 @@ body.darkMode .e-richtexteditor .e-toolbar .e-dropdown-btn {
     color: dodgerblue !important;
 }
 
-/*Colore pulsante a tendina*/
+/*Colore menu dei pulsanti a tendina*/
 body.darkMode .e-rte-dropdown-menu {
     background-color: black;
     color: dodgerblue;
 }
 
-/*Colore icone pulsante a tendina*/
+/*Colore icone dei pulsanti a tendina*/
 body.darkMode .e-rte-dropdown-menu .e-icons {
     color: dodgerblue !important;
 }
@@ -83,7 +88,6 @@ body.darkMode .e-rte-dropdown-menu .e-icons {
 body.darkMode .e-richtexteditor .e-toolbar .e-icons {
     color: dodgerblue !important;
 }
-
 /**/
 
 .dark-toggle {
