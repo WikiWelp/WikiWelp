@@ -34,7 +34,7 @@ body{
 }
 
 .e-rte-dropdown-menu .e-icons {
-    color: cornflowerblue;
+    color: cornflowerblue !important;
 }
 
 .e-richtexteditor .e-toolbar .e-icons {
