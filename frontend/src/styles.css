@@ -30,6 +30,9 @@ body{
 
 .e-rte-dropdown-menu {
     background-color: lightgray;
+}
+
+.e-rte-dropdown-menu .e-item {
     color: cornflowerblue;
 }
 
@@ -62,6 +65,9 @@ body.darkMode .e-richtexteditor .e-toolbar .e-dropdown-btn {
 
 body.darkMode .e-rte-dropdown-menu {
     background-color: black;
+}
+
+body.darkMode .e-rte-dropdown-menu .e-item {
     color: dodgerblue;
 }
 
