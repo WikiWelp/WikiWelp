@@ -67,6 +67,10 @@ body.darkMode .e-richtexteditor .e-toolbar .e-toolbar-items {
     background-color: gray;
 }
 
+body.darkMode .e-richtexteditor .e-toolbar .e-separator {
+    background-color: dodgerblue;
+}
+
 /*Colore pulsanti toolbar*/
 body.darkMode .e-richtexteditor .e-toolbar .e-toolbar-item .e-tbar-btn {
     background-color: black;
