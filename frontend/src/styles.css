@@ -29,7 +29,7 @@ body{
 }
 
 .e-richtexteditor .e-toolbar .e-icons {
-    color: cornflowerblue;
+    color: cornflowerblue !important;
 }
 
 /*Dark mode*/
@@ -57,7 +57,7 @@ body.darkMode .e-richtexteditor .e-toolbar .e-dropdown-btn {
 
 /*Colore icone toolbar*/
 body.darkMode .e-richtexteditor .e-toolbar .e-icons {
-    color: dodgerblue;
+    color: dodgerblue !important;
 }
 
 /**/
