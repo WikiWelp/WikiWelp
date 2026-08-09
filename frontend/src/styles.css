@@ -30,11 +30,12 @@ body{
 
 .e-rte-dropdown-menu {
     background-color: lightgray;
-}
-
-.e-rte-dropdown-menu .e-item {
     color: cornflowerblue;
 }
+
+/*.e-rte-dropdown-menu .e-item {
+    color: cornflowerblue;
+}*/
 
 .e-richtexteditor .e-toolbar .e-icons {
     color: cornflowerblue !important;
@@ -65,11 +66,12 @@ body.darkMode .e-richtexteditor .e-toolbar .e-dropdown-btn {
 
 body.darkMode .e-rte-dropdown-menu {
     background-color: black;
-}
-
-body.darkMode .e-rte-dropdown-menu .e-item {
     color: dodgerblue;
 }
+
+/*body.darkMode .e-rte-dropdown-menu .e-item {
+    color: dodgerblue;
+}*/
 
 /*Colore icone toolbar*/
 body.darkMode .e-richtexteditor .e-toolbar .e-icons {
