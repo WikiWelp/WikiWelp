@@ -10,35 +10,50 @@
 @import '@syncfusion/ej2-richtexteditor/styles/material.css'; /*stile del contenitore dell'editor*/
 
 
+body{
+    background-color: white;
+    color:cornflowerblue;
+}
+
 .e-richtexteditor .e-toolbar .e-toolbar-item .e-tbar-btn {
     background-color: grey;
+}
+
+.e-richtexteditor .e-toolbar .e-dropdown-btn {
+    background-color: grey;
+    color: cornflowerblue;
 }
 
 .e-richtexteditor .e-toolbar .e-icons {
     color: cornflowerblue;
 }
 
-body{
-    background-color: white;
-    color:cornflowerblue;
-}
-
 /*Dark mode*/
+/*Colori sfondo e scritte*/
 body.darkMode{
     background-color: black;
     color: dodgerblue;
 }
 
+/*Colore toolbar*/
 body.darkmode .e-richtexteditor .e-toolbar {
-    background-color: grey;
+    background-color: gray;
 }
 
+/*Colore pulsanti toolbar*/
 body.darkMode .e-richtexteditor .e-toolbar .e-toolbar-item .e-tbar-btn {
     background-color: black;
 }
 
+/*Colore pulsanti a tendina toolbar*/
+body.darkMode .e-richtexteditor .e-toolbar .e-dropdown-btn {
+    background-color: gray;
+    color: dodgerblue;;
+}
+
+/*Colore icone toolbar*/
 body.darkMode .e-richtexteditor .e-toolbar .e-icons {
-    color: dodgerblue !important;
+    color: dodgerblue;
 }
 
 /**/
