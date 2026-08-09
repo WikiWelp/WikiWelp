@@ -17,10 +17,15 @@ body{
 
 .e-richtexteditor .e-toolbar {
     background-color: lightgray;
+    border-color: cornflowerblue;
 }
 
 .e-richtexteditor .e-toolbar .e-toolbar-items {
     background-color: lightgray;
+}
+
+.e-richtexteditor .e-toolbar .e-toolbar-separator {
+    background-color: cornflowerblue;
 }
 
 .e-richtexteditor .e-toolbar .e-toolbar-item .e-tbar-btn {
