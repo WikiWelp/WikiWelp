@@ -10,6 +10,10 @@
 @import '@syncfusion/ej2-richtexteditor/styles/material.css'; /*stile del contenitore dell'editor*/
 
 
+.e-richtexteditor .e-toolbar .e-toolbar-item .e-tbar-btn {
+    background-color: grey;
+}
+
 .e-richtexteditor .e-toolbar .e-icons {
     color: cornflowerblue;
 }
@@ -26,7 +30,7 @@ body.darkMode{
 }
 
 body.darkmode .e-richtexteditor .e-toolbar {
-    background-color: gray;
+    background-color: grey;
 }
 
 body.darkMode .e-richtexteditor .e-toolbar .e-toolbar-item .e-tbar-btn {
