@@ -50,6 +50,11 @@ body{
     color: cornflowerblue !important;
 }
 
+.e-richtexteditor .e-content{
+    background-color: lightgray;
+    color : black;
+}
+
 /*Dark mode*/
 /*Colori sfondo e scritte*/
 body.darkMode{
@@ -74,18 +79,18 @@ body.darkMode .e-richtexteditor .e-toolbar .e-separator {
 
 /*Colore pulsanti toolbar*/
 body.darkMode .e-richtexteditor .e-toolbar .e-toolbar-item .e-tbar-btn {
-    background-color: black;
+    background-color: gray;
 }
 
 /*Colore pulsanti a tendina toolbar*/
 body.darkMode .e-richtexteditor .e-toolbar .e-dropdown-btn {
-    background-color: black !important;
+    background-color: gray !important;
     color: dodgerblue !important;
 }
 
 /*Colore menu dei pulsanti a tendina*/
 body.darkMode .e-rte-dropdown-menu {
-    background-color: black;
+    background-color: gray;
     color: dodgerblue;
 }
 
@@ -101,7 +106,7 @@ body.darkMode .e-richtexteditor .e-toolbar .e-icons {
 
 /*Colore area di testo*/
 body.darkMode .e-richtexteditor .e-content{
-    background-color: lightgray;
+    background-color: gray;
     color : white;
 }
 /**/
