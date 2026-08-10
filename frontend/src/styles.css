@@ -51,8 +51,8 @@ body{
 }
 
 .e-richtexteditor .e-content{
-    background-color: lightgray;
-    color : black;
+    background-color: lightgray !important;
+    color : black !important;
 }
 
 /*Dark mode*/
