@@ -98,6 +98,11 @@ body.darkMode .e-rte-dropdown-menu .e-icons {
 body.darkMode .e-richtexteditor .e-toolbar .e-icons {
     color: dodgerblue !important;
 }
+
+/*Colore area di testo*/
+body.darkmode .e-richtexteditor .e-rte-content {
+    background-color: lightgray;
+}
 /**/
 
 .dark-toggle {
