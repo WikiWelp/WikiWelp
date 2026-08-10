@@ -90,7 +90,7 @@ body.darkMode .e-richtexteditor .e-toolbar .e-dropdown-btn {
 
 /*Colore menu dei pulsanti a tendina*/
 body.darkMode .e-rte-dropdown-menu {
-    background-color: black;
+    background-color: gray;
     color: dodgerblue;
 }
 
