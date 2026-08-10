@@ -101,7 +101,8 @@ body.darkMode .e-richtexteditor .e-toolbar .e-icons {
 
 /*Colore area di testo*/
 body.darkmode .e-richtexteditor .e-content {
-    background-color: lightgray;
+    background-color: lightgray !important;
+    color : white !important;
 }
 /**/
 
