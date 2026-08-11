@@ -84,7 +84,7 @@ body.darkMode{
 
 body.darkMode .custom_button{
     cursor: pointer;
-    color: white;
+    color: black;
     background-color: #004455ff;
     border-color:cornflowerblue;
 }
