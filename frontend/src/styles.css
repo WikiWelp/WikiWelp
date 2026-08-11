@@ -31,7 +31,7 @@ section {
 }
 
 .custom_h1 {
-    color: cornflowerblue;
+    color: dodgerblue;
 }
 
 /*Area di testo*/
@@ -89,8 +89,8 @@ body.darkMode .custom_button{
     border-color:cornflowerblue;
 }
 
-.custom_h1 {
-    color: dodgerblue;
+body.darkMode .custom_h1 {
+    color: #004455ff;
 }
 
 /*Area di testo*/
