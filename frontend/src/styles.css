@@ -79,14 +79,14 @@ section {
 /*Dark mode*/
 body.darkMode{
     background-color: black;
-    color: dodgerblue;
+    color: cornflowerblue;
 }
 
 body.darkMode .custom_button{
     cursor: pointer;
     color: white;
     background-color: #004455ff;
-    border-color:dodgerblue;
+    border-color:cornflowerblue;
 }
 
 body.darkMode .custom_h1 {
