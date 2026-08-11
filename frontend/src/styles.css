@@ -15,6 +15,26 @@ body{
     color:cornflowerblue;
 }
 
+section {
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  text-align: center;
+  margin:20px 0;
+}
+
+.custom_button{
+    cursor: pointer;
+    color: white;
+    background-color:dodgerblue;
+    border-color:cornflowerblue;
+}
+
+.custom_h1 {
+    color: cornflowerblue;
+}
+
+/*Area di testo*/
 .e-richtexteditor .e-toolbar {
     background-color: lightgray;
     border: 2px solid cornflowerblue;
@@ -54,14 +74,26 @@ body{
     background-color: lightgray !important;
     color : black !important;
 }
+/**/
 
 /*Dark mode*/
-/*Colori sfondo e scritte*/
 body.darkMode{
     background-color: black;
+    color: #004455ff;
+}
+
+body.darkMode .custom_button{
+    cursor: pointer;
+    color: white;
+    background-color: #004455ff;
+    border-color:cornflowerblue;
+}
+
+.custom_h1 {
     color: dodgerblue;
 }
 
+/*Area di testo*/
 /*Colore toolbar*/
 body.darkMode .e-richtexteditor .e-toolbar {
     background-color: gray;
@@ -110,6 +142,7 @@ body.darkMode .e-richtexteditor .e-content{
     color : white !important;
 }
 /**/
+/**/
 
 .dark-toggle {
   position: fixed;
@@ -125,23 +158,4 @@ body.darkMode .e-richtexteditor .e-content{
 
 .dark-toggle.dark{
     background-color: white;
-}
-
-.custom_button{
-    cursor: pointer;
-    color: white;
-    background-color:dodgerblue;
-    border-color:cornflowerblue;
-}
-
-.custom_h1 {
-    color: cornflowerblue;
-}
-
-section {
-  display: flex; 
-  justify-content: center; 
-  align-items: center;
-  text-align: center;
-  margin:20px 0;
 }
