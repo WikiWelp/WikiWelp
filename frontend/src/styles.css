@@ -26,8 +26,8 @@ section {
 .custom_button{
     cursor: pointer;
     color: white;
-    background-color:dodgerblue;
-    border-color:cornflowerblue;
+    background-color:cornflowerblue;
+    border-color: dodgerblue;
 }
 
 .custom_h1 {
