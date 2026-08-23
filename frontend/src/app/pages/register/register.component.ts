@@ -48,5 +48,9 @@ export class RegisterComponent {
     });
   }
 
+  goBack() {
+    this.router.navigate(['/']);
+  }
+
   isLinear = false;
 }
