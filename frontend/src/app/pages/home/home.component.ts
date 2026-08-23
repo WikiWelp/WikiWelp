@@ -26,6 +26,10 @@ export class HomeComponent implements OnInit {
 
   logout() {
     this.servizio.setLogin(false);
+    this.servizio.setRegister(false);
+    this.loginShown = false;
+    this.registerShown = false;
+    this.openSnackBar('Logout effettuato', 'OK');
   }
 
   ngOnInit() {
