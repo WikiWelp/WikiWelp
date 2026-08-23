@@ -1,17 +1,27 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ServizioService {
-  login: boolean = false;
+  private login: boolean = false;
+  private register: boolean = false;
 
-  setLogin(status: boolean){
-    this.login=status;
+  setLogin(status: boolean) {
+    this.login = status;
   }
 
-  isLoggedIn(): boolean{
-    return this.login
+  isLoggedIn(): boolean {
+    return this.login;
   }
-  constructor() { }
+
+  setRegister(status: boolean) {
+    this.register = status;
+  }
+
+  isRegisterIn(): boolean {
+    return this.register;
+  }
+
+  constructor() {}
 }

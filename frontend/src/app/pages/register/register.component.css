@@ -1,21 +1,3 @@
-section {
-  display: flex; 
-  justify-content: center; 
-  align-items: center;
-  text-align: center;
-  margin:20px 0;
-}
-
-h1 {
-    color: cornflowerblue;
-}
-
-button {
-    color: white;
-    background-color:dodgerblue;
-    border-color:cornflowerblue;
-}
-
 .mat-stepper-horizontal {
   margin-top: 8px;
 }

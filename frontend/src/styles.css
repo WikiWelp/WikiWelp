@@ -1,1 +1,160 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@syncfusion/ej2-base/styles/material.css'; /**/
+@import '@syncfusion/ej2-icons/styles/material.css'; /*Icone grafiche dei pulsanti*/
+@import '@syncfusion/ej2-buttons/styles/material.css'; /*pulsanti classici*/
+@import '@syncfusion/ej2-splitbuttons/styles/material.css'; /*pulsanti speciali*/
+@import '@syncfusion/ej2-inputs/styles/material.css'; /*campi di testo*/
+@import '@syncfusion/ej2-lists/styles/material.css'; /*elenchi e liste*/
+@import '@syncfusion/ej2-navigations/styles/material.css'; /*toolbar*/
+@import '@syncfusion/ej2-popups/styles/material.css'; /*finestre a comparsa*/
+@import '@syncfusion/ej2-richtexteditor/styles/material.css'; /*stile del contenitore dell'editor*/
+
+body {
+  background-color: white;
+  color: cornflowerblue;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.custom_button {
+  cursor: pointer;
+  color: white;
+  background-color: cornflowerblue;
+  border-color: dodgerblue;
+}
+
+.custom_h1 {
+  color: dodgerblue;
+}
+
+/*Area di testo*/
+.e-richtexteditor .e-toolbar {
+  background-color: lightgray;
+  border: 2px solid cornflowerblue;
+}
+
+.e-richtexteditor .e-toolbar .e-toolbar-items {
+  background-color: lightgray;
+}
+
+.e-richtexteditor .e-toolbar .e-separator {
+  background-color: cornflowerblue;
+}
+
+.e-richtexteditor .e-toolbar .e-toolbar-item .e-tbar-btn {
+  background-color: lightgray;
+}
+
+.e-richtexteditor .e-toolbar .e-dropdown-btn {
+  background-color: lightgray !important;
+  color: cornflowerblue !important;
+}
+
+.e-rte-dropdown-menu {
+  background-color: lightgray;
+  color: cornflowerblue;
+}
+
+.e-rte-dropdown-menu .e-icons {
+  color: cornflowerblue !important;
+}
+
+.e-richtexteditor .e-toolbar .e-icons {
+  color: cornflowerblue !important;
+}
+
+.e-richtexteditor .e-content {
+  background-color: lightgray !important;
+  color: black !important;
+}
+/**/
+
+/*Dark mode*/
+body.darkMode {
+  background-color: black;
+  color: dodgerblue;
+}
+
+body.darkMode .custom_button {
+  cursor: pointer;
+  color: white;
+  background-color: #004455ff;
+  border-color: dodgerblue;
+}
+
+body.darkMode .custom_h1 {
+  color: #004455ff;
+}
+
+/*Area di testo*/
+/*Colore toolbar*/
+body.darkMode .e-richtexteditor .e-toolbar {
+  background-color: gray;
+  border: 2px solid #004455ff;
+}
+
+/*Colore contenitore dei pulsanti della toolbar*/
+body.darkMode .e-richtexteditor .e-toolbar .e-toolbar-items {
+  background-color: gray;
+}
+
+body.darkMode .e-richtexteditor .e-toolbar .e-separator {
+  background-color: #004455ff;
+}
+
+/*Colore pulsanti toolbar*/
+body.darkMode .e-richtexteditor .e-toolbar .e-toolbar-item .e-tbar-btn {
+  background-color: gray;
+}
+
+/*Colore pulsanti a tendina toolbar*/
+body.darkMode .e-richtexteditor .e-toolbar .e-dropdown-btn {
+  background-color: gray !important;
+  color: #004455ff !important;
+}
+
+/*Colore menu dei pulsanti a tendina*/
+body.darkMode .e-rte-dropdown-menu {
+  background-color: gray;
+  color: #004455ff;
+}
+
+/*Colore icone dei pulsanti a tendina*/
+body.darkMode .e-rte-dropdown-menu .e-icons {
+  color: #004455ff !important;
+}
+
+/*Colore icone toolbar*/
+body.darkMode .e-richtexteditor .e-toolbar .e-icons {
+  color: #004455ff !important;
+}
+
+/*Colore area di testo*/
+body.darkMode .e-richtexteditor .e-content {
+  background-color: gray !important;
+  color: white !important;
+}
+/**/
+/**/
+
+.dark-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+
+  padding: 10px;
+  border-radius: 50%;
+
+  background-color: black;
+}
+
+.dark-toggle.dark {
+  background-color: white;
+}

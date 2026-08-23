@@ -1,1 +1,4 @@
+<button class="dark-toggle" [class.dark]="isDark" (click)="toggleDarkMode()">
+  {{ isDark ? '☀️' : '🌙' }}
+</button>
 <router-outlet></router-outlet>

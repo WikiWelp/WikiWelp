@@ -1,19 +1,10 @@
-section {
-  display: flex; 
-  justify-content: center; 
-  align-items: center;
-  text-align: center;
-  margin:20px 0;
-}
-
 h1 {
-    color: cornflowerblue;
+  font-size: 50px;
 }
 
-button{
-    color: white;
-    background-color:dodgerblue;
-    border-color:cornflowerblue;
+img {
+  width: 200px;
+  height: auto;
 }
 
 .button-row {

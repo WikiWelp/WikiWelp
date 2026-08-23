@@ -4,27 +4,21 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { environment, UserDao } from '../../../environments/environment';
+import { ServizioService } from '../../services/servizio.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [
-            MatStepperModule,
-            ReactiveFormsModule,
-            MatFormFieldModule,
-            MatInputModule
-          ],
+  imports: [MatStepperModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrl: './register.component.css',
 })
-
 export class RegisterComponent {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private servizio: ServizioService,
+  ) {}
 
-  private http = inject(HttpClient);
-  private baseUrl = environment.apiUrl;
   private _formBuilder = inject(FormBuilder);
 
   firstFormGroup = this._formBuilder.group({
@@ -39,16 +33,15 @@ export class RegisterComponent {
     const email = this.firstFormGroup.get('email')?.value;
     const password = this.secondFormGroup.get('password')?.value;
 
-    const user: UserDao = { id: 0, email: email ?? '', password: password ?? '' };
+    console.log({
+      email,
+      password,
+    });
 
-    this.http.post<UserDao>(`${this.baseUrl}/api/user/create`, user)
-      .subscribe({
-        next: () => console.log('User created!'),
-        error: (e: any) => console.log(e.status)
-      });
+    this.servizio.setRegister(true);
 
     this.router.navigate(['/']);
   }
 
-  isLinear=false;
+  isLinear = false;
 }

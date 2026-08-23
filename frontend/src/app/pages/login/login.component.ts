@@ -1,39 +1,40 @@
-import { Component, inject} from '@angular/core';
-import {FormBuilder, Validators, ReactiveFormsModule} from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { Router } from '@angular/router';
+import { ServizioService } from '../../services/servizio.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [
-            MatInputModule,
-            MatFormFieldModule,
-            ReactiveFormsModule
-          ],
+  imports: [MatInputModule, MatFormFieldModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
-
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private servizio: ServizioService,
+  ) {}
 
   private _formBuilder = inject(FormBuilder);
 
-  formGroup=this._formBuilder.group({
+  formGroup = this._formBuilder.group({
     email: ['', [Validators.required]],
-    password: ['', [Validators.required]]
-  })
+    password: ['', [Validators.required]],
+  });
 
-  submitLogin(){
+  submitLogin() {
     const email = this.formGroup.get('email')?.value;
     const password = this.formGroup.get('password')?.value;
 
     console.log({
       email,
-      password
+      password,
     });
+
+    this.servizio.setLogin(true);
 
     this.router.navigate(['/']);
   }

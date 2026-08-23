@@ -1,25 +1,23 @@
 <section>
-  <h1>Effettua login</h1>
+  <h1 class="custom_h1">Effettua login</h1>
 </section>
 
 <form [formGroup]="formGroup">
+  <section>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" required />
+    </mat-form-field>
+  </section>
 
-    <section>
-        <mat-form-field>
-            <mat-label>Email</mat-label>
-            <input matInput type="email" formControlName="email" required>
-        </mat-form-field>
-    </section>
+  <section>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" required />
+    </mat-form-field>
+  </section>
 
-    <section>
-        <mat-form-field>
-            <mat-label>Password</mat-label>
-            <input matInput type="password" formControlName="password" required>
-        </mat-form-field>
-    </section>
-
-    <section>
-        <button (click)="submitLogin()">Avanti</button>
-    </section>
-
+  <section>
+    <button class="custom_button" (click)="submitLogin()">Avanti</button>
+  </section>
 </form>
