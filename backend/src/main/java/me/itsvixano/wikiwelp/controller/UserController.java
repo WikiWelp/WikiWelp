@@ -28,6 +28,15 @@ public class UserController {
         }
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody UserDTO user) {
+        UserDTO existing = userService.findByEmail(user.getEmail());
+        if (existing == null || !existing.getPassword().equals(user.getPassword())) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        return ResponseEntity.ok(existing);
+    }
+
     @GetMapping("/{email}")
     public ResponseEntity<?> getUser(@PathVariable String email) {
         UserDTO user = userService.findByEmail(email);

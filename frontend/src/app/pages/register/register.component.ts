@@ -5,6 +5,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
 import { Router } from '@angular/router';
 import { ServizioService } from '../../services/servizio.service';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -17,6 +19,7 @@ export class RegisterComponent {
   constructor(
     private router: Router,
     private servizio: ServizioService,
+    private http: HttpClient,
   ) {}
 
   private _formBuilder = inject(FormBuilder);
@@ -33,14 +36,16 @@ export class RegisterComponent {
     const email = this.firstFormGroup.get('email')?.value;
     const password = this.secondFormGroup.get('password')?.value;
 
-    console.log({
-      email,
-      password,
+    this.http.post(`${environment.apiUrl}/api/user/create`, { email, password }).subscribe({
+      next: () => {
+        this.servizio.setRegister(true);
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        console.error('Registrazione fallita', err);
+        alert('Registrazione fallita');
+      },
     });
-
-    this.servizio.setRegister(true);
-
-    this.router.navigate(['/']);
   }
 
   isLinear = false;
