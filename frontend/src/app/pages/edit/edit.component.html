@@ -1,1 +1,10 @@
-<ejs-richtexteditor [toolbarSettings]="customToolbar"></ejs-richtexteditor>
+<section>
+  <h2 class="custom_h1">Editor Pagina</h2>
+  <div>
+    <input type="text" [(ngModel)]="title" placeholder="Titolo della pagina..." />
+    <button class="custom_button" (click)="onSave()">Salva</button>
+    <button class="custom_button" routerLink="/">Torna indietro</button>
+  </div>
+</section>
+
+<ejs-richtexteditor #rte [(value)]="content" [toolbarSettings]="customToolbar"></ejs-richtexteditor>

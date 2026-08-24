@@ -1,0 +1,68 @@
+<section>
+  <h1 class="custom_h1">
+    <a routerLink="/" style="text-decoration: none; color: inherit">Wikiwelp</a>
+  </h1>
+</section>
+
+<section>
+  <div>
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      (keyup.enter)="executeSearch()"
+      placeholder="Cerca..."
+    />
+    <button type="button" class="custom_button" (click)="executeSearch()">Vai!</button>
+    <button type="button" class="custom_button" routerLink="/">Home</button>
+  </div>
+</section>
+
+<section *ngIf="loading">
+  <p>Caricamento...</p>
+</section>
+
+<section *ngIf="!loading && searched">
+  <!-- Pagina trovata -->
+  <div *ngIf="foundPage">
+    <h2>{{ foundPage.title }}</h2>
+    <div [innerHTML]="foundPage.content"></div>
+    <div *ngIf="servizio.isLoggedIn()" style="margin-top: 10px">
+      <button
+        type="button"
+        class="custom_button"
+        [routerLink]="['/edit']"
+        [queryParams]="{ title: foundPage.title }"
+      >
+        Modifica
+      </button>
+    </div>
+  </div>
+
+  <!-- Pagina non trovata -->
+  <div *ngIf="!foundPage">
+    <p>
+      Nessuna pagina trovata con "<strong>{{ searchedQuery }}</strong
+      >".
+    </p>
+
+    <!-- Prompt per creare la pagina se loggato -->
+    <div *ngIf="servizio.isLoggedIn()">
+      <p>Vuoi crearla?</p>
+      <button
+        type="button"
+        class="custom_button"
+        [routerLink]="['/edit']"
+        [queryParams]="{ title: searchedQuery }"
+      >
+        Crea pagina
+      </button>
+    </div>
+
+    <!-- Prompt per login per create la pagina se non loggato -->
+    <div *ngIf="!servizio.isLoggedIn()">
+      <p>
+        <a routerLink="/login">Accedi</a> per creare una nuova pagina con "{{ searchedQuery }}".
+      </p>
+    </div>
+  </div>
+</section>

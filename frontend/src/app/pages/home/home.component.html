@@ -16,8 +16,8 @@
 
 <section>
   <div class="search">
-    <input type="text" placeholder="Cerca..." />
-    <button class="custom_button">Vai!</button>
+    <input type="text" [(ngModel)]="searchQuery" (keyup.enter)="search()" placeholder="Cerca..." />
+    <button type="button" class="custom_button" (click)="search()">Vai!</button>
   </div>
 </section>
 
