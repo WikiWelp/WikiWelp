@@ -13,8 +13,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class HomeComponent implements OnInit {
   private snackBar = inject(MatSnackBar);
-  private loginShown = false;
-  private registerShown = false;
 
   constructor(public servizio: ServizioService) {}
 
@@ -27,18 +25,15 @@ export class HomeComponent implements OnInit {
   logout() {
     this.servizio.setLogin(false);
     this.servizio.setRegister(false);
-    this.loginShown = false;
-    this.registerShown = false;
     this.openSnackBar('Logout effettuato', 'OK');
   }
 
   ngOnInit() {
-    if (this.servizio.isLoggedIn() && !this.loginShown) {
-      this.loginShown = true;
+    if (this.servizio.consumeJustLoggedIn()) {
       this.openSnackBar('Login effettuato', 'OK');
     }
-    if (this.servizio.isRegisterIn() && !this.registerShown) {
-      this.registerShown = true;
+    if (this.servizio.isRegisterIn()) {
+      this.servizio.setRegister(false);
       this.openSnackBar('Registrazione effettuata', 'OK');
     }
   }
