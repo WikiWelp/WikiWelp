@@ -9,16 +9,15 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { LayoutModule } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [MatStepperModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, LayoutModule],
+  imports: [MatStepperModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
   constructor(
     private router: Router,
     private servizio: ServizioService,
