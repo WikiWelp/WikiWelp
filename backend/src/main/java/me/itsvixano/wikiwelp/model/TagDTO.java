@@ -12,8 +12,4 @@ import lombok.Setter;
 public class TagDTO {
     public Long id;
     public String name;
-
-    public TagDTO(String name) {
-        this.name = name;
-    }
 }

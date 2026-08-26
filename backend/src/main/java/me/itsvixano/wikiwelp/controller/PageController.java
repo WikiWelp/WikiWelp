@@ -6,8 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/page")
 public class PageController {
@@ -36,7 +34,7 @@ public class PageController {
     }
 
     @GetMapping("/tag/{tag}")
-    public ResponseEntity<List<PageDTO>> getPagesByTag(@PathVariable String tag) {
+    public ResponseEntity<?> getPagesByTag(@PathVariable String tag) {
         return ResponseEntity.ok(pageService.findByTag(tag));
     }
 }

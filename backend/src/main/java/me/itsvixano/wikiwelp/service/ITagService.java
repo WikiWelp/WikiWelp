@@ -10,6 +10,4 @@ public interface ITagService {
     TagDTO findByName(String name);
 
     List<TagDTO> findAll();
-
-    List<TagDTO> findByPageId(Long pageId);
 }

@@ -37,11 +37,4 @@ public class TagService implements ITagService {
         return tagDao.findAll();
     }
 
-    @Override
-    public List<TagDTO> findByPageId(Long pageId) {
-        if (pageId == null) {
-            return List.of();
-        }
-        return tagDao.findByPageId(pageId);
-    }
 }

@@ -12,7 +12,7 @@ import java.util.List;
 public record RevisionDao(Connection connection) implements IRevisionDao {
 
     @Override
-    public RevisionDTO createRevision(Long pageId, String content) {
+    public void createRevision(Long pageId, String content) {
         String query = "INSERT INTO page_revisions (page_id, content) VALUES (?, ?) RETURNING id, page_id, content, created_at";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setLong(1, pageId);
@@ -24,13 +24,11 @@ public record RevisionDao(Connection connection) implements IRevisionDao {
                     rev.setPageId(rs.getLong("page_id"));
                     rev.setContent(rs.getString("content"));
                     rev.setCreatedAt(rs.getTimestamp("created_at"));
-                    return rev;
                 }
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return null;
     }
 
     @Override
