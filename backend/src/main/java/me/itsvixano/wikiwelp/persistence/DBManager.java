@@ -1,13 +1,6 @@
 package me.itsvixano.wikiwelp.persistence;
 
-import me.itsvixano.wikiwelp.persistence.dao.IPageDao;
-import me.itsvixano.wikiwelp.persistence.dao.IRevisionDao;
-import me.itsvixano.wikiwelp.persistence.dao.ITagDao;
-import me.itsvixano.wikiwelp.persistence.dao.IUserDao;
-import me.itsvixano.wikiwelp.persistence.dao.PageDao;
-import me.itsvixano.wikiwelp.persistence.dao.RevisionDao;
-import me.itsvixano.wikiwelp.persistence.dao.TagDao;
-import me.itsvixano.wikiwelp.persistence.dao.UserDao;
+import me.itsvixano.wikiwelp.persistence.dao.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
