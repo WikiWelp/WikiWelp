@@ -5,6 +5,8 @@ import me.itsvixano.wikiwelp.persistence.DBManager;
 import me.itsvixano.wikiwelp.persistence.dao.IPageDao;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PageService implements IPageService {
     private final IPageDao pageDao;
@@ -31,5 +33,13 @@ public class PageService implements IPageService {
             return null;
         }
         return pageDao.findByTitle(title.trim());
+    }
+
+    @Override
+    public List<PageDTO> findByTag(String tagName) {
+        if (tagName == null || tagName.isBlank()) {
+            return List.of();
+        }
+        return pageDao.findByTag(tagName.trim());
     }
 }

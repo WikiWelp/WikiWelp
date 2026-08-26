@@ -14,6 +14,18 @@ import {
   HtmlEditorService,
 } from '@syncfusion/ej2-angular-richtexteditor';
 
+export interface TagDTO {
+  id?: number;
+  name: string;
+}
+
+export interface PageDTO {
+  id?: number;
+  title: string;
+  content: string;
+  tags?: TagDTO[];
+}
+
 @Component({
   selector: 'app-edit',
   standalone: true,
@@ -25,6 +37,7 @@ import {
 export class EditComponent implements OnInit {
   title: string = '';
   content: string = '';
+  tagsInput: string = '';
 
   public customToolbar: Object = {
     items: [
@@ -66,13 +79,16 @@ export class EditComponent implements OnInit {
       if (params['title']) {
         this.title = params['title'];
         this.http
-          .get<{ title: string; content: string }>(
-            `${environment.apiUrl}/api/page/${encodeURIComponent(this.title)}`,
-          )
+          .get<PageDTO>(`${environment.apiUrl}/api/page/${encodeURIComponent(this.title)}`)
           .subscribe({
             next: (page) => {
-              if (page?.content) {
-                this.content = page.content;
+              if (page) {
+                if (page.content) {
+                  this.content = page.content;
+                }
+                if (page.tags && page.tags.length > 0) {
+                  this.tagsInput = page.tags.map((t) => t.name).join(', ');
+                }
                 this.cdr.detectChanges();
               }
             },
@@ -88,10 +104,17 @@ export class EditComponent implements OnInit {
       return;
     }
 
+    const tags: TagDTO[] = this.tagsInput
+      .split(',')
+      .map((name) => name.trim())
+      .filter((name) => name.length > 0)
+      .map((name) => ({ name }));
+
     this.http
       .post(`${environment.apiUrl}/api/page`, {
         title: this.title.trim(),
         content: this.content,
+        tags: tags,
       })
       .subscribe({
         next: () => {

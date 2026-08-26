@@ -2,6 +2,12 @@
   <h2 class="custom_h1">Editor Pagina</h2>
   <div>
     <input type="text" [(ngModel)]="title" placeholder="Titolo della pagina..." />
+    <input
+      type="text"
+      [(ngModel)]="tagsInput"
+      placeholder="Tags (separati da virgola)..."
+      style="margin-left: 8px"
+    />
     <button class="custom_button" (click)="onSave()">Salva</button>
     <button class="custom_button" routerLink="/">Torna indietro</button>
   </div>

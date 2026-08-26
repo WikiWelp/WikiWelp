@@ -1,17 +1,19 @@
 package me.itsvixano.wikiwelp.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
 @NoArgsConstructor
-public class PageDTO {
+@AllArgsConstructor
+public class TagDTO {
     public Long id;
-    public String title;
-    public String content;
-    public List<TagDTO> tags;
+    public String name;
+
+    public TagDTO(String name) {
+        this.name = name;
+    }
 }

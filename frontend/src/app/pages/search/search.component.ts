@@ -6,10 +6,16 @@ import { HttpClient } from '@angular/common/http';
 import { ServizioService } from '../../services/servizio.service';
 import { environment } from '../../../environments/environment';
 
+export interface TagDTO {
+  id?: number;
+  name: string;
+}
+
 export interface PageDTO {
   id?: number;
   title: string;
   content: string;
+  tags?: TagDTO[];
 }
 
 @Component({
@@ -25,6 +31,8 @@ export class SearchComponent implements OnInit {
   loading: boolean = false;
   searched: boolean = false;
   foundPage: PageDTO | null = null;
+  tagPages: PageDTO[] = [];
+  isTagSearch: boolean = false;
 
   constructor(
     public servizio: ServizioService,
@@ -35,7 +43,10 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
-      if (params['q']) {
+      if (params['tag']) {
+        this.searchQuery = params['tag'];
+        this.searchByTag(params['tag']);
+      } else if (params['q']) {
         this.searchQuery = params['q'];
         this.executeSearch();
       }
@@ -50,6 +61,8 @@ export class SearchComponent implements OnInit {
     this.loading = true;
     this.searched = false;
     this.foundPage = null;
+    this.tagPages = [];
+    this.isTagSearch = false;
     this.cdr.detectChanges();
 
     this.http.get<PageDTO>(`${environment.apiUrl}/api/page/${encodeURIComponent(q)}`).subscribe({
@@ -66,5 +79,35 @@ export class SearchComponent implements OnInit {
         this.cdr.detectChanges();
       },
     });
+  }
+
+  searchByTag(tagName: string): void {
+    const tag = tagName.trim();
+    if (!tag) return;
+
+    this.searchedQuery = tag;
+    this.loading = true;
+    this.searched = false;
+    this.foundPage = null;
+    this.tagPages = [];
+    this.isTagSearch = true;
+    this.cdr.detectChanges();
+
+    this.http
+      .get<PageDTO[]>(`${environment.apiUrl}/api/page/tag/${encodeURIComponent(tag)}`)
+      .subscribe({
+        next: (pages) => {
+          this.tagPages = pages || [];
+          this.loading = false;
+          this.searched = true;
+          this.cdr.detectChanges();
+        },
+        error: () => {
+          this.tagPages = [];
+          this.loading = false;
+          this.searched = true;
+          this.cdr.detectChanges();
+        },
+      });
   }
 }
