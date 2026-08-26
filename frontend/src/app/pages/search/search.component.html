@@ -61,7 +61,30 @@
         </span>
       </small>
     </h2>
-    <div [innerHTML]="foundPage.content"></div>
+    <div [innerHTML]="selectedRevision ? selectedRevision.content : foundPage.content"></div>
+
+    <!-- Storico Revisioni (Stub) -->
+    <div
+      *ngIf="foundPage.revisions && foundPage.revisions.length > 1"
+      style="margin-top: 15px; font-size: 0.85em; color: gray"
+    >
+      <!-- Selettore per visionare versioni passate -->
+      <div>
+        <label for="revSelect">Visualizza versione: </label>
+        <select id="revSelect" [(ngModel)]="selectedRevision" style="margin-left: 6px">
+          <option [ngValue]="null">
+            #{{ foundPage.revisions.length }} ({{
+              foundPage.revisions[0].createdAt | date: 'dd/MM/yyyy HH:mm'
+            }})
+          </option>
+          <option *ngFor="let rev of foundPage.revisions.slice(1); let i = index" [ngValue]="rev">
+            #{{ foundPage.revisions.length - 1 - i }} ({{
+              rev.createdAt | date: 'dd/MM/yyyy HH:mm'
+            }})
+          </option>
+        </select>
+      </div>
+    </div>
 
     <div *ngIf="servizio.isLoggedIn()" style="margin-top: 10px">
       <button

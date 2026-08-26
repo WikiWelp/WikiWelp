@@ -1,9 +1,11 @@
 package me.itsvixano.wikiwelp.persistence;
 
 import me.itsvixano.wikiwelp.persistence.dao.IPageDao;
+import me.itsvixano.wikiwelp.persistence.dao.IRevisionDao;
 import me.itsvixano.wikiwelp.persistence.dao.ITagDao;
 import me.itsvixano.wikiwelp.persistence.dao.IUserDao;
 import me.itsvixano.wikiwelp.persistence.dao.PageDao;
+import me.itsvixano.wikiwelp.persistence.dao.RevisionDao;
 import me.itsvixano.wikiwelp.persistence.dao.TagDao;
 import me.itsvixano.wikiwelp.persistence.dao.UserDao;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,6 +21,7 @@ public class DBManager {
     private IUserDao userDao = null;
     private IPageDao pageDao = null;
     private ITagDao tagDao = null;
+    private IRevisionDao revisionDao = null;
 
     @Value("${spring.datasource.url}")
     private String url;
@@ -41,12 +44,20 @@ public class DBManager {
         return tagDao;
     }
 
+    public IRevisionDao getRevisionDao() {
+        if (revisionDao == null) {
+            revisionDao = new RevisionDao(getConnection());
+        }
+        return revisionDao;
+    }
+
     public IPageDao getPageDao() {
         if (pageDao == null) {
-            pageDao = new PageDao(getConnection(), getTagDao());
+            pageDao = new PageDao(getConnection(), getTagDao(), getRevisionDao());
         }
         return pageDao;
     }
+
 
     public Connection getConnection() {
         try {

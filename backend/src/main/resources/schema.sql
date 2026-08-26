@@ -24,3 +24,11 @@ CREATE TABLE IF NOT EXISTS page_tags --- Molti a Molti ---
     tag_id    INT REFERENCES tags(id) ON DELETE CASCADE,
     PRIMARY KEY (page_id, tag_id)
 );
+
+CREATE TABLE IF NOT EXISTS page_revisions --- Uno a Molti ---
+(
+    id         SERIAL    PRIMARY KEY,
+    page_id    INT       REFERENCES pages(id) ON DELETE CASCADE,
+    content    TEXT      NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

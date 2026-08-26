@@ -11,11 +11,18 @@ export interface TagDTO {
   name: string;
 }
 
+export interface RevisionDTO {
+  id?: number;
+  content: string;
+  createdAt: string;
+}
+
 export interface PageDTO {
   id?: number;
   title: string;
   content: string;
   tags?: TagDTO[];
+  revisions?: RevisionDTO[];
 }
 
 @Component({
@@ -33,6 +40,7 @@ export class SearchComponent implements OnInit {
   foundPage: PageDTO | null = null;
   tagPages: PageDTO[] = [];
   isTagSearch: boolean = false;
+  selectedRevision: RevisionDTO | null = null;
 
   constructor(
     public servizio: ServizioService,
@@ -63,6 +71,7 @@ export class SearchComponent implements OnInit {
     this.foundPage = null;
     this.tagPages = [];
     this.isTagSearch = false;
+    this.selectedRevision = null;
     this.cdr.detectChanges();
 
     this.http.get<PageDTO>(`${environment.apiUrl}/api/page/${encodeURIComponent(q)}`).subscribe({
@@ -72,6 +81,7 @@ export class SearchComponent implements OnInit {
         this.searched = true;
         this.cdr.detectChanges();
       },
+
       error: () => {
         this.foundPage = null;
         this.loading = false;

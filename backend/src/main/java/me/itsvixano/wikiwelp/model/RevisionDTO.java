@@ -1,18 +1,19 @@
 package me.itsvixano.wikiwelp.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.sql.Timestamp;
 
 @Getter
 @Setter
 @NoArgsConstructor
-public class PageDTO {
+@AllArgsConstructor
+public class RevisionDTO {
     public Long id;
-    public String title;
+    public Long pageId;
     public String content;
-    public List<TagDTO> tags;
-    public List<RevisionDTO> revisions;
+    public Timestamp createdAt;
 }

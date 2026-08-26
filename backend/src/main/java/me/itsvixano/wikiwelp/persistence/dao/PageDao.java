@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public record PageDao(Connection connection, ITagDao tagDao) implements IPageDao {
+public record PageDao(Connection connection, ITagDao tagDao, IRevisionDao revisionDao) implements IPageDao {
 
     @Override
     public PageDTO savePage(PageDTO page) {
@@ -42,6 +42,10 @@ public record PageDao(Connection connection, ITagDao tagDao) implements IPageDao
                 }
                 tagDao.setTagsForPage(page.getId(), tagIds);
             }
+
+            if (page.getId() != null && page.getContent() != null && revisionDao != null) {
+                revisionDao.createRevision(page.getId(), page.getContent());
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -55,7 +59,7 @@ public record PageDao(Connection connection, ITagDao tagDao) implements IPageDao
             ps.setString(1, title);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    PageDTO page = new PageProxyDTO(tagDao);
+                    PageDTO page = new PageProxyDTO(tagDao, revisionDao);
                     page.setId(rs.getLong("id"));
                     page.setTitle(rs.getString("title"));
                     page.setContent(rs.getString("content"));
@@ -79,7 +83,7 @@ public record PageDao(Connection connection, ITagDao tagDao) implements IPageDao
             ps.setString(1, tagName);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    PageDTO page = new PageProxyDTO(tagDao);
+                    PageDTO page = new PageProxyDTO(tagDao, revisionDao);
                     page.setId(rs.getLong("id"));
                     page.setTitle(rs.getString("title"));
                     page.setContent(rs.getString("content"));
