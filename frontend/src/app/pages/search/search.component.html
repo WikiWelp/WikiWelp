@@ -63,7 +63,7 @@
     </h2>
     <div [innerHTML]="selectedRevision ? selectedRevision.content : foundPage.content"></div>
 
-    <!-- Storico Revisioni (Stub) -->
+    <!-- Storico Revisioni -->
     <div
       *ngIf="foundPage.revisions && foundPage.revisions.length > 1"
       style="margin-top: 15px; font-size: 0.85em; color: gray"
@@ -104,6 +104,24 @@
       Nessuna pagina trovata con "<strong>{{ searchedQuery }}</strong
       >".
     </p>
+
+    <!-- Risultato da Wikipedia -->
+    <div
+      *ngIf="wikipediaPage"
+      style="
+        margin: 20px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        text-align: left;
+      "
+    >
+      <p style="margin: 0 0 5px 0; font-size: 0.85em; color: gray">
+        <i>Estratto da Wikipedia:</i>
+      </p>
+      <h3 style="margin: 0 0 5px 0">{{ wikipediaPage.title }}</h3>
+      <p style="margin: 0 0 5px 0">{{ wikipediaPage.extract }}</p>
+    </div>
 
     <!-- Prompt per creare la pagina se loggato -->
     <div *ngIf="servizio.isLoggedIn()">

@@ -6,6 +6,11 @@ import { HttpClient } from '@angular/common/http';
 import { ServizioService } from '../../services/servizio.service';
 import { environment } from '../../../environments/environment';
 
+export interface WikipediaDTO {
+  title: string;
+  extract: string;
+}
+
 export interface TagDTO {
   id?: number;
   name: string;
@@ -41,6 +46,7 @@ export class SearchComponent implements OnInit {
   tagPages: PageDTO[] = [];
   isTagSearch: boolean = false;
   selectedRevision: RevisionDTO | null = null;
+  wikipediaPage: WikipediaDTO | null = null;
 
   constructor(
     public servizio: ServizioService,
@@ -72,6 +78,7 @@ export class SearchComponent implements OnInit {
     this.tagPages = [];
     this.isTagSearch = false;
     this.selectedRevision = null;
+    this.wikipediaPage = null;
     this.cdr.detectChanges();
 
     this.http.get<PageDTO>(`${environment.apiUrl}/api/page/${encodeURIComponent(q)}`).subscribe({
@@ -81,12 +88,26 @@ export class SearchComponent implements OnInit {
         this.searched = true;
         this.cdr.detectChanges();
       },
-
       error: () => {
         this.foundPage = null;
-        this.loading = false;
-        this.searched = true;
-        this.cdr.detectChanges();
+        this.http
+          .get<WikipediaDTO>(
+            `https://it.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(q)}`,
+          )
+          .subscribe({
+            next: (res) => {
+              this.wikipediaPage = res?.extract ? res : null;
+              this.loading = false;
+              this.searched = true;
+              this.cdr.detectChanges();
+            },
+            error: () => {
+              this.wikipediaPage = null;
+              this.loading = false;
+              this.searched = true;
+              this.cdr.detectChanges();
+            },
+          });
       },
     });
   }
