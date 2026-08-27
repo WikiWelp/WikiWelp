@@ -158,3 +158,8 @@ body.darkMode .e-richtexteditor .e-content {
 .dark-toggle.dark {
   background-color: white;
 }
+
+.custom_h1_left{
+  color: dodgerblue;
+  text-align: left;
+}
