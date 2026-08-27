@@ -162,3 +162,9 @@ body.darkMode .e-richtexteditor .e-content {
 .dark-toggle.dark {
   background-color: white;
 }
+
+.spazio-fondo{
+  height: 50px;
+  width: 100%;
+  clear: both;
+}
