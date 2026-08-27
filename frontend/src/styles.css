@@ -163,8 +163,8 @@ body.darkMode .e-richtexteditor .e-content {
   background-color: white;
 }
 
-.spazio-fondo{
+.spazio_vuoto{
   height: 50px;
-  width: 100%;
+  visibility: hidden;
   clear: both;
 }
