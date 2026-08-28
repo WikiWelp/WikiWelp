@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="32"
-   height="32"
-   viewBox="0 0 8.4666665 8.4666666"
+   width="16"
+   height="16"
+   viewBox="0 0 4.2333333 4.2333333"
    version="1.1"
    id="svg1"
    inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="12.225647"
-     inkscape:cx="-0.61346449"
-     inkscape:cy="23.679729"
+     inkscape:zoom="32"
+     inkscape:cx="1.765625"
+     inkscape:cy="11.046875"
      inkscape:window-width="2560"
      inkscape:window-height="1494"
      inkscape:window-x="-11"
@@ -39,16 +39,16 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:#00aad4;fill-opacity:1;stroke:#00aad4;stroke-width:1.02082;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none"
-       d="M 4.1986141,0.56255247 4.3199105,7.9146328"
+       style="fill:#00aad4;fill-opacity:1;stroke:#00aad4;stroke-width:0.510794;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none"
+       d="M 2.1002938,0.27871883 2.1610108,3.9561047"
        id="path10" />
     <path
-       style="fill:#00aad4;fill-opacity:1;stroke:#00aad4;stroke-width:1.02146;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none"
-       d="M 0.51577848,7.9299253 7.8079709,7.9558959"
+       style="fill:#00aad4;fill-opacity:1;stroke:#00aad4;stroke-width:0.511114;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none"
+       d="m 0.25677984,3.9637539 3.65024646,0.01299"
        id="path10-2" />
     <path
-       style="fill:#00aad4;fill-opacity:1;stroke:#00aad4;stroke-width:1.02146;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none"
-       d="M 0.65573862,0.52051855 7.947932,0.54642892"
+       style="fill:#00aad4;fill-opacity:1;stroke:#00aad4;stroke-width:0.511114;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none"
+       d="M 0.32683957,0.25769417 3.9770864,0.27065411"
        id="path10-2-2" />
   </g>
 </svg>

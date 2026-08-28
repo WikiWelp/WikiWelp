@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="32"
-   height="32"
-   viewBox="0 0 8.4666662 8.4666666"
+   width="16"
+   height="16"
+   viewBox="0 0 4.2333331 4.2333333"
    version="1.1"
    id="svg1"
    inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="17.289675"
-     inkscape:cx="-8.1840751"
-     inkscape:cy="11.77003"
+     inkscape:zoom="97.805171"
+     inkscape:cx="6.8452413"
+     inkscape:cy="12.090363"
      inkscape:window-width="2560"
      inkscape:window-height="1494"
      inkscape:window-x="-11"
@@ -39,16 +39,16 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:#00aad4;fill-opacity:1;stroke:#6495ed;stroke-width:1.02152;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
-       d="M 4.2040846,0.56500337 4.3255006,7.9148653"
+       style="fill:#00aad4;fill-opacity:1;stroke:#6495ed;stroke-width:0.510289;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
+       d="M 2.1000333,0.28010447 2.1606163,3.9558181"
        id="path10-1" />
     <path
-       style="fill:#00aad4;fill-opacity:1;stroke:#6495ed;stroke-width:1.02216;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
-       d="M 0.51511942,7.9301572 7.8194561,7.9560234"
+       style="fill:#00aad4;fill-opacity:1;stroke:#6495ed;stroke-width:0.51061;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
+       d="M 0.25934246,3.9634657 3.9040029,3.9764018"
        id="path10-2-1" />
     <path
-       style="fill:#00aad4;fill-opacity:1;stroke:#6495ed;stroke-width:1.02216;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
-       d="M 0.65531358,0.52298177 7.9596383,0.54889187"
+       style="fill:#00aad4;fill-opacity:1;stroke:#6495ed;stroke-width:0.51061;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
+       d="M 0.32929544,0.25908919 3.9739499,0.27204699"
        id="path10-2-2-3" />
   </g>
 </svg>
