@@ -26,11 +26,11 @@ body {
   cursor: url('/images/Freccia.svg'), default !important;
 }
 
-a *, button *{
+a, button, a *, button *, [role="button"], input[type="button"], input[type="submit"]{
   cursor: url('/images/Mano.svg'), pointer !important;
 }
 
-input, textarea{
+input, textarea, [contenteditable="true"], [contenteditable="true"] *{
   cursor: url('/images/Scrivi.svg'), text !important;
 }
 
