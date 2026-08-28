@@ -26,7 +26,7 @@ body {
   cursor: url('/images/Freccia.svg'), default !important;
 }
 
-a, button, a *, button *, [role="button"], input[type="button"], input[type="submit"]{
+a, button, a *, button *, [role="button"], input[type="button"], input[type="submit"], [class*="toolbar"] *, [class*="dropdown"] *{
   cursor: url('/images/Mano.svg'), pointer !important;
 }
 
