@@ -23,15 +23,15 @@ body {
   padding-left: 15px;
   padding-right: 15px;
   box-sizing: border-box;
-  cursor: url('images/Freccia.svg'), default;
+  cursor: url('src/images/Freccia.svg'), default;
 }
 
 a, button{
-  cursor: url('images/Mano.svg'), pointer;
+  cursor: url('src/images/Mano.svg'), pointer;
 }
 
 input, textarea{
-  cursor: url('images/Scrivi.svg'), text;
+  cursor: url('src/images/Scrivi.svg'), text;
 }
 
 section {
