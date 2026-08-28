@@ -9,6 +9,13 @@
 @import '@syncfusion/ej2-popups/styles/material.css'; /*finestre a comparsa*/
 @import '@syncfusion/ej2-richtexteditor/styles/material.css'; /*stile del contenitore dell'editor*/
 
+
+.spazio_vuoto{
+  height: 50px;
+  visibility: hidden;
+  clear: both;
+}
+
 body {
   background-color: white;
   color: cornflowerblue;
@@ -16,6 +23,15 @@ body {
   padding-left: 15px;
   padding-right: 15px;
   box-sizing: border-box;
+  cursor: url('images/Freccia.svg'), default;
+}
+
+a, button{
+  cursor: url('images/Mano.svg'), pointer;
+}
+
+input, textarea{
+  cursor: url('images/Scrivi.svg'), text;
 }
 
 section {
@@ -161,10 +177,4 @@ body.darkMode .e-richtexteditor .e-content {
 
 .dark-toggle.dark {
   background-color: white;
-}
-
-.spazio_vuoto{
-  height: 50px;
-  visibility: hidden;
-  clear: both;
 }
