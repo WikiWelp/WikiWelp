@@ -95,4 +95,42 @@ public record PageDao(Connection connection, ITagDao tagDao, IRevisionDao revisi
         }
         return pages;
     }
+
+    @Override
+    public List<PageDTO> findAll() {
+        List<PageDTO> list = new ArrayList<>();
+        String query = "SELECT * FROM pages ORDER BY title ASC";
+        try (PreparedStatement ps = connection.prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                PageDTO page = new PageProxyDTO(tagDao, revisionDao);
+                page.setId(rs.getLong("id"));
+                page.setTitle(rs.getString("title"));
+                page.setContent(rs.getString("content"));
+                list.add(page);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
+    }
+
+    @Override
+    public boolean deleteByTitle(String title) {
+        String query = "DELETE FROM pages WHERE title = ?";
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, title);
+            int rows = ps.executeUpdate();
+            if (rows > 0) {
+                String cleanQuery = "DELETE FROM tags WHERE id NOT IN (SELECT tag_id FROM page_tags)";
+                try (PreparedStatement cleanPs = connection.prepareStatement(cleanQuery)) {
+                    cleanPs.executeUpdate();
+                }
+                return true;
+            }
+            return false;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

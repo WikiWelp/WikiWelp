@@ -5,6 +5,8 @@ import me.itsvixano.wikiwelp.persistence.DBManager;
 import me.itsvixano.wikiwelp.persistence.dao.IUserDao;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService implements IUserService {
     private final IUserDao userDao;
@@ -29,5 +31,18 @@ public class UserService implements IUserService {
     @Override
     public UserDTO findByEmail(String email) {
         return userDao.findByEmail(email);
+    }
+
+    @Override
+    public List<UserDTO> findAll() {
+        return userDao.findAll();
+    }
+
+    @Override
+    public boolean deleteByEmail(String email) {
+        if (email == null || email.isBlank()) {
+            return false;
+        }
+        return userDao.deleteByEmail(email.trim());
     }
 }

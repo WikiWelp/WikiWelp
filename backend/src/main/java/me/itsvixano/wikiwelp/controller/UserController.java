@@ -28,6 +28,11 @@ public class UserController {
         }
     }
 
+    @GetMapping
+    public ResponseEntity<?> getAllUsers() {
+        return ResponseEntity.ok(userService.findAll());
+    }
+
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserDTO user) {
         UserDTO existing = userService.findByEmail(user.getEmail());
@@ -43,5 +48,11 @@ public class UserController {
         return (user == null) ?
                 ResponseEntity.notFound().build() :
                 ResponseEntity.ok(user);
+    }
+
+    @DeleteMapping("/{email}")
+    public ResponseEntity<?> deleteUser(@PathVariable String email) {
+        boolean deleted = userService.deleteByEmail(email);
+        return deleted ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
 }

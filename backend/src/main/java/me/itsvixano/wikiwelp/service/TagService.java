@@ -36,5 +36,4 @@ public class TagService implements ITagService {
     public List<TagDTO> findAll() {
         return tagDao.findAll();
     }
-
 }

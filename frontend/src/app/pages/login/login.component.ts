@@ -32,9 +32,9 @@ export class LoginComponent {
     const email = this.formGroup.get('email')?.value;
     const password = this.formGroup.get('password')?.value;
 
-    this.http.post(`${environment.apiUrl}/api/user/login`, { email, password }).subscribe({
-      next: () => {
-        this.servizio.setLogin(true, email!);
+    this.http.post<any>(`${environment.apiUrl}/api/user/login`, { email, password }).subscribe({
+      next: (user) => {
+        this.servizio.setLogin(true, email!, user.admin);
         this.router.navigate(['/']);
       },
       error: (err) => {

@@ -10,4 +10,8 @@ public interface IPageDao {
     PageDTO findByTitle(String title);
 
     List<PageDTO> findByTag(String tagName);
+
+    List<PageDTO> findAll();
+
+    boolean deleteByTitle(String title);
 }

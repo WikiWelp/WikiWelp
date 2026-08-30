@@ -9,13 +9,23 @@ export class ServizioService {
   private justLoggedIn: boolean = false;
   private darkMode: boolean = false;
   private email: string = '';
+  private admin: boolean = false;
 
-  setLogin(status: boolean, email: string) {
+  setLogin(status: boolean, email: string, admin: boolean) {
     this.login = status;
     this.email = email;
+    this.admin = admin;
     if (status) {
       this.justLoggedIn = true;
     }
+  }
+
+  isAdmin(): boolean {
+    return this.admin;
+  }
+
+  setAdmin(admin: boolean) {
+    this.admin = admin;
   }
 
   getEmail(): string {

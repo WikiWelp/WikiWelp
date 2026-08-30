@@ -42,4 +42,17 @@ public class PageService implements IPageService {
         }
         return pageDao.findByTag(tagName.trim());
     }
+
+    @Override
+    public List<PageDTO> findAll() {
+        return pageDao.findAll();
+    }
+
+    @Override
+    public boolean deleteByTitle(String title) {
+        if (title == null || title.isBlank()) {
+            return false;
+        }
+        return pageDao.deleteByTitle(title.trim());
+    }
 }
