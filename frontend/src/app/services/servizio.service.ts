@@ -7,6 +7,7 @@ export class ServizioService {
   private login: boolean = false;
   private register: boolean = false;
   private justLoggedIn: boolean = false;
+  private darkMode: boolean = false;
 
   setLogin(status: boolean) {
     this.login = status;
@@ -33,6 +34,14 @@ export class ServizioService {
 
   isRegisterIn(): boolean {
     return this.register;
+  }
+
+  isDarkMode(): boolean {
+    return this.darkMode;
+  }
+
+  setDarkMode(status: boolean) {
+    this.darkMode = status;
   }
 
   constructor() {}
