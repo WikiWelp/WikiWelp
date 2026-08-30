@@ -5,6 +5,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from '../../../environments/environment';
+import { PageDTO, TagDTO } from '../../models/dto';
 import {
   RichTextEditorModule,
   ToolbarService,
@@ -23,8 +24,9 @@ import {
   styleUrl: './edit.component.css',
 })
 export class EditComponent implements OnInit {
-  title: string = '';
-  content: string = '';
+  title = '';
+  content = '';
+  tagsInput = '';
 
   public customToolbar: Object = {
     items: [
@@ -61,18 +63,17 @@ export class EditComponent implements OnInit {
     private cdr: ChangeDetectorRef,
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.route.queryParams.subscribe((params) => {
       if (params['title']) {
         this.title = params['title'];
         this.http
-          .get<{ title: string; content: string }>(
-            `${environment.apiUrl}/api/page/${encodeURIComponent(this.title)}`,
-          )
+          .get<PageDTO>(`${environment.apiUrl}/api/page/${encodeURIComponent(this.title)}`)
           .subscribe({
             next: (page) => {
-              if (page?.content) {
-                this.content = page.content;
+              if (page) {
+                this.content = page.content || '';
+                this.tagsInput = page.tags?.map((t) => t.name).join(', ') || '';
                 this.cdr.detectChanges();
               }
             },
@@ -82,16 +83,23 @@ export class EditComponent implements OnInit {
     });
   }
 
-  onSave(): void {
+  onSave() {
     if (!this.title.trim()) {
       alert('Inserisci un titolo per la pagina');
       return;
     }
 
+    const tags: TagDTO[] = this.tagsInput
+      .split(',')
+      .map((name) => name.trim())
+      .filter((name) => name.length > 0)
+      .map((name) => ({ name }));
+
     this.http
       .post(`${environment.apiUrl}/api/page`, {
         title: this.title.trim(),
         content: this.content,
+        tags,
       })
       .subscribe({
         next: () => {

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { ServizioService } from '../../services/servizio.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { UserDTO } from '../../models/dto';
 
 @Component({
   selector: 'app-login',
@@ -15,26 +16,26 @@ import { environment } from '../../../environments/environment';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+  private formBuilder = inject(FormBuilder);
+
+  formGroup = this.formBuilder.group({
+    email: ['', [Validators.required]],
+    password: ['', [Validators.required]],
+  });
+
   constructor(
     private router: Router,
     private servizio: ServizioService,
     private http: HttpClient,
   ) {}
 
-  private _formBuilder = inject(FormBuilder);
-
-  formGroup = this._formBuilder.group({
-    email: ['', [Validators.required]],
-    password: ['', [Validators.required]],
-  });
-
   submitLogin() {
     const email = this.formGroup.get('email')?.value;
     const password = this.formGroup.get('password')?.value;
 
-    this.http.post(`${environment.apiUrl}/api/user/login`, { email, password }).subscribe({
-      next: () => {
-        this.servizio.setLogin(true);
+    this.http.post<UserDTO>(`${environment.apiUrl}/api/user/login`, { email, password }).subscribe({
+      next: (user) => {
+        this.servizio.setLogin(true, email!, !!user.admin);
         this.router.navigate(['/']);
       },
       error: (err) => {

@@ -1,5 +1,6 @@
 package me.itsvixano.wikiwelp.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -7,9 +8,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class UserDTO {
+@AllArgsConstructor
+public class TagDTO {
     public Long id;
-    public String email;
-    public String password;
-    public Boolean admin = false;
+    public String name;
 }

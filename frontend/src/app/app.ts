@@ -15,7 +15,7 @@ import { ServizioService } from './services/servizio.service';
 export class App {
   title = 'Wiki';
   private http = inject(HttpClient);
-  private servizio=inject(ServizioService)
+  private servizio = inject(ServizioService);
   private baseUrl = environment.apiUrl;
 
   isDark = false;

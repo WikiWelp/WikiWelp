@@ -5,12 +5,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ServizioService } from '../../services/servizio.service';
 import { environment } from '../../../environments/environment';
-
-export interface PageDTO {
-  id?: number;
-  title: string;
-  content: string;
-}
+import { PageDTO, RevisionDTO, WikipediaDTO } from '../../models/dto';
 
 @Component({
   selector: 'app-search',
@@ -20,11 +15,15 @@ export interface PageDTO {
   styleUrl: './search.component.css',
 })
 export class SearchComponent implements OnInit {
-  searchQuery: string = '';
-  searchedQuery: string = '';
-  loading: boolean = false;
-  searched: boolean = false;
+  searchQuery = '';
+  searchedQuery = '';
+  loading = false;
+  searched = false;
   foundPage: PageDTO | null = null;
+  tagPages: PageDTO[] = [];
+  isTagSearch = false;
+  selectedRevision: RevisionDTO | null = null;
+  wikipediaPage: WikipediaDTO | null = null;
 
   constructor(
     public servizio: ServizioService,
@@ -33,16 +32,19 @@ export class SearchComponent implements OnInit {
     private cdr: ChangeDetectorRef,
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.route.queryParams.subscribe((params) => {
-      if (params['q']) {
+      if (params['tag']) {
+        this.searchQuery = params['tag'];
+        this.searchByTag(params['tag']);
+      } else if (params['q']) {
         this.searchQuery = params['q'];
         this.executeSearch();
       }
     });
   }
 
-  executeSearch(): void {
+  executeSearch() {
     const q = this.searchQuery.trim();
     if (!q) return;
 
@@ -50,6 +52,10 @@ export class SearchComponent implements OnInit {
     this.loading = true;
     this.searched = false;
     this.foundPage = null;
+    this.tagPages = [];
+    this.isTagSearch = false;
+    this.selectedRevision = null;
+    this.wikipediaPage = null;
     this.cdr.detectChanges();
 
     this.http.get<PageDTO>(`${environment.apiUrl}/api/page/${encodeURIComponent(q)}`).subscribe({
@@ -61,10 +67,55 @@ export class SearchComponent implements OnInit {
       },
       error: () => {
         this.foundPage = null;
-        this.loading = false;
-        this.searched = true;
-        this.cdr.detectChanges();
+        this.http
+          .get<WikipediaDTO>(
+            `https://it.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(q)}`,
+          )
+          .subscribe({
+            next: (res) => {
+              this.wikipediaPage = res?.extract ? res : null;
+              this.loading = false;
+              this.searched = true;
+              this.cdr.detectChanges();
+            },
+            error: () => {
+              this.wikipediaPage = null;
+              this.loading = false;
+              this.searched = true;
+              this.cdr.detectChanges();
+            },
+          });
       },
     });
+  }
+
+  searchByTag(tagName: string) {
+    const tag = tagName.trim();
+    if (!tag) return;
+
+    this.searchedQuery = tag;
+    this.loading = true;
+    this.searched = false;
+    this.foundPage = null;
+    this.tagPages = [];
+    this.isTagSearch = true;
+    this.cdr.detectChanges();
+
+    this.http
+      .get<PageDTO[]>(`${environment.apiUrl}/api/page/tag/${encodeURIComponent(tag)}`)
+      .subscribe({
+        next: (pages) => {
+          this.tagPages = pages || [];
+          this.loading = false;
+          this.searched = true;
+          this.cdr.detectChanges();
+        },
+        error: () => {
+          this.tagPages = [];
+          this.loading = false;
+          this.searched = true;
+          this.cdr.detectChanges();
+        },
+      });
   }
 }

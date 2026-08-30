@@ -1,0 +1,24 @@
+<section>
+  <h1 class="custom_h1">Pannello Admin</h1>
+</section>
+
+<div class="admin-container">
+  <h2>Pagine</h2>
+  <div *ngFor="let p of pages" class="admin-row">
+    <a [routerLink]="['/search']" [queryParams]="{ q: p.title }">{{ p.title }}</a>
+    <button class="custom_button" (click)="deletePage(p.title)">Elimina</button>
+  </div>
+
+  <h2>Utenti</h2>
+  <div *ngFor="let u of users" class="admin-row">
+    <span>
+      {{ u.email }}
+      <b *ngIf="u.admin">(Admin)</b>
+    </span>
+    <button class="custom_button" *ngIf="!u.admin" (click)="deleteUser(u.email)">Elimina</button>
+  </div>
+</div>
+
+<section>
+  <button class="custom_button" routerLink="/">Torna indietro</button>
+</section>

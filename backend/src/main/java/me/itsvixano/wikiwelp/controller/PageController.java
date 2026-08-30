@@ -25,11 +25,27 @@ public class PageController {
         }
     }
 
+    @GetMapping
+    public ResponseEntity<?> getAllPages() {
+        return ResponseEntity.ok(pageService.findAll());
+    }
+
     @GetMapping("/{title}")
     public ResponseEntity<?> getPage(@PathVariable String title) {
         PageDTO page = pageService.findByTitle(title);
         return (page == null) ?
                 ResponseEntity.notFound().build() :
                 ResponseEntity.ok(page);
+    }
+
+    @GetMapping("/tag/{tag}")
+    public ResponseEntity<?> getPagesByTag(@PathVariable String tag) {
+        return ResponseEntity.ok(pageService.findByTag(tag));
+    }
+
+    @DeleteMapping("/{title}")
+    public ResponseEntity<?> deletePage(@PathVariable String title) {
+        boolean deleted = pageService.deleteByTitle(title);
+        return deleted ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
 }

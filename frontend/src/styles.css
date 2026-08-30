@@ -9,8 +9,7 @@
 @import '@syncfusion/ej2-popups/styles/material.css'; /*finestre a comparsa*/
 @import '@syncfusion/ej2-richtexteditor/styles/material.css'; /*stile del contenitore dell'editor*/
 
-
-.spazio_vuoto{
+.spazio_vuoto {
   height: 50px;
   visibility: hidden;
   clear: both;
@@ -27,11 +26,22 @@ body {
   cursor: url('/images/Freccia.svg'), default !important;
 }
 
-a, button, a *, button *, [role="button"], input[type="button"], input[type="submit"], [class*="toolbar"] *, [class*="dropdown"] *{
+a,
+button,
+a *,
+button *,
+[role='button'],
+input[type='button'],
+input[type='submit'],
+[class*='toolbar'] *,
+[class*='dropdown'] * {
   cursor: url('/images/Mano.svg'), pointer !important;
 }
 
-input, textarea, [contenteditable="true"], [contenteditable="true"] *{
+input,
+textarea,
+[contenteditable='true'],
+[contenteditable='true'] * {
   cursor: url('/images/Scrivi.svg'), text !important;
 }
 
@@ -103,22 +113,22 @@ body.darkMode {
   cursor: url('/images/Freccia_dark.svg'), default !important;
 }
 
-body.darkMode a, 
-body.darkMode button, 
-body.darkMode a *, 
-body.darkMode button *, 
-body.darkMode [role="button"], 
-body.darkMode input[type="button"], 
-body.darkMode input[type="submit"], 
-body.darkMode [class*="toolbar"] *, 
-body.darkMode [class*="dropdown"] * {
+body.darkMode a,
+body.darkMode button,
+body.darkMode a *,
+body.darkMode button *,
+body.darkMode [role='button'],
+body.darkMode input[type='button'],
+body.darkMode input[type='submit'],
+body.darkMode [class*='toolbar'] *,
+body.darkMode [class*='dropdown'] * {
   cursor: url('/images/Mano_dark.svg'), pointer !important;
 }
 
-body.darkMode input, 
-body.darkMode textarea, 
-body.darkMode [contenteditable="true"], 
-body.darkMode [contenteditable="true"] * {
+body.darkMode input,
+body.darkMode textarea,
+body.darkMode [contenteditable='true'],
+body.darkMode [contenteditable='true'] * {
   cursor: url('/images/Scrivi_dark.svg'), text !important;
 }
 

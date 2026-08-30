@@ -4,45 +4,51 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ServizioService {
-  private login: boolean = false;
-  private register: boolean = false;
-  private justLoggedIn: boolean = false;
-  private darkMode: boolean = false;
+  login = false;
+  register = false;
+  justLoggedIn = false;
+  darkMode = false;
+  email = '';
+  admin = false;
 
-  setLogin(status: boolean) {
+  setLogin(status: boolean, email = '', admin = false) {
     this.login = status;
-    if (status) {
-      this.justLoggedIn = true;
-    }
+    this.email = email;
+    this.admin = admin;
+    if (status) this.justLoggedIn = true;
   }
 
-  isLoggedIn(): boolean {
+  isLoggedIn() {
     return this.login;
   }
 
-  consumeJustLoggedIn(): boolean {
-    if (this.justLoggedIn) {
-      this.justLoggedIn = false;
-      return true;
-    }
-    return false;
+  isAdmin() {
+    return this.admin;
+  }
+
+  getEmail() {
+    return this.email;
+  }
+
+  isDarkMode() {
+    return this.darkMode;
+  }
+
+  setDarkMode(status: boolean) {
+    this.darkMode = status;
   }
 
   setRegister(status: boolean) {
     this.register = status;
   }
 
-  isRegisterIn(): boolean {
+  isRegisterIn() {
     return this.register;
   }
 
-  isDarkMode(): boolean{
-    return this.darkMode;
+  consumeJustLoggedIn() {
+    const res = this.justLoggedIn;
+    this.justLoggedIn = false;
+    return res;
   }
-
-  setDarkMode(status: boolean){
-    this.darkMode=status;
-  }
-
-  constructor() {}
 }

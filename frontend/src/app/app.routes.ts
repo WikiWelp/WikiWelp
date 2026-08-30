@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { EditComponent } from './pages/edit/edit.component';
 import { SearchComponent } from './pages/search/search.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -11,4 +12,5 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'edit', component: EditComponent },
   { path: 'search', component: SearchComponent },
+  { path: 'admin', component: AdminComponent },
 ];
