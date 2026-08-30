@@ -1,19 +1,9 @@
 .admin-container {
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
-.admin-section {
-  margin-bottom: 25px;
-  text-align: left;
-}
-
-.admin-list {
-  list-style-type: none;
-  padding: 0;
-}
-
-.admin-list li {
+.admin-row {
   display: flex;
   justify-content: space-between;
   align-items: center;

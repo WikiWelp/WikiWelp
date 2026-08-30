@@ -5,30 +5,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ServizioService } from '../../services/servizio.service';
 import { environment } from '../../../environments/environment';
-
-export interface WikipediaDTO {
-  title: string;
-  extract: string;
-}
-
-export interface TagDTO {
-  id?: number;
-  name: string;
-}
-
-export interface RevisionDTO {
-  id?: number;
-  content: string;
-  createdAt: string;
-}
-
-export interface PageDTO {
-  id?: number;
-  title: string;
-  content: string;
-  tags?: TagDTO[];
-  revisions?: RevisionDTO[];
-}
+import { PageDTO, RevisionDTO, WikipediaDTO } from '../../models/dto';
 
 @Component({
   selector: 'app-search',
@@ -38,13 +15,13 @@ export interface PageDTO {
   styleUrl: './search.component.css',
 })
 export class SearchComponent implements OnInit {
-  searchQuery: string = '';
-  searchedQuery: string = '';
-  loading: boolean = false;
-  searched: boolean = false;
+  searchQuery = '';
+  searchedQuery = '';
+  loading = false;
+  searched = false;
   foundPage: PageDTO | null = null;
   tagPages: PageDTO[] = [];
-  isTagSearch: boolean = false;
+  isTagSearch = false;
   selectedRevision: RevisionDTO | null = null;
   wikipediaPage: WikipediaDTO | null = null;
 
@@ -55,7 +32,7 @@ export class SearchComponent implements OnInit {
     private cdr: ChangeDetectorRef,
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.route.queryParams.subscribe((params) => {
       if (params['tag']) {
         this.searchQuery = params['tag'];
@@ -67,7 +44,7 @@ export class SearchComponent implements OnInit {
     });
   }
 
-  executeSearch(): void {
+  executeSearch() {
     const q = this.searchQuery.trim();
     if (!q) return;
 
@@ -112,7 +89,7 @@ export class SearchComponent implements OnInit {
     });
   }
 
-  searchByTag(tagName: string): void {
+  searchByTag(tagName: string) {
     const tag = tagName.trim();
     if (!tag) return;
 

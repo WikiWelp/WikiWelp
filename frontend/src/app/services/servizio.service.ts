@@ -4,59 +4,33 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ServizioService {
-  private login: boolean = false;
-  private register: boolean = false;
-  private justLoggedIn: boolean = false;
-  private darkMode: boolean = false;
-  private email: string = '';
-  private admin: boolean = false;
+  login = false;
+  register = false;
+  justLoggedIn = false;
+  darkMode = false;
+  email = '';
+  admin = false;
 
-  setLogin(status: boolean, email: string, admin: boolean) {
+  setLogin(status: boolean, email = '', admin = false) {
     this.login = status;
     this.email = email;
     this.admin = admin;
-    if (status) {
-      this.justLoggedIn = true;
-    }
+    if (status) this.justLoggedIn = true;
   }
 
-  isAdmin(): boolean {
-    return this.admin;
-  }
-
-  setAdmin(admin: boolean) {
-    this.admin = admin;
-  }
-
-  getEmail(): string {
-    return this.email;
-  }
-
-  setEmail(email: string) {
-    this.email = email;
-  }
-
-  isLoggedIn(): boolean {
+  isLoggedIn() {
     return this.login;
   }
 
-  consumeJustLoggedIn(): boolean {
-    if (this.justLoggedIn) {
-      this.justLoggedIn = false;
-      return true;
-    }
-    return false;
+  isAdmin() {
+    return this.admin;
   }
 
-  setRegister(status: boolean) {
-    this.register = status;
+  getEmail() {
+    return this.email;
   }
 
-  isRegisterIn(): boolean {
-    return this.register;
-  }
-
-  isDarkMode(): boolean {
+  isDarkMode() {
     return this.darkMode;
   }
 
@@ -64,5 +38,17 @@ export class ServizioService {
     this.darkMode = status;
   }
 
-  constructor() {}
+  setRegister(status: boolean) {
+    this.register = status;
+  }
+
+  isRegisterIn() {
+    return this.register;
+  }
+
+  consumeJustLoggedIn() {
+    const res = this.justLoggedIn;
+    this.justLoggedIn = false;
+    return res;
+  }
 }

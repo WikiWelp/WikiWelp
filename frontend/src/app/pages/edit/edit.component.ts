@@ -5,6 +5,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from '../../../environments/environment';
+import { PageDTO, TagDTO } from '../../models/dto';
 import {
   RichTextEditorModule,
   ToolbarService,
@@ -13,18 +14,6 @@ import {
   ImageService,
   HtmlEditorService,
 } from '@syncfusion/ej2-angular-richtexteditor';
-
-export interface TagDTO {
-  id?: number;
-  name: string;
-}
-
-export interface PageDTO {
-  id?: number;
-  title: string;
-  content: string;
-  tags?: TagDTO[];
-}
 
 @Component({
   selector: 'app-edit',
@@ -35,9 +24,9 @@ export interface PageDTO {
   styleUrl: './edit.component.css',
 })
 export class EditComponent implements OnInit {
-  title: string = '';
-  content: string = '';
-  tagsInput: string = '';
+  title = '';
+  content = '';
+  tagsInput = '';
 
   public customToolbar: Object = {
     items: [
@@ -74,7 +63,7 @@ export class EditComponent implements OnInit {
     private cdr: ChangeDetectorRef,
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.route.queryParams.subscribe((params) => {
       if (params['title']) {
         this.title = params['title'];
@@ -83,12 +72,8 @@ export class EditComponent implements OnInit {
           .subscribe({
             next: (page) => {
               if (page) {
-                if (page.content) {
-                  this.content = page.content;
-                }
-                if (page.tags && page.tags.length > 0) {
-                  this.tagsInput = page.tags.map((t) => t.name).join(', ');
-                }
+                this.content = page.content || '';
+                this.tagsInput = page.tags?.map((t) => t.name).join(', ') || '';
                 this.cdr.detectChanges();
               }
             },
@@ -98,7 +83,7 @@ export class EditComponent implements OnInit {
     });
   }
 
-  onSave(): void {
+  onSave() {
     if (!this.title.trim()) {
       alert('Inserisci un titolo per la pagina');
       return;
@@ -114,7 +99,7 @@ export class EditComponent implements OnInit {
       .post(`${environment.apiUrl}/api/page`, {
         title: this.title.trim(),
         content: this.content,
-        tags: tags,
+        tags,
       })
       .subscribe({
         next: () => {
