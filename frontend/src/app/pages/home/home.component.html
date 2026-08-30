@@ -3,7 +3,7 @@
 </section>
 
 <section>
-  <p *ngIf="servizio.isLoggedIn()">Benvenuto</p>
+  <p *ngIf="servizio.isLoggedIn()">Benvenuto {{ servizio.getEmail() }}</p>
 </section>
 
 <section>

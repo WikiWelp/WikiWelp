@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   }
 
   logout() {
-    this.servizio.setLogin(false);
+    this.servizio.setLogin(false, '');
     this.servizio.setRegister(false);
     this.openSnackBar('Logout effettuato', 'OK');
   }

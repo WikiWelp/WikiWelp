@@ -8,12 +8,22 @@ export class ServizioService {
   private register: boolean = false;
   private justLoggedIn: boolean = false;
   private darkMode: boolean = false;
+  private email: string = '';
 
-  setLogin(status: boolean) {
+  setLogin(status: boolean, email: string) {
     this.login = status;
+    this.email = email;
     if (status) {
       this.justLoggedIn = true;
     }
+  }
+
+  getEmail(): string {
+    return this.email;
+  }
+
+  setEmail(email: string) {
+    this.email = email;
   }
 
   isLoggedIn(): boolean {

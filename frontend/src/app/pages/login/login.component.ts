@@ -34,7 +34,7 @@ export class LoginComponent {
 
     this.http.post(`${environment.apiUrl}/api/user/login`, { email, password }).subscribe({
       next: () => {
-        this.servizio.setLogin(true);
+        this.servizio.setLogin(true, email!);
         this.router.navigate(['/']);
       },
       error: (err) => {
