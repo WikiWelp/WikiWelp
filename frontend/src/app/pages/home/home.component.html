@@ -25,9 +25,7 @@
 <section>
   <div class="button-row">
     <button class="custom_button" *ngIf="!servizio.isLoggedIn()" routerLink="/login">Login</button>
-    <button class="custom_button" *ngIf="!servizio.isLoggedIn()" routerLink="/register">
-      Registrati
-    </button>
+    <button class="custom_button" *ngIf="!servizio.isLoggedIn()" routerLink="/register">Registrati</button>
 
     <button class="custom_button" *ngIf="servizio.isLoggedIn()" (click)="logout()">Logout</button>
     <button class="custom_button" *ngIf="servizio.isLoggedIn()" routerLink="/edit">Crea</button>
