@@ -3,13 +3,13 @@
 </section>
 
 <div class="admin-container">
-  <h2>Pagine</h2>
+  <h2 class="custom_h1">Pagine</h2>
   <div *ngFor="let p of pages" class="admin-row">
     <a [routerLink]="['/search']" [queryParams]="{ q: p.title }">{{ p.title }}</a>
     <button class="custom_button" (click)="deletePage(p.title)">Elimina</button>
   </div>
 
-  <h2>Utenti</h2>
+  <h2 class="custom_h1">Utenti</h2>
   <div *ngFor="let u of users" class="admin-row">
     <span>
       {{ u.email }}
