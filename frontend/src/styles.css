@@ -117,7 +117,7 @@ table {
 
 table th, 
 table td {
-  border: 1px solid cornflowerblue;
+  border: 1px solid dodgerblue;
   padding: 12px 16px;
   text-align: left;
 }
@@ -238,12 +238,12 @@ table.darkMode {
 }
 
 
-table th.darkMode, 
-table td.darkMode {
+table.darkMode th, 
+table.darkMode td {
   border: 1px solid #004455ff;
 }
 
-table th.darkMode{
+table.darkMode th{
   background-color: #004455ff;
   color: white;
 }
