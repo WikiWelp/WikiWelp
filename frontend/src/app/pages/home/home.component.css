@@ -1,15 +1,12 @@
 h1 {
-  font-size: 50px;
-}
-
-@media (max-width: 576px) {
-  h1 {
-    font-size: 32px;
-  }
+  /* Minimo 32px su mobile, cresce fluidamente con lo schermo (5% della larghezza), massimo 65px su schermi giganti */
+  font-size: clamp(32px, 5vw, 65px);
+  margin-bottom: 20px;
 }
 
 .home-logo {
-  width: 200px;  
+  /* Minimo 160px su schermi piccoli, cresce al 15% dello schermo, massimo 300px su PC grandi */
+  width: clamp(160px, 15vw, 300px);  
   height: auto;
 }
 
@@ -17,22 +14,26 @@ h1 {
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 500px;
+  /* Cresce fluidamente fino a un massimo di 650px su schermi enormi */
+  max-width: clamp(280px, 40vw, 650px);
   gap: 10px;
 }
 
 .search input {
   flex: 1; 
+  padding: 12px; /* Un padding leggermente maggiore lo rende più proporzionato su PC */
 }
 
 .button-row {
-  max-width: 600px;
   width: 100%;          
+  /* Segue la stessa proporzione fluida della barra di ricerca per rimanere allineato */
+  max-width: clamp(280px, 45vw, 700px);
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
 }
 
+/* Gestione dei blocchi per Smartphone (sotto i 576px) */
 @media (max-width: 576px) {
   .button-row {
     flex-direction: column; 
