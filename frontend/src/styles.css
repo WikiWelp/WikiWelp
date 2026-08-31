@@ -232,18 +232,18 @@ body.darkMode .e-richtexteditor .e-content {
   background-color: white;
 }
 
-table.darkMode {
+body.darkMode table {
   color: #004455ff;
   box-shadow: 0 2px 5px rgb(255, 255, 255);
 }
 
 
-table.darkMode th, 
-table.darkMode td {
+body.darkMode table th, 
+body.darkMode table td {
   border: 1px solid #004455ff;
 }
 
-table.darkMode th{
+body.darkMode table th{
   background-color: #004455ff;
   color: white;
 }
