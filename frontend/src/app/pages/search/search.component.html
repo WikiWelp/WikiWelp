@@ -42,39 +42,37 @@
   </div>
 
 
-<!-- Pagina trovata per titolo -->
-<div *ngIf="!isTagSearch && foundPage" class="contenitore-articolo">
+  <!-- Pagina trovata per titolo -->
+  <div *ngIf="!isTagSearch && foundPage" class="contenitore-articolo">
 
-  <h2 class="titolo-articolo">
-    {{ foundPage.title }}
-  </h2>
+    <h2 class="titolo-articolo">
+      {{ foundPage.title }}
+    </h2>
 
-  <div class="area-tag">
-    <small
-    *ngIf="foundPage.tags && foundPage.tags.length > 0"
-    style="font-size: 0.85em; color: gray;">
-      <span *ngFor="let t of foundPage.tags; let last = last">
-        <a
-        [routerLink]="['/search']"
-        [queryParams]="{ tag: t.name }"
-        style="cursor: pointer; text-decoration: underline; color: inherit;"
-        >
-          <i>#{{ t.name }}</i>
-        </a>
-      <span *ngIf="!last">, </span>
-      </span>
-    </small>
-  </div>
+    <div class="area-tag">
+      <small
+      *ngIf="foundPage.tags && foundPage.tags.length > 0"
+      style="font-size: 0.85em; color: gray;">
+        <span *ngFor="let t of foundPage.tags; let last = last">
+          <a
+          [routerLink]="['/search']"
+          [queryParams]="{ tag: t.name }"
+          style="cursor: pointer; text-decoration: underline; color: inherit;"
+          >
+            <i>#{{ t.name }}</i>
+          </a>
+        <span *ngIf="!last">, </span>
+        </span>
+      </small>
+    </div>
 
-  <div class="corpo-articolo" [innerHTML]="selectedRevision ? selectedRevision.content : foundPage.content"></div>
+    <!-- Il corpo dell'articolo -->
+    <div class="corpo-articolo" [innerHTML]="selectedRevision ? selectedRevision.content : foundPage.content"></div>
 
-</div>
-
-
-    <!-- Storico Revisioni -->
+    <!-- Storico Revisioni (Spostato qui dentro per sicurezza e allineamento) -->
     <div
       *ngIf="foundPage.revisions && foundPage.revisions.length > 1"
-      style="margin-top: 15px; font-size: 0.85em; color: gray"
+      style="margin-top: 15px; font-size: 0.85em; color: gray; text-align: center;"
     >
       <!-- Selettore per visionare versioni passate -->
       <div>
@@ -94,7 +92,8 @@
       </div>
     </div>
 
-    <div *ngIf="servizio.isLoggedIn()" style="margin-top: 10px">
+    <!-- Pulsante Modifica (Spostato qui dentro) -->
+    <div *ngIf="servizio.isLoggedIn()" style="margin-top: 15px; text-align: center;">
       <button
         type="button"
         class="custom_button"
@@ -104,7 +103,9 @@
         Modifica
       </button>
     </div>
-  </div>
+
+  </div> <!-- Chiusura corretta del blocco della pagina trovata -->
+
 
   <!-- Pagina non trovata per titolo -->
   <div *ngIf="!isTagSearch && !foundPage">
