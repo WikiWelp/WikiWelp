@@ -1,3 +1,10 @@
+.contenitore-articolo {
+  max-width: 800px;         
+  width: 90%;               
+  margin: 0 auto;         
+  padding: 20px 0;          
+}
+
 .corpo-articolo {
   text-align: left;
   line-height: 1.6;

@@ -61,7 +61,10 @@
         </span>
       </small>
     </h2>
-    <div class="corpo-articolo" [innerHTML]="selectedRevision ? selectedRevision.content : foundPage.content"></div>
+    
+    <div class="contenitore-articolo">
+      <div class="corpo-articolo" [innerHTML]="selectedRevision ? selectedRevision.content : foundPage.content"></div>
+    </div>
 
     <!-- Storico Revisioni -->
     <div
