@@ -110,7 +110,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 25px;
-  color: white;
+  color: cornflowerblue;
   box-shadow: 0 2px 5px rgb(0, 0, 0);
 }
 
@@ -124,6 +124,7 @@ table td {
 
 table th{
   background-color: cornflowerblue;
+  color: white;
 }
 /**/
 
@@ -229,4 +230,20 @@ body.darkMode .e-richtexteditor .e-content {
 
 .dark-toggle.dark {
   background-color: white;
+}
+
+table.darkMode {
+  color: #004455ff;
+  box-shadow: 0 2px 5px rgb(255, 255, 255);
+}
+
+
+table th.darkMode, 
+table td.darkMode {
+  border: 1px solid #004455ff;
+}
+
+table th.darkMode{
+  background-color: #004455ff;
+  color: white;
 }
