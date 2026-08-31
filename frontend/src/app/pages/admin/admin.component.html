@@ -39,7 +39,7 @@
       <tr *ngFor="let u of users">
         <td>{{ u.email }}</td>
         <td>
-          <b *ngIf="u.admin">(Admin)</b>
+          <b *ngIf="u.admin">Admin</b>
           <span *ngIf="!u.admin">Utente</span>
         </td>
         <td class="actions-col">
