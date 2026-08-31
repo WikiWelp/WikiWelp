@@ -111,13 +111,13 @@ table {
   border-collapse: collapse;
   margin-bottom: 25px;
   color: cornflowerblue;
-  box-shadow: 0 2px 5px lightgray(0, 0, 0);
+  box-shadow: 0 2px 5px lightgray;
 }
 
 
 table th, 
 table td {
-  border: 1px solid dodgerblue;
+  border: 1px solid cornflowerblue;
   padding: 12px 16px;
   text-align: left;
 }
@@ -234,7 +234,7 @@ body.darkMode .e-richtexteditor .e-content {
 
 body.darkMode table {
   color: #004455ff;
-  box-shadow: 0 2px 5px gray(255, 255, 255);
+  box-shadow: 0 2px 5px gray;
 }
 
 
