@@ -111,7 +111,6 @@ table {
   border-collapse: collapse;
   margin-bottom: 25px;
   color: cornflowerblue;
-  box-shadow: 0 2px 5px lightgray;
 }
 
 
@@ -234,7 +233,6 @@ body.darkMode .e-richtexteditor .e-content {
 
 body.darkMode table {
   color: #004455ff;
-  box-shadow: 0 2px 5px gray;
 }
 
 
