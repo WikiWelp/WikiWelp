@@ -6,48 +6,52 @@
   
   <!-- TABELLA PAGINE -->
   <h2 class="custom_h1">Pagine</h2>
-  <table class="admin-table">
-    <thead>
-      <tr>
-        <th>Titolo della Pagina</th>
-        <th class="actions-col">Azioni</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let p of pages">
-        <td>
-          <a [routerLink]="['/search']" [queryParams]="{ q: p.title }">{{ p.title }}</a>
-        </td>
-        <td class="actions-col">
-          <button class="custom_button delete-btn" (click)="deletePage(p.title)">Elimina</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Titolo della Pagina</th>
+          <th class="actions-col">Azioni</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of pages">
+          <td>
+            <a [routerLink]="['/search']" [queryParams]="{ q: p.title }">{{ p.title }}</a>
+          </td>
+          <td class="actions-col">
+            <button class="custom_button delete-btn" (click)="deletePage(p.title)">Elimina</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <!-- TABELLA UTENTI -->
   <h2 class="custom_h1">Utenti</h2>
-  <table class="admin-table">
-    <thead>
-      <tr>
-        <th>Email Utente</th>
-        <th>Ruolo</th>
-        <th class="actions-col">Azioni</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let u of users">
-        <td>{{ u.email }}</td>
-        <td>
-          <b *ngIf="u.admin">Admin</b>
-          <span *ngIf="!u.admin">Utente</span>
-        </td>
-        <td class="actions-col">
-          <button class="custom_button delete-btn" *ngIf="!u.admin" (click)="deleteUser(u.email)">Elimina</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Email Utente</th>
+          <th>Ruolo</th>
+          <th class="actions-col">Azioni</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let u of users">
+          <td>{{ u.email }}</td>
+          <td>
+            <b *ngIf="u.admin">Admin</b>
+            <span *ngIf="!u.admin">Utente</span>
+          </td>
+          <td class="actions-col">
+            <button class="custom_button delete-btn" *ngIf="!u.admin" (click)="deleteUser(u.email)">Elimina</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 </div>
 

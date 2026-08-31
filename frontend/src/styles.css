@@ -10,7 +10,7 @@
 @import '@syncfusion/ej2-richtexteditor/styles/material.css'; /*stile del contenitore dell'editor*/
 
 .spazio_vuoto {
-  height: 50px;
+  height: 3vh;
   visibility: hidden;
   clear: both;
 }
@@ -47,10 +47,12 @@ textarea,
 
 section {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   margin: 20px 0;
+  width: 100%;
 }
 
 .custom_button {
@@ -124,6 +126,12 @@ table td {
 table th{
   background-color: cornflowerblue;
   color: white;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 /**/
 
@@ -225,6 +233,14 @@ body.darkMode .e-richtexteditor .e-content {
   border-radius: 50%;
 
   background-color: black;
+}
+
+@media (max-width: 576px) {
+  .dark-toggle {
+    top: auto;        
+    bottom: 20px;     
+    right: 20px;      
+  }
 }
 
 .dark-toggle.dark {

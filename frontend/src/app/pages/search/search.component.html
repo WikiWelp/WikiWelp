@@ -66,10 +66,9 @@
       </small>
     </div>
 
-    <!-- Il corpo dell'articolo -->
     <div class="corpo-articolo" [innerHTML]="selectedRevision ? selectedRevision.content : foundPage.content"></div>
 
-    <!-- Storico Revisioni (Spostato qui dentro per sicurezza e allineamento) -->
+    <!-- Storico Revisioni-->
     <div
       *ngIf="foundPage.revisions && foundPage.revisions.length > 1"
       style="margin-top: 15px; font-size: 0.85em; color: gray; text-align: center;"
@@ -92,7 +91,6 @@
       </div>
     </div>
 
-    <!-- Pulsante Modifica (Spostato qui dentro) -->
     <div *ngIf="servizio.isLoggedIn()" style="margin-top: 15px; text-align: center;">
       <button
         type="button"
@@ -104,7 +102,7 @@
       </button>
     </div>
 
-  </div> <!-- Chiusura corretta del blocco della pagina trovata -->
+  </div>
 
 
   <!-- Pagina non trovata per titolo -->
@@ -145,7 +143,7 @@
       </button>
     </div>
 
-    <!-- Prompt per login per create la pagina se non loggato -->
+    <!-- Prompt per login per creare la pagina se non loggato -->
     <div *ngIf="!servizio.isLoggedIn()">
       <p>
         <a routerLink="/login">Accedi</a> per creare una nuova pagina con "{{ searchedQuery }}".
