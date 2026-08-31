@@ -60,6 +60,8 @@ section {
   color: white;
   background-color: cornflowerblue;
   border-color: dodgerblue;
+  padding: 10px 20px;
+  border-radius: 4px;
 }
 
 .custom_h1 {

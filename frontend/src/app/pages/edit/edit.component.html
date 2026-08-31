@@ -2,11 +2,18 @@
   <h1 class="custom_h1">Editor Pagina</h1>
 </section>
 
-<section>
-  <input type="text" [(ngModel)]="title" placeholder="Titolo della pagina..." />
-  <input type="text" [(ngModel)]="tagsInput" placeholder="Tags (separati da virgola)..." />
-  <button class="custom_button" (click)="onSave()">Salva</button>
-  <button class="custom_button" routerLink="/">Torna indietro</button>
+<section class="editor-form_section">
+
+  <div class="input-group">
+    <input type="text" [(ngModel)]="title" placeholder="Titolo della pagina..." />
+    <input type="text" [(ngModel)]="tagsInput" placeholder="Tags (separati da virgola)..." />
+  </div>
+
+  <div class="button-goup">
+    <button class="custom_button" (click)="onSave()">Salva</button>
+    <button class="custom_button" routerLink="/">Torna indietro</button>
+  </div>
+  
 </section>
 
 <ejs-richtexteditor #rte [(value)]="content" [toolbarSettings]="customToolbar"></ejs-richtexteditor>
