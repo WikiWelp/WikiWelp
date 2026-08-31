@@ -42,26 +42,31 @@
   </div>
 
   <!-- Pagina trovata per titolo -->
+
   <div *ngIf="!isTagSearch && foundPage">
-    <h2>
-      {{ foundPage.title }}
-      <small
-        *ngIf="foundPage.tags && foundPage.tags.length > 0"
-        style="margin-left: 6px; font-size: 0.6em; font-weight: normal"
-      >
-        <span *ngFor="let t of foundPage.tags; let last = last">
-          <a
-            [routerLink]="['/search']"
-            [queryParams]="{ tag: t.name }"
-            style="cursor: pointer; text-decoration: underline"
-          >
-            <i>{{ t.name }}</i>
-          </a>
-          <span *ngIf="!last">, </span>
-        </span>
-      </small>
-    </h2>
-    
+
+  <h2 style="text-align: center; margin-bottom: 5px;">
+    {{ foundPage.title }}
+  </h2>
+  
+  <div style="text-align: center; margin-bottom: 20px;">
+    <small
+      *ngIf="foundPage.tags && foundPage.tags.length > 0"
+      style="font-size: 0.85em; color: gray;"
+    >
+      <span *ngFor="let t of foundPage.tags; let last = last">
+        <a
+          [routerLink]="['/search']"
+          [queryParams]="{ tag: t.name }"
+          style="cursor: pointer; text-decoration: underline; color: inherit;"
+        >
+          <i>#{{ t.name }}</i>
+        </a>
+        <span *ngIf="!last">, </span>
+      </span>
+    </small>
+  </div>
+
     <div class="contenitore-articolo">
       <div class="corpo-articolo" [innerHTML]="selectedRevision ? selectedRevision.content : foundPage.content"></div>
     </div>
