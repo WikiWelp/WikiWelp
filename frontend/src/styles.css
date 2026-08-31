@@ -61,6 +61,7 @@ section {
   background-color: cornflowerblue;
   border-color: dodgerblue;
   padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .custom_h1 {
