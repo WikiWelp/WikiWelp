@@ -1,20 +1,39 @@
+/* ==========================================================================
+   CONTENITORE E COPERTURA ANTI-SCORRIMENTO
+   ========================================================================== */
 .contenitore-articolo {
   max-width: 800px;          
-  padding-left: 15px;         
-  padding-right: 15px;        
-  margin-left: auto;          
-  margin-right: auto;         
-  margin-top: 20px;           
+  padding: 0 15px;            
+  margin: 20px auto 0;        
 }
 
+/* Protegge tutti gli elementi spezzando le parole infinite o i troppi tag */
+.titolo-articolo,
+.area-tag,
 .corpo-articolo {
-  text-align: left;  
-  line-height: 1.6;           
-  width: 100%;                
-  
-  white-space: pre-wrap;       
-  
   overflow-wrap: break-word;   
   word-wrap: break-word;       
   word-break: break-word;      
+}
+
+/* ==========================================================================
+   ALLINEAMENTO CENTRATO (TITOLO E TAG)
+   ========================================================================== */
+.titolo-articolo {
+  text-align: center;         /* Centra il titolo */
+  margin-bottom: 5px;        
+}
+
+.area-tag {
+  text-align: center;         /* Centra i tag sotto al titolo */
+  margin-bottom: 20px;        /* Crea distacco rispetto all'inizio del testo */
+}
+
+/* ==========================================================================
+   ALLINEAMENTO A SINISTRA (CORPO ARTICOLO)
+   ========================================================================== */
+.corpo-articolo {
+  text-align: left;           /* Il testo dell'articolo inizia da sinistra */
+  line-height: 1.6;           
+  white-space: pre-wrap;      /* Struttura identica alla pagina edit */
 }
