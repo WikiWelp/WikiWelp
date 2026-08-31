@@ -1,28 +1,19 @@
-/* ==========================================================================
-   2. CONTENITORE PRINCIPALE DELL'ARTICOLO
-   ========================================================================== */
 .contenitore-articolo {
-  max-width: 800px;           /* Limite fisso per non allungare il testo sui monitor PC */
-  width: 100%;                /* Occupa tutto lo schermo disponibile sui telefoni */
-  padding-left: 15px;         /* Spazio di sicurezza a sinistra (il testo non tocca il bordo dello schermo) */
-  padding-right: 15px;        /* Spazio di sicurezza a destra (il testo non tocca il bordo dello schermo) */
-  margin-left: auto;          /* Centra l'intero blocco contenitore nella pagina */
-  margin-right: auto;         /* Centra l'intero blocco contenitore nella pagina */
-  margin-top: 20px;           /* Distanza dal titolo principale */
+  max-width: 800px;          
+  padding-left: 15px;         
+  padding-right: 15px;        
+  margin-left: auto;          
+  margin-right: auto;         
+  margin-top: 20px;           
 }
 
-/* ==========================================================================
-   3. CORPO DELL'ARTICOLO (STILE EDIT / NO SCROLL)
-   ========================================================================== */
 .corpo-articolo {
-  text-align: left;           /* Il testo parte rigorosamente da sinistra */
-  line-height: 1.6;           /* Interlinea fluida per una lettura riposante */
-  width: 100%;                /* Resta rigidamente dentro i confini del contenitore */
+  text-align: left;  
+  line-height: 1.6;           
+  width: 100%;                
   
-  /* Rispetta al 100% l'andata a capo manuale e gli spazi salvati nella pagina edit */
   white-space: pre-wrap;       
   
-  /* Spezza le parole o i link lunghissimi se toccano il bordo destro (addio scorrimento!) */
   overflow-wrap: break-word;   
   word-wrap: break-word;       
   word-break: break-word;      
