@@ -1,11 +1,9 @@
 h1 {
-  /* Minimo 32px su mobile, cresce fluidamente con lo schermo (5% della larghezza), massimo 65px su schermi giganti */
   font-size: clamp(32px, 5vw, 65px);
   margin-bottom: 20px;
 }
 
 .home-logo {
-  /* Minimo 160px su schermi piccoli, cresce al 15% dello schermo, massimo 300px su PC grandi */
   width: clamp(160px, 15vw, 300px);  
   height: auto;
 }
@@ -14,26 +12,24 @@ h1 {
   display: flex;
   align-items: center;
   width: 100%;
-  /* Cresce fluidamente fino a un massimo di 650px su schermi enormi */
   max-width: clamp(280px, 40vw, 650px);
   gap: 10px;
 }
 
 .search input {
   flex: 1; 
-  padding: 12px; /* Un padding leggermente maggiore lo rende più proporzionato su PC */
+  padding: 12px; 
 }
 
 .button-row {
   width: 100%;          
-  /* Segue la stessa proporzione fluida della barra di ricerca per rimanere allineato */
   max-width: clamp(280px, 45vw, 700px);
   display: flex;
   justify-content: center;
   gap: 12px;
 }
 
-/* Gestione dei blocchi per Smartphone (sotto i 576px) */
+/* Per Smartphone */
 @media (max-width: 576px) {
   .button-row {
     flex-direction: column; 
@@ -41,13 +37,14 @@ h1 {
   }
 }
 
+/*Per Tablet*/
 @media (max-width: 1280px) and (min-width: 768px) {
   h1 {
-    font-size: 48px; /* Ottima visibilità anche da un metro di distanza */
+    font-size: 48px; 
   }
 
   .home-logo {
-    width: 220px;    /* Proporzione perfetta per display da 10 pollici */
+    width: 220px;    
   }
 
   .search {
@@ -55,16 +52,15 @@ h1 {
   }
 
   .search input {
-    padding: 16px;   /* Più alto: facilissimo da tappare con le dita */
-    font-size: 18px; /* Testo più grande e leggibile */
+    padding: 16px;   
+    font-size: 18px; 
   }
 
   .button-row {
     max-width: 600px;
-    gap: 15px;       /* Più spazio tra i pulsanti per evitare tocchi falsi */
+    gap: 15px;       
   }
 
-  /* Ingrandisce i bottoni della home solo su questi schermi touch */
   .button-row .custom_button {
     padding: 14px 24px; 
     font-size: 16px;
