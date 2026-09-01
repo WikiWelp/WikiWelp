@@ -28,6 +28,10 @@ export class EditComponent implements OnInit {
   content = '';
   tagsInput = '';
 
+  public insertImageSettings: Object = {
+    saveFormat: 'Base64',
+  };
+
   public customToolbar: Object = {
     items: [
       'Bold',
