@@ -9,6 +9,11 @@
   <button class="custom_button" routerLink="/">Torna indietro</button>
 </section>
 
-<ejs-richtexteditor #rte [(value)]="content" [toolbarSettings]="customToolbar"></ejs-richtexteditor>
+<ejs-richtexteditor
+  #rte
+  [(value)]="content"
+  [toolbarSettings]="customToolbar"
+  [insertImageSettings]="insertImageSettings"
+></ejs-richtexteditor>
 
 <div class="spazio_vuoto"></div>
