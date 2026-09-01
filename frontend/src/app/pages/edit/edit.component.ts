@@ -44,14 +44,7 @@ export class EditComponent implements OnInit {
       'CreateTable',
       '|',
       'Undo',
-      'Redo',
-      '|',
-      {
-        tooltipText: 'Salva',
-        template:
-          '<button class="e-tbar-btn e-btn" id="save_btn"><span class="e-btn-icon e-icons e-save"></span> </button>',
-        click: this.onSave.bind(this),
-      },
+      'Redo'
     ],
   };
 
