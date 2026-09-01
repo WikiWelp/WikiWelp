@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, HostListener } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -16,9 +16,11 @@ import { UserDTO } from '../../models/dto';
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
   private formBuilder = inject(FormBuilder);
   isLinear = false;
+
+  stepperOrientation: 'horizontal' | 'vertical' ='horizontal';
 
   firstFormGroup = this.formBuilder.group({
     email: ['', [Validators.required]],
@@ -33,6 +35,24 @@ export class RegisterComponent {
     private servizio: ServizioService,
     private http: HttpClient,
   ) {}
+
+  ngOnInit() {
+    this.checkScreenSize();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.checkScreenSize();
+  }
+
+
+  private checkScreenSize() {
+    if (window.innerWidth < 768) {
+      this.stepperOrientation = 'vertical';   // Sotto i 768px (smartphone) diventa verticale
+    } else {
+      this.stepperOrientation = 'horizontal'; // Da tablet/PC in su diventa orizzontale
+    }
+  }
 
   submitRegistration() {
     const email = this.firstFormGroup.get('email')?.value;

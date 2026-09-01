@@ -4,7 +4,7 @@
 
 
 <div class="register-container">
-  <mat-stepper [linear]="isLinear" class="responsive-stepper" #stepper>
+  <mat-stepper [linear]="isLinear" [orientation]="stepperOrientation" class="responsive-stepper" #stepper>
     
     <!-- STEP 1: EMAIL -->
     <mat-step [stepControl]="firstFormGroup">
