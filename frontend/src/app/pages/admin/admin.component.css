@@ -4,12 +4,23 @@
   margin: 0 auto;
 }
 
+.admin-table .delete-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
 /*Per Smartphone*/
 @media (max-width: 576px) {
   .admin-table th, 
   .admin-table td {
-    padding: 10px 12px; /* Compatta lo spazio interno per far stare più testo */
-    font-size: 14px;    /* Rimpicciolisce leggermente il testo sui micro schermi */
+    padding: 10px 12px; 
+    font-size: 14px;    
+  }
+
+  .admin-table .delete-btn {
+    width: 100%;
+    padding: 12px 10px; 
+    font-size: 14px;
   }
 }
 
@@ -17,7 +28,12 @@
 @media (max-width: 1280px) and (min-width: 768px) {
   .admin-table th, 
   .admin-table td {
-    padding: 16px 20px; /* Celle più ampie per il tocco delle dita */
-    font-size: 16px;    /* Testo più grande leggibile da lontano */
+    padding: 16px 20px; 
+    font-size: 16px;    
+  }
+
+  .admin-table .delete-btn {
+    padding: 14px 24px;
+    font-size: 16px;
   }
 }
