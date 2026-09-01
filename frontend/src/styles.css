@@ -34,7 +34,10 @@ button *,
 input[type='button'],
 input[type='submit'],
 [class*='toolbar'] *,
-[class*='dropdown'] * {
+[class*='dropdown'] *,
+img,
+.e-richtexteditor .e-content img
+{
   cursor: url('/images/Mano.svg'), pointer !important;
 }
 
@@ -43,6 +46,12 @@ textarea,
 [contenteditable='true'],
 [contenteditable='true'] * {
   cursor: url('/images/Scrivi.svg'), text !important;
+}
+
+.e-richtexteditor .e-rte-img-resize,
+.e-richtexteditor .e-img-canvas .e-resize-handle,
+.e-richtexteditor .e-img-canvas .e-rte-img-resize {
+  cursor: url('/images/Ridimensiona.svg'), nwse-resize !important;
 }
 
 section {
@@ -152,7 +161,9 @@ body.darkMode [role='button'],
 body.darkMode input[type='button'],
 body.darkMode input[type='submit'],
 body.darkMode [class*='toolbar'] *,
-body.darkMode [class*='dropdown'] * {
+body.darkMode [class*='dropdown'] *,
+body.darkMode img,
+body.darkMode .e-richtexteditor .e-content img {
   cursor: url('/images/Mano_dark.svg'), pointer !important;
 }
 
@@ -161,6 +172,12 @@ body.darkMode textarea,
 body.darkMode [contenteditable='true'],
 body.darkMode [contenteditable='true'] * {
   cursor: url('/images/Scrivi_dark.svg'), text !important;
+}
+
+body.darkMode .e-richtexteditor .e-rte-img-resize,
+body.darkMode .e-richtexteditor .e-img-canvas .e-resize-handle,
+body.darkMode .e-richtexteditor .e-img-canvas .e-rte-img-resize {
+  cursor: url('/images/Ridimensiona_dark.svg'), nwse-resize !important;
 }
 
 body.darkMode .custom_button {
