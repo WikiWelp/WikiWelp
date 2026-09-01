@@ -3,6 +3,11 @@ h1 {
   margin-bottom: 20px;
 }
 
+p {
+  font-size: clamp(16px, 1.5vw, 22px);
+  line-height: 1.6; 
+}
+
 .home-logo {
   width: clamp(160px, 15vw, 300px);  
   height: auto;
