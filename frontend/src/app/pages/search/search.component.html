@@ -1,48 +1,52 @@
 <section>
-  <h1 class="custom_h1">
-    <a routerLink="/" style="text-decoration: none; color: inherit">Wikiwelp</a>
+  <h1 class="custom_h1 main-title">
+    <a routerLink="/" class="title-link">Wikiwelp</a>
   </h1>
 </section>
 
-<section>
-  <div>
+<!-- BARRA DI RICERCA SUPERIORE OTTIMIZZATA -->
+<section class="search-bar-section">
+  <div class="search-group">
     <input
       type="text"
       [(ngModel)]="searchQuery"
       (keyup.enter)="executeSearch()"
       placeholder="Cerca..."
     />
-    <button type="button" class="custom_button" (click)="executeSearch()">Vai!</button>
-    <button type="button" class="custom_button" routerLink="/">Home</button>
+    <div class="search-buttons">
+      <button type="button" class="custom_button action-btn" (click)="executeSearch()">Vai!</button>
+      <button type="button" class="custom_button home-btn" routerLink="/">Home</button>
+    </div>
   </div>
 </section>
 
-<section *ngIf="loading">
+<section *ngIf="loading" class="center-message">
   <p>Caricamento...</p>
 </section>
 
-<section *ngIf="!loading && searched">
+<section *ngIf="!loading && searched" class="results-section">
+  
   <!-- Risultati Ricerca per Tag (Lista pagine) -->
-  <div *ngIf="isTagSearch">
-    <h2>
+  <div *ngIf="isTagSearch" class="tag-results-container">
+    <h2 class="sub-title">
       Pagine con tag: <i>#{{ searchedQuery }}</i>
     </h2>
     <div *ngIf="tagPages.length > 0">
-      <ul style="list-style-type: none; padding: 0">
-        <li *ngFor="let p of tagPages" style="margin: 8px 0">
+      <ul class="tag-pages-list">
+        <li *ngFor="let p of tagPages">
           <a [routerLink]="['/search']" [queryParams]="{ q: p.title }">
             {{ p.title }}
           </a>
         </li>
       </ul>
     </div>
-    <div *ngIf="tagPages.length === 0">
+    <div *ngIf="tagPages.length === 0" class="no-results">
       <p>Nessuna pagina trovata con questo tag.</p>
     </div>
   </div>
 
 
-  <!-- Pagina trovata per titolo -->
+  <!-- Pagina trovata per titolo (Articolo) -->
   <div *ngIf="!isTagSearch && foundPage" class="contenitore-articolo">
 
     <h2 class="titolo-articolo">
@@ -50,14 +54,12 @@
     </h2>
 
     <div class="area-tag">
-      <small
-      *ngIf="foundPage.tags && foundPage.tags.length > 0"
-      style="font-size: 0.85em; color: gray;">
+      <small *ngIf="foundPage.tags && foundPage.tags.length > 0" class="tags-small">
         <span *ngFor="let t of foundPage.tags; let last = last">
           <a
           [routerLink]="['/search']"
           [queryParams]="{ tag: t.name }"
-          style="cursor: pointer; text-decoration: underline; color: inherit;"
+          class="tag-link"
           >
             <i>#{{ t.name }}</i>
           </a>
@@ -66,17 +68,14 @@
       </small>
     </div>
 
+    <!-- Il corpo dell'articolo (supporta il testo inserito dall'editor) -->
     <div class="corpo-articolo" [innerHTML]="selectedRevision ? selectedRevision.content : foundPage.content"></div>
 
     <!-- Storico Revisioni-->
-    <div
-      *ngIf="foundPage.revisions && foundPage.revisions.length > 1"
-      style="margin-top: 15px; font-size: 0.85em; color: gray; text-align: center;"
-    >
-      <!-- Selettore per visionare versioni passate -->
-      <div>
+    <div *ngIf="foundPage.revisions && foundPage.revisions.length > 1" class="revision-container">
+      <div class="revision-selector-box">
         <label for="revSelect">Visualizza versione: </label>
-        <select id="revSelect" [(ngModel)]="selectedRevision" style="margin-left: 6px">
+        <select id="revSelect" [(ngModel)]="selectedRevision">
           <option [ngValue]="null">
             #{{ foundPage.revisions.length }} ({{
               foundPage.revisions[0].createdAt | date: 'dd/MM/yyyy HH:mm'
@@ -91,7 +90,8 @@
       </div>
     </div>
 
-    <div *ngIf="servizio.isLoggedIn()" style="margin-top: 15px; text-align: center;">
+    <!-- Tasto modifica in fondo all'articolo -->
+    <div *ngIf="servizio.isLoggedIn()" class="article-actions">
       <button
         type="button"
         class="custom_button"
@@ -106,32 +106,20 @@
 
 
   <!-- Pagina non trovata per titolo -->
-  <div *ngIf="!isTagSearch && !foundPage">
-    <p>
-      Nessuna pagina trovata con "<strong>{{ searchedQuery }}</strong
-      >".
+  <div *ngIf="!isTagSearch && !foundPage" class="not-found-container">
+    <p class="not-found-text">
+      Nessuna pagina trovata con "<strong>{{ searchedQuery }}</strong>".
     </p>
 
-    <!-- Risultato da Wikipedia -->
-    <div
-      *ngIf="wikipediaPage"
-      style="
-        margin: 20px 0;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        text-align: left;
-      "
-    >
-      <p style="margin: 0 0 5px 0; font-size: 0.85em; color: gray">
-        <i>Estratto da Wikipedia:</i>
-      </p>
-      <h3 style="margin: 0 0 5px 0">{{ wikipediaPage.title }}</h3>
-      <p style="margin: 0 0 5px 0">{{ wikipediaPage.extract }}</p>
+    <!-- Risultato da Wikipedia (Ripulito dagli stili in linea) -->
+    <div *ngIf="wikipediaPage" class="wikipedia-box">
+      <p class="wiki-label"><i>Estratto da Wikipedia:</i></p>
+      <h3 class="wiki-title">{{ wikipediaPage.title }}</h3>
+      <p class="wiki-extract">{{ wikipediaPage.extract }}</p>
     </div>
 
     <!-- Prompt per creare la pagina se loggato -->
-    <div *ngIf="servizio.isLoggedIn()">
+    <div *ngIf="servizio.isLoggedIn()" class="create-prompt">
       <p>Vuoi crearla?</p>
       <button
         type="button"
@@ -144,7 +132,7 @@
     </div>
 
     <!-- Prompt per login per creare la pagina se non loggato -->
-    <div *ngIf="!servizio.isLoggedIn()">
+    <div *ngIf="!servizio.isLoggedIn()" class="login-prompt">
       <p>
         <a routerLink="/login">Accedi</a> per creare una nuova pagina con "{{ searchedQuery }}".
       </p>
