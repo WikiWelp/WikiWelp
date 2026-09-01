@@ -1,7 +1,76 @@
-.mat-stepper-horizontal {
-  margin-top: 8px;
+.register-container {
+  max-width: 550px;    
+  width: 100%;
+  margin: 0 auto;
 }
 
-.mat-mdc-form-field {
+.register-container mat-form-field {
+  width: 100%;
   margin-top: 16px;
+}
+
+.register-container .step-text {
+  font-size: clamp(15px, 1.2vw, 18px);
+  margin-bottom: 15px;
+}
+
+
+.register-container .button-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.register-container .button-group.single-btn {
+  justify-content: flex-start;
+}
+
+.register-container .custom_button {
+  padding: 10px 20px;
+  font-size: 15px;
+  min-width: 60px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Per Smartphone*/
+@media (max-width: 576px) {
+  .register-container {
+    padding: 0 5px; 
+  }
+
+  .register-container .button-group.final-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .register-container .button-group.final-actions .custom_button {
+    width: 100%; 
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .register-container .button-group.code-arrows .custom_button {
+    flex: 1;
+    padding: 14px;
+  }
+}
+
+
+/*Per Tablet*/
+@media (max-width: 1280px) and (min-width: 768px) {
+  .register-container mat-form-field {
+    font-size: 18px; 
+  }
+
+  .register-container .custom_button {
+    padding: 14px 24px; 
+    font-size: 16px;
+  }
+  
+  .register-container .button-group {
+    gap: 16px;
+  }
 }
