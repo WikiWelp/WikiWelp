@@ -40,3 +40,33 @@ h1 {
     align-items: stretch;  
   }
 }
+
+@media (max-width: 1280px) and (min-width: 768px) {
+  h1 {
+    font-size: 48px; /* Ottima visibilità anche da un metro di distanza */
+  }
+
+  .home-logo {
+    width: 220px;    /* Proporzione perfetta per display da 10 pollici */
+  }
+
+  .search {
+    max-width: 550px; 
+  }
+
+  .search input {
+    padding: 16px;   /* Più alto: facilissimo da tappare con le dita */
+    font-size: 18px; /* Testo più grande e leggibile */
+  }
+
+  .button-row {
+    max-width: 600px;
+    gap: 15px;       /* Più spazio tra i pulsanti per evitare tocchi falsi */
+  }
+
+  /* Ingrandisce i bottoni della home solo su questi schermi touch */
+  .button-row .custom_button {
+    padding: 14px 24px; 
+    font-size: 16px;
+  }
+}
