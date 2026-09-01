@@ -2,27 +2,32 @@
   <h1 class="custom_h1">Effettua login</h1>
 </section>
 
-<form [formGroup]="formGroup">
-  <section>
-    <mat-form-field>
-      <mat-label>Email</mat-label>
-      <input matInput type="email" formControlName="email" required />
-    </mat-form-field>
-  </section>
 
-  <section>
-    <mat-form-field>
-      <mat-label>Password</mat-label>
-      <input matInput type="password" formControlName="password" required />
-    </mat-form-field>
-  </section>
+<div class="login-container">
+  <form [formGroup]="formGroup">
+    
+    <div class="input-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" required />
+      </mat-form-field>
 
-  <section>
-    <button type="button" class="custom_button" style="margin-right: 10px" (click)="goBack()">
-      Indietro
-    </button>
-    <button type="submit" class="custom_button" (click)="submitLogin()">Avanti</button>
-  </section>
-</form>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" required />
+      </mat-form-field>
+    </div>
+
+    <div class="button-group">
+      <button type="button" class="custom_button back-btn" (click)="goBack()">
+        Indietro
+      </button>
+      <button type="submit" class="custom_button submit-btn" (click)="submitLogin()">
+        Avanti
+      </button>
+    </div>
+
+  </form>
+</div>
 
 <div class="spazio_vuoto"></div>
