@@ -50,7 +50,11 @@ textarea,
 
 .e-richtexteditor .e-rte-img-resize,
 .e-richtexteditor .e-img-canvas .e-resize-handle,
-.e-richtexteditor .e-img-canvas .e-rte-img-resize {
+.e-richtexteditor .e-img-canvas [class*="e-resize"],
+.e-rte-img-resize,
+.e-resize-handle,
+.e-richtexteditor .e-rte-img-resize *,
+.e-richtexteditor .e-img-canvas .e-resize-handle * {
   cursor: url('/images/Ridimensiona.svg'), nwse-resize !important;
 }
 
@@ -176,7 +180,11 @@ body.darkMode [contenteditable='true'] * {
 
 body.darkMode .e-richtexteditor .e-rte-img-resize,
 body.darkMode .e-richtexteditor .e-img-canvas .e-resize-handle,
-body.darkMode .e-richtexteditor .e-img-canvas .e-rte-img-resize {
+body.darkMode .e-richtexteditor .e-img-canvas [class*="e-resize"],
+body.darkMode .e-rte-img-resize,
+body.darkMode .e-resize-handle,
+body.darkMode .e-richtexteditor .e-rte-img-resize *,
+body.darkMode .e-richtexteditor .e-img-canvas .e-resize-handle * {
   cursor: url('/images/Ridimensiona_dark.svg'), nwse-resize !important;
 }
 
