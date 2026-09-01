@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit{
     this.checkScreenSize();
   }
 
-  @HostListener('window:resize', ['$event'])
+  @HostListener('window:resize')
   onResize() {
     this.checkScreenSize();
   }
