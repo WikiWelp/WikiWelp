@@ -17,10 +17,35 @@
   border-radius: 4px;
 }
 
+/*Per Smartphone*/
 @media (max-width: 576px) {
   .editor-form-section .input-group,
   .editor-form-section .button-group {
     flex-direction: column; 
     align-items: stretch;   
+    gap: 12px;              
+  }
+
+  .editor-form-section input {
+    padding: 14px;          
+    font-size: 16px;
+  }
+
+  .editor-form-section .custom_button {
+    padding: 14px;          
+    font-size: 16px;
+  }
+}
+
+/*Per Tablet*/
+@media (max-width: 1280px) and (min-width: 768px) {
+  .editor-form-section input {
+    padding: 16px;     
+    font-size: 18px;   
+  }
+
+  .editor-form-section .custom_button {
+    padding: 14px 28px; 
+    font-size: 16px;
   }
 }
