@@ -1,4 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+
+/* Abbina il file regular.ttf al testo normale */
+@font-face {
+  font-family: 'Inter';
+  src: url('/font/Inter/Inter_Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Abbina il file italic.ttf al testo in corsivo */
+@font-face {
+  font-family: 'Inter';
+  src: url('/font/Inter/Inter_Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Abbina il file bold.ttf al testo in grassetto */
+@font-face {
+  font-family: 'Inter';
+  src: url('/font/Inter/Inter_Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import '@syncfusion/ej2-base/styles/material.css'; /**/
 @import '@syncfusion/ej2-icons/styles/material.css'; /*Icone grafiche dei pulsanti*/
 @import '@syncfusion/ej2-buttons/styles/material.css'; /*pulsanti classici*/
@@ -24,6 +51,15 @@ body {
   padding-right: 15px;
   box-sizing: border-box;
   cursor: url('/images/Freccia.svg'), default !important;
+  font-family: 'Inter', sans-serif;
+}
+
+body, input, select, textarea, button, h1, h2, h3, .mat-mdc-form-field, .e-richtexteditor * {
+  font-family: 'Inter', sans-serif !important;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
 }
 
 a,
@@ -84,6 +120,10 @@ section {
   color: dodgerblue;
 }
 
+.logotipo {
+  color: dodgerblue;
+}
+
 /*Area di testo*/
 .e-richtexteditor .e-toolbar {
   background-color: lightgray;
@@ -136,7 +176,7 @@ table {
 
 table th, 
 table td {
-  border: 1px solid cornflowerblue;
+  border: 1px solid cornflowerblue !important;
   padding: 12px 16px;
   text-align: left;
 }
