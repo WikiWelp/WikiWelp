@@ -48,13 +48,10 @@ textarea,
   cursor: url('/images/Scrivi.svg'), text !important;
 }
 
-.e-richtexteditor .e-rte-img-resize,
-.e-richtexteditor .e-img-canvas .e-resize-handle,
-.e-richtexteditor .e-img-canvas [class*="e-resize"],
-.e-rte-img-resize,
-.e-resize-handle,
-.e-richtexteditor .e-rte-img-resize *,
-.e-richtexteditor .e-img-canvas .e-resize-handle * {
+.e-richtexteditor *[style*="cursor: nwse-resize"],
+.e-richtexteditor *[style*="cursor:nesw-resize"],
+.e-img-canvas *[style*="cursor: nwse-resize"],
+.e-img-canvas *[style*="cursor:nesw-resize"] {
   cursor: url('/images/Ridimensiona.svg'), nwse-resize !important;
 }
 
@@ -178,13 +175,10 @@ body.darkMode [contenteditable='true'] * {
   cursor: url('/images/Scrivi_dark.svg'), text !important;
 }
 
-body.darkMode .e-richtexteditor .e-rte-img-resize,
-body.darkMode .e-richtexteditor .e-img-canvas .e-resize-handle,
-body.darkMode .e-richtexteditor .e-img-canvas [class*="e-resize"],
-body.darkMode .e-rte-img-resize,
-body.darkMode .e-resize-handle,
-body.darkMode .e-richtexteditor .e-rte-img-resize *,
-body.darkMode .e-richtexteditor .e-img-canvas .e-resize-handle * {
+body.darkMode .e-richtexteditor *[style*="cursor: nwse-resize"],
+body.darkMode .e-richtexteditor *[style*="cursor:nesw-resize"],
+body.darkMode .e-img-canvas *[style*="cursor: nwse-resize"],
+body.darkMode .e-img-canvas *[style*="cursor:nesw-resize"] {
   cursor: url('/images/Ridimensiona_dark.svg'), nwse-resize !important;
 }
 
