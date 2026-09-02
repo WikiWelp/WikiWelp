@@ -10,8 +10,8 @@
 
 @font-face {
   font-family: 'Courier_Prime';
-  src: url('/font/Courier_Prime/CourierPrime-Regular.ttf') format('truetype');
-  font-weight: 700;
+  src: url('/font/Courier_Prime/CourierPrime-Bold.ttf') format('truetype');
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
@@ -127,12 +127,6 @@ section {
 
 .custom_h1 {
   color: dodgerblue;
-}
-
-.logotipo {
-  color: dodgerblue;
-  font-family: 'Courier_Prime', sans-serif !important;
-  font-weight: 700;
 }
 
 /*Area di testo*/

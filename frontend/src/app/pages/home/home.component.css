@@ -1,4 +1,5 @@
 h1 {
+  font-family: 'Courier_Prime', sans-serif !important;
   font-size: clamp(32px, 5vw, 65px);
   margin-bottom: 20px;
 }
