@@ -53,7 +53,10 @@ textarea,
 .e-richtexteditor *[style*="cursor: nesw-resize"],
 .e-richtexteditor *[style*="cursor: nesw-resize"] *,
 .e-richtexteditor *[style*="cursor: ew-resize"],
-.e-richtexteditor *[style*="cursor: ns-resize"] {
+.e-richtexteditor *[style*="cursor: ns-resize"],
+.e-richtexteditor .e-rte-table-resize,
+.e-richtexteditor .e-column-resize,
+.e-richtexteditor .e-row-resize {
   cursor: url('/images/Ridimensiona.svg'), nwse-resize !important;
 }
 
@@ -182,7 +185,10 @@ body.darkMode .e-richtexteditor *[style*="cursor: nwse-resize"] *,
 body.darkMode .e-richtexteditor *[style*="cursor: nesw-resize"],
 body.darkMode .e-richtexteditor *[style*="cursor: nesw-resize"] *,
 body.darkMode .e-richtexteditor *[style*="cursor: ew-resize"],
-body.darkMode .e-richtexteditor *[style*="cursor: ns-resize"] {
+body.darkMode .e-richtexteditor *[style*="cursor: ns-resize"],
+body.darkMode .e-richtexteditor .e-rte-table-resize,
+body.darkMode .e-richtexteditor .e-column-resize,
+body.darkMode .e-richtexteditor .e-row-resize {
   cursor: url('/images/Ridimensiona_dark.svg'), nwse-resize !important;
 }
 
