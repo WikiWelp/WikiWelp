@@ -36,7 +36,8 @@ input[type='submit'],
 [class*='toolbar'] *,
 [class*='dropdown'] *,
 img,
-.e-richtexteditor .e-content img
+.e-richtexteditor .e-content img,
+a:active, button:active, [role='button']:active, img:active
 {
   cursor: url('/images/Mano.svg'), pointer !important;
 }
@@ -57,7 +58,13 @@ textarea,
 .e-richtexteditor .e-rte-table-resize,
 .e-richtexteditor .e-column-resize,
 .e-richtexteditor .e-row-resize,
-.e-richtexteditor .e-table-box {
+.e-richtexteditor .e-table-box,
+.e-richtexteditor .e-rte-table-resize:active,
+.e-richtexteditor .e-column-resize:active,
+.e-richtexteditor .e-row-resize:active,
+.e-richtexteditor .e-table-box:active,
+*[style*="cursor: nwse-resize"]:active,
+*[style*="cursor: nesw-resize"]:active {
   cursor: url('/images/Ridimensiona.svg'), nwse-resize !important;
 }
 
@@ -170,7 +177,9 @@ body.darkMode input[type='submit'],
 body.darkMode [class*='toolbar'] *,
 body.darkMode [class*='dropdown'] *,
 body.darkMode img,
-body.darkMode .e-richtexteditor .e-content img {
+body.darkMode .e-richtexteditor .e-content img,
+body.darkMode a:active, body.darkMode button:active, body.darkMode [role='button']:active, body.darkMode img:active
+{
   cursor: url('/images/Mano_dark.svg'), pointer !important;
 }
 
@@ -190,7 +199,13 @@ body.darkMode .e-richtexteditor *[style*="cursor: ns-resize"],
 body.darkMode .e-richtexteditor .e-rte-table-resize,
 body.darkMode .e-richtexteditor .e-column-resize,
 body.darkMode .e-richtexteditor .e-row-resize,
-body.darkMode .e-richtexteditor .e-table-box {
+body.darkMode .e-richtexteditor .e-table-box,
+body.darkMode .e-richtexteditor .e-rte-table-resize:active,
+body.darkMode .e-richtexteditor .e-column-resize:active,
+body.darkMode .e-richtexteditor .e-row-resize:active,
+body.darkMode .e-richtexteditor .e-table-box:active,
+body.darkMode *[style*="cursor: nwse-resize"]:active,
+body.darkMode *[style*="cursor: nesw-resize"]:active {
   cursor: url('/images/Ridimensiona_dark.svg'), nwse-resize !important;
 }
 
