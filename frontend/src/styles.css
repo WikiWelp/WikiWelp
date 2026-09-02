@@ -122,7 +122,7 @@ section {
 
 .e-richtexteditor .e-content {
   background-color: lightgray !important;
-  color: black !important;
+  color: cornflowerblue !important;
 }
 
 
@@ -252,7 +252,7 @@ body.darkMode .e-richtexteditor .e-toolbar .e-icons {
 /*Colore area di testo*/
 body.darkMode .e-richtexteditor .e-content {
   background-color: gray !important;
-  color: white !important;
+  color: #004455ff !important;
 }
 /**/
 /**/
