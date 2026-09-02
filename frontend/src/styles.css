@@ -129,7 +129,7 @@ section {
 
 .logotipo {
   color: dodgerblue;
-  font-family: 'Courier_Prime', sans-serif;
+  font-family: 'Courier_Prime', sans-serif !important;
   font-weight: 700;
 }
 
