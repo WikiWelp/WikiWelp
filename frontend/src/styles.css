@@ -1,11 +1,3 @@
-@font-face {
-  font-family: 'Courier_Prime';
-  src: url('/font/Courier_Prime/CourierPrime-Regular.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 @import '@syncfusion/ej2-base/styles/material.css'; /**/
 @import '@syncfusion/ej2-icons/styles/material.css'; /*Icone grafiche dei pulsanti*/
 @import '@syncfusion/ej2-buttons/styles/material.css'; /*pulsanti classici*/
@@ -15,6 +7,14 @@
 @import '@syncfusion/ej2-navigations/styles/material.css'; /*toolbar*/
 @import '@syncfusion/ej2-popups/styles/material.css'; /*finestre a comparsa*/
 @import '@syncfusion/ej2-richtexteditor/styles/material.css'; /*stile del contenitore dell'editor*/
+
+@font-face {
+  font-family: 'Courier_Prime';
+  src: url('/font/Courier_Prime/CourierPrime-Regular.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 .spazio_vuoto {
   height: 3vh;
