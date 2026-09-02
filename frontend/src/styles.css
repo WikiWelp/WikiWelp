@@ -16,6 +16,41 @@
   font-display: swap;
 }
 
+/*Font Inter - Regular*/
+@font-face {
+  font-family: 'Inter';
+  src: url('/font/Inter/Inter_Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*Font Inter - Italic*/
+@font-face {
+  font-family: 'Inter';
+  src: url('/font/Inter/Inter_Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic; /* Dice al browser che questo file gestisce il corsivo */
+  font-display: swap;
+}
+
+/*Font Inter - Bold*/
+@font-face {
+  font-family: 'Inter';
+  src: url('/font/Inter/Inter_Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body, input, select, textarea, button, h1, h2, h3, .mat-mdc-form-field {
+  font-family: 'Inter', sans-serif !important;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+}
+
 .spazio_vuoto {
   height: 3vh;
   visibility: hidden;
@@ -31,6 +66,7 @@ body {
   padding-right: 15px;
   box-sizing: border-box;
   cursor: url('/images/Freccia.svg'), default !important;
+  font-family: 'Inter', sans-serif;
 }
 
 a,
