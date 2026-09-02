@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Courier_Prime';
+  src: url('/font/Courier_Prime/CourierPrime-Regular.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import '@syncfusion/ej2-base/styles/material.css'; /**/
 @import '@syncfusion/ej2-icons/styles/material.css'; /*Icone grafiche dei pulsanti*/
 @import '@syncfusion/ej2-buttons/styles/material.css'; /*pulsanti classici*/
@@ -23,7 +31,6 @@ body {
   padding-right: 15px;
   box-sizing: border-box;
   cursor: url('/images/Freccia.svg'), default !important;
-  font-family: 'Inter', sans-serif;
 }
 
 a,
@@ -86,6 +93,8 @@ section {
 
 .logotipo {
   color: dodgerblue;
+  font-family: 'Courier_Prime', sans-serif;
+  font-weight: 700;
 }
 
 /*Area di testo*/
@@ -292,7 +301,7 @@ body.darkMode table {
 
 body.darkMode table th, 
 body.darkMode table td {
-  border: 1px solid #004455ff;
+  border: 1px solid #004455ff !important;
 }
 
 body.darkMode table th{
