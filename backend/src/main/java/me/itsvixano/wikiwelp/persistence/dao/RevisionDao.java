@@ -13,19 +13,11 @@ public record RevisionDao(Connection connection) implements IRevisionDao {
 
     @Override
     public void createRevision(Long pageId, String content) {
-        String query = "INSERT INTO page_revisions (page_id, content) VALUES (?, ?) RETURNING id, page_id, content, created_at";
+        String query = "INSERT INTO page_revisions (page_id, content) VALUES (?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setLong(1, pageId);
             ps.setString(2, content);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    RevisionDTO rev = new RevisionDTO();
-                    rev.setId(rs.getLong("id"));
-                    rev.setPageId(rs.getLong("page_id"));
-                    rev.setContent(rs.getString("content"));
-                    rev.setCreatedAt(rs.getTimestamp("created_at"));
-                }
-            }
+            ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -34,7 +26,7 @@ public record RevisionDao(Connection connection) implements IRevisionDao {
     @Override
     public List<RevisionDTO> findByPageId(Long pageId) {
         List<RevisionDTO> list = new ArrayList<>();
-        String query = "SELECT * FROM page_revisions WHERE page_id = ? ORDER BY created_at DESC";
+        String query = "SELECT id, page_id, content, created_at FROM page_revisions WHERE page_id = ? ORDER BY created_at DESC";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setLong(1, pageId);
             try (ResultSet rs = ps.executeQuery()) {

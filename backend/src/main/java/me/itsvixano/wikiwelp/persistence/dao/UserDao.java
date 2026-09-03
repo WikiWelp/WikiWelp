@@ -14,7 +14,7 @@ public record UserDao(Connection connection) implements IUserDao {
 
     @Override
     public UserDTO createUser(UserDTO user) {
-        String query = "INSERT INTO users (email, password, admin) VALUES (?, ?, ?) RETURNING id, admin";
+        String query = "INSERT INTO users (email, password, admin) VALUES (?, ?, ?) RETURNING id";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, user.getEmail());
             ps.setString(2, user.getPassword());
@@ -22,7 +22,6 @@ public record UserDao(Connection connection) implements IUserDao {
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     user.setId(rs.getLong("id"));
-                    user.setAdmin(rs.getBoolean("admin"));
                 }
             }
         } catch (SQLException e) {
@@ -38,7 +37,7 @@ public record UserDao(Connection connection) implements IUserDao {
     //       (We don't really care about security as for now)
     @Override
     public UserDTO findByEmail(String email) {
-        String query = "SELECT * FROM users WHERE email = ?";
+        String query = "SELECT id, email, password, admin FROM users WHERE email = ?";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, email);
             try (ResultSet rs = ps.executeQuery()) {

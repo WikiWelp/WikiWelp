@@ -33,13 +33,12 @@ public record TagDao(Connection connection) implements ITagDao {
             throw new RuntimeException(e);
         }
 
-        String insertQuery = "INSERT INTO tags (name) VALUES (?) RETURNING id, name";
+        String insertQuery = "INSERT INTO tags (name) VALUES (?) RETURNING id";
         try (PreparedStatement ps = connection.prepareStatement(insertQuery)) {
             ps.setString(1, trimmedName);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     tag.setId(rs.getLong("id"));
-                    tag.setName(rs.getString("name"));
                 }
             }
         } catch (SQLException e) {
@@ -50,7 +49,7 @@ public record TagDao(Connection connection) implements ITagDao {
 
     @Override
     public TagDTO findByName(String name) {
-        String query = "SELECT * FROM tags WHERE LOWER(name) = LOWER(?)";
+        String query = "SELECT id, name FROM tags WHERE LOWER(name) = LOWER(?)";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, name);
             try (ResultSet rs = ps.executeQuery()) {
@@ -70,7 +69,7 @@ public record TagDao(Connection connection) implements ITagDao {
     @Override
     public List<TagDTO> findAll() {
         List<TagDTO> list = new ArrayList<>();
-        String query = "SELECT * FROM tags ORDER BY name ASC";
+        String query = "SELECT id, name FROM tags ORDER BY name ASC";
         try (PreparedStatement ps = connection.prepareStatement(query);
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
@@ -88,9 +87,9 @@ public record TagDao(Connection connection) implements ITagDao {
     @Override
     public List<TagDTO> findByPageId(Long pageId) {
         List<TagDTO> list = new ArrayList<>();
-        String query = "SELECT t.id, t.name FROM tags t " +
-                "INNER JOIN page_tags pt ON t.id = pt.tag_id " +
-                "WHERE pt.page_id = ? ORDER BY t.name ASC";
+        String query = "SELECT tags.id, tags.name FROM tags " +
+                "JOIN page_tags ON tags.id = page_tags.tag_id " +
+                "WHERE page_tags.page_id = ? ORDER BY tags.name ASC";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setLong(1, pageId);
             try (ResultSet rs = ps.executeQuery()) {

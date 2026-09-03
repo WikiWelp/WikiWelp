@@ -18,8 +18,8 @@ public record PageDao(Connection connection, ITagDao tagDao, IRevisionDao revisi
     public PageDTO savePage(PageDTO page) {
         boolean isUpdate = page.getId() != null;
         String query = isUpdate
-                ? "UPDATE pages SET title = ?, content = ? WHERE id = ? RETURNING id, title, content"
-                : "INSERT INTO pages (title, content) VALUES (?, ?) RETURNING id, title, content";
+                ? "UPDATE pages SET title = ?, content = ? WHERE id = ? RETURNING id"
+                : "INSERT INTO pages (title, content) VALUES (?, ?) RETURNING id";
 
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, page.getTitle());
@@ -31,8 +31,6 @@ public record PageDao(Connection connection, ITagDao tagDao, IRevisionDao revisi
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     page.setId(rs.getLong("id"));
-                    page.setTitle(rs.getString("title"));
-                    page.setContent(rs.getString("content"));
                 } else if (isUpdate) {
                     throw new IllegalArgumentException("Page with id " + page.getId() + " not found");
                 }
@@ -67,7 +65,7 @@ public record PageDao(Connection connection, ITagDao tagDao, IRevisionDao revisi
 
     @Override
     public PageDTO findByTitle(String title) {
-        String query = "SELECT * FROM pages WHERE LOWER(title) = LOWER(?)";
+        String query = "SELECT id, title, content FROM pages WHERE LOWER(title) = LOWER(?)";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, title);
             try (ResultSet rs = ps.executeQuery()) {
@@ -88,10 +86,10 @@ public record PageDao(Connection connection, ITagDao tagDao, IRevisionDao revisi
     @Override
     public List<PageDTO> findByTag(String tagName) {
         List<PageDTO> pages = new ArrayList<>();
-        String query = "SELECT p.* FROM pages p " +
-                "INNER JOIN page_tags pt ON p.id = pt.page_id " +
-                "INNER JOIN tags t ON pt.tag_id = t.id " +
-                "WHERE LOWER(t.name) = LOWER(?) ORDER BY p.title ASC";
+        String query = "SELECT pages.id, pages.title, pages.content FROM pages " +
+                "JOIN page_tags ON pages.id = page_tags.page_id " +
+                "JOIN tags ON page_tags.tag_id = tags.id " +
+                "WHERE LOWER(tags.name) = LOWER(?) ORDER BY pages.title ASC";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, tagName);
             try (ResultSet rs = ps.executeQuery()) {
@@ -112,7 +110,7 @@ public record PageDao(Connection connection, ITagDao tagDao, IRevisionDao revisi
     @Override
     public List<PageDTO> findAll() {
         List<PageDTO> list = new ArrayList<>();
-        String query = "SELECT * FROM pages ORDER BY title ASC";
+        String query = "SELECT id, title, content FROM pages ORDER BY title ASC";
         try (PreparedStatement ps = connection.prepareStatement(query);
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
