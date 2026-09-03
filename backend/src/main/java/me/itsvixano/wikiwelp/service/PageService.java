@@ -49,10 +49,10 @@ public class PageService implements IPageService {
     }
 
     @Override
-    public boolean deleteByTitle(String title) {
-        if (title == null || title.isBlank()) {
+    public boolean deleteById(Long id) {
+        if (id == null || id <= 0) {
             return false;
         }
-        return pageDao.deleteByTitle(title.trim());
+        return pageDao.deleteById(id);
     }
 }

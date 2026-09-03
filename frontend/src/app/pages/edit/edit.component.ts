@@ -24,6 +24,7 @@ import {
   styleUrl: './edit.component.css',
 })
 export class EditComponent implements OnInit {
+  id: number | null = null;
   title = '';
   content = '';
   tagsInput = '';
@@ -70,18 +71,27 @@ export class EditComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
       if (params['title']) {
-        this.title = params['title'];
+        const paramTitle = params['title'];
         this.http
-          .get<PageDTO>(`${environment.apiUrl}/api/page/${encodeURIComponent(this.title)}`)
+          .get<PageDTO>(`${environment.apiUrl}/api/page/${encodeURIComponent(paramTitle)}`)
           .subscribe({
             next: (page) => {
               if (page) {
+                this.id = page.id ?? null;
+                this.title = page.title || '';
                 this.content = page.content || '';
                 this.tagsInput = page.tags?.map((t) => t.name).join(', ') || '';
-                this.cdr.detectChanges();
+              } else {
+                this.id = null;
+                this.title = paramTitle;
               }
+              this.cdr.detectChanges();
             },
-            error: () => {},
+            error: () => {
+              this.id = null;
+              this.title = paramTitle;
+              this.cdr.detectChanges();
+            },
           });
       }
     });
@@ -99,20 +109,27 @@ export class EditComponent implements OnInit {
       .filter((name) => name.length > 0)
       .map((name) => ({ name }));
 
-    this.http
-      .post(`${environment.apiUrl}/api/page`, {
-        title: this.title.trim(),
-        content: this.content,
-        tags,
-      })
-      .subscribe({
-        next: () => {
-          this.snackBar.open('Pagina salvata con successo!', 'OK', {
-            duration: 3000,
-          });
-          this.router.navigate(['/']);
-        },
-        error: () => alert('Errore durante il salvataggio'),
-      });
+    const payload: PageDTO = {
+      id: this.id ?? undefined,
+      title: this.title.trim(),
+      content: this.content,
+      tags,
+    };
+
+    this.http.post(`${environment.apiUrl}/api/page`, payload).subscribe({
+      next: () => {
+        this.snackBar.open('Pagina salvata con successo!', 'OK', {
+          duration: 3000,
+        });
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        if (err?.status === 409) {
+          alert('Esiste già una pagina con questo titolo!');
+        } else {
+          alert('Errore durante il salvataggio');
+        }
+      },
+    });
   }
 }

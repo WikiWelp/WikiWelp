@@ -6,7 +6,7 @@
   <h2>Pagine</h2>
   <div *ngFor="let p of pages" class="admin-row">
     <a [routerLink]="['/search']" [queryParams]="{ q: p.title }">{{ p.title }}</a>
-    <button class="custom_button" (click)="deletePage(p.title)">Elimina</button>
+    <button class="custom_button" (click)="deletePage(p)">Elimina</button>
   </div>
 
   <h2>Utenti</h2>

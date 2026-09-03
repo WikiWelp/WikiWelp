@@ -39,9 +39,10 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  deletePage(title: string) {
-    this.http.delete(`${environment.apiUrl}/api/page/${title}`).subscribe(() => {
-      this.pages = this.pages.filter((p) => p.title !== title);
+  deletePage(page: PageDTO) {
+    if (!page.id) return;
+    this.http.delete(`${environment.apiUrl}/api/page/${page.id}`).subscribe(() => {
+      this.pages = this.pages.filter((p) => p.id !== page.id);
       this.cdr.detectChanges();
     });
   }

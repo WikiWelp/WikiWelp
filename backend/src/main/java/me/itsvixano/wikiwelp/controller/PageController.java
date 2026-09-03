@@ -1,5 +1,6 @@
 package me.itsvixano.wikiwelp.controller;
 
+import me.itsvixano.wikiwelp.exception.DuplicateTitleException;
 import me.itsvixano.wikiwelp.model.PageDTO;
 import me.itsvixano.wikiwelp.service.IPageService;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,8 @@ public class PageController {
         try {
             PageDTO saved = pageService.savePage(page);
             return ResponseEntity.status(HttpStatus.CREATED).body(saved);
+        } catch (DuplicateTitleException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
@@ -43,9 +46,9 @@ public class PageController {
         return ResponseEntity.ok(pageService.findByTag(tag));
     }
 
-    @DeleteMapping("/{title}")
-    public ResponseEntity<?> deletePage(@PathVariable String title) {
-        boolean deleted = pageService.deleteByTitle(title);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletePage(@PathVariable Long id) {
+        boolean deleted = pageService.deleteById(id);
         return deleted ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
 }

@@ -13,5 +13,5 @@ public interface IPageService {
 
     List<PageDTO> findAll();
 
-    boolean deleteByTitle(String title);
+    boolean deleteById(Long id);
 }

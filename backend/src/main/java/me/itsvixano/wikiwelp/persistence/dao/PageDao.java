@@ -1,5 +1,6 @@
 package me.itsvixano.wikiwelp.persistence.dao;
 
+import me.itsvixano.wikiwelp.exception.DuplicateTitleException;
 import me.itsvixano.wikiwelp.model.PageDTO;
 import me.itsvixano.wikiwelp.model.PageProxyDTO;
 import me.itsvixano.wikiwelp.model.TagDTO;
@@ -15,16 +16,25 @@ public record PageDao(Connection connection, ITagDao tagDao, IRevisionDao revisi
 
     @Override
     public PageDTO savePage(PageDTO page) {
-        String query = "INSERT INTO pages (title, content) VALUES (?, ?) " +
-                "ON CONFLICT (title) DO UPDATE SET content = EXCLUDED.content RETURNING id, title, content";
+        boolean isUpdate = page.getId() != null;
+        String query = isUpdate
+                ? "UPDATE pages SET title = ?, content = ? WHERE id = ? RETURNING id, title, content"
+                : "INSERT INTO pages (title, content) VALUES (?, ?) RETURNING id, title, content";
+
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, page.getTitle());
             ps.setString(2, page.getContent());
+            if (isUpdate) {
+                ps.setLong(3, page.getId());
+            }
+
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     page.setId(rs.getLong("id"));
                     page.setTitle(rs.getString("title"));
                     page.setContent(rs.getString("content"));
+                } else if (isUpdate) {
+                    throw new IllegalArgumentException("Page with id " + page.getId() + " not found");
                 }
             }
 
@@ -47,6 +57,9 @@ public record PageDao(Connection connection, ITagDao tagDao, IRevisionDao revisi
                 revisionDao.createRevision(page.getId(), page.getContent());
             }
         } catch (SQLException e) {
+            if (SQLErrors.SQL_DUPLICATE_KEY.equals(e.getSQLState())) {
+                throw new DuplicateTitleException(e);
+            }
             throw new RuntimeException(e);
         }
         return page;
@@ -116,10 +129,10 @@ public record PageDao(Connection connection, ITagDao tagDao, IRevisionDao revisi
     }
 
     @Override
-    public boolean deleteByTitle(String title) {
-        String query = "DELETE FROM pages WHERE title = ?";
+    public boolean deleteById(Long id) {
+        String query = "DELETE FROM pages WHERE id = ?";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
-            ps.setString(1, title);
+            ps.setLong(1, id);
             int rows = ps.executeUpdate();
             if (rows > 0) {
                 String cleanQuery = "DELETE FROM tags WHERE id NOT IN (SELECT tag_id FROM page_tags)";
