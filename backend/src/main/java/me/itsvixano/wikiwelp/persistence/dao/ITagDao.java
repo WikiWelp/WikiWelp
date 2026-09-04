@@ -10,8 +10,4 @@ public interface ITagDao {
     TagDTO findByName(String name);
 
     List<TagDTO> findAll();
-
-    List<TagDTO> findByPageId(Long pageId);
-
-    void setTagsForPage(Long pageId, List<Long> tagIds);
 }

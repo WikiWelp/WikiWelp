@@ -1,23 +1,23 @@
 package me.itsvixano.wikiwelp.model;
 
+import me.itsvixano.wikiwelp.persistence.dao.IPageTagDao;
 import me.itsvixano.wikiwelp.persistence.dao.IRevisionDao;
-import me.itsvixano.wikiwelp.persistence.dao.ITagDao;
 
 import java.util.List;
 
 public class PageProxyDTO extends PageDTO {
-    private final ITagDao tagDao;
+    private final IPageTagDao pageTagDao;
     private final IRevisionDao revisionDao;
 
-    public PageProxyDTO(ITagDao tagDao, IRevisionDao revisionDao) {
-        this.tagDao = tagDao;
+    public PageProxyDTO(IPageTagDao pageTagDao, IRevisionDao revisionDao) {
+        this.pageTagDao = pageTagDao;
         this.revisionDao = revisionDao;
     }
 
     @Override
     public List<TagDTO> getTags() {
-        if (super.getTags() == null && tagDao != null && getId() != null) {
-            super.setTags(tagDao.findByPageId(getId()));
+        if (super.getTags() == null && pageTagDao != null && getId() != null) {
+            super.setTags(pageTagDao.findByPageId(getId()));
         }
         return super.getTags();
     }
