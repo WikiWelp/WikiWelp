@@ -1,11 +1,11 @@
-import { Component, inject } from '@angular/core';
-import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
 import { Router } from '@angular/router';
-import { ServizioService } from '../../services/servizio.service';
 import { HttpClient } from '@angular/common/http';
+import { ServizioService } from '../../services/servizio.service';
 import { environment } from '../../../environments/environment';
 import { UserDTO } from '../../models/dto';
 
@@ -17,22 +17,24 @@ import { UserDTO } from '../../models/dto';
   styleUrl: './register.component.css',
 })
 export class RegisterComponent {
-  private formBuilder = inject(FormBuilder);
   isLinear = false;
-
-  firstFormGroup = this.formBuilder.group({
-    email: ['', [Validators.required]],
-  });
-
-  secondFormGroup = this.formBuilder.group({
-    password: ['', Validators.required],
-  });
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
 
   constructor(
+    private formBuilder: FormBuilder,
     private router: Router,
     private servizio: ServizioService,
     private http: HttpClient,
-  ) {}
+  ) {
+    this.firstFormGroup = this.formBuilder.group({
+      email: ['', [Validators.required]],
+    });
+
+    this.secondFormGroup = this.formBuilder.group({
+      password: ['', Validators.required],
+    });
+  }
 
   submitRegistration() {
     const email = this.firstFormGroup.get('email')?.value;

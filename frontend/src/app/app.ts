@@ -1,24 +1,19 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { RouterModule } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../environments/environment';
 import { ServizioService } from './services/servizio.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterModule],
-
+  standalone: true,
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
 export class App {
   title = 'Wiki';
-  private http = inject(HttpClient);
-  private servizio = inject(ServizioService);
-  private baseUrl = environment.apiUrl;
-
   isDark = false;
+
+  constructor(private servizio: ServizioService) {}
 
   toggleDarkMode() {
     this.isDark = !this.isDark;

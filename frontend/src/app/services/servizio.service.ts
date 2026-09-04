@@ -11,7 +11,7 @@ export class ServizioService {
   email = localStorage.getItem('email') || '';
   admin = localStorage.getItem('isAdmin') === 'true';
 
-  setLogin(status: boolean, email = '', admin = false) {
+  setLogin(status: boolean, email = '', admin: boolean) {
     this.login = status;
     this.email = email;
     this.admin = admin;

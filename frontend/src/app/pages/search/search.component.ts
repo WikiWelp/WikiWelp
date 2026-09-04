@@ -61,9 +61,7 @@ export class SearchComponent implements OnInit {
     this.http.get<PageDTO>(`${environment.apiUrl}/api/page/${encodeURIComponent(q)}`).subscribe({
       next: (page) => {
         this.foundPage = page;
-        this.loading = false;
-        this.searched = true;
-        this.cdr.detectChanges();
+        this.finishLoading();
       },
       error: () => {
         this.foundPage = null;
@@ -74,15 +72,11 @@ export class SearchComponent implements OnInit {
           .subscribe({
             next: (res) => {
               this.wikipediaPage = res?.extract ? res : null;
-              this.loading = false;
-              this.searched = true;
-              this.cdr.detectChanges();
+              this.finishLoading();
             },
             error: () => {
               this.wikipediaPage = null;
-              this.loading = false;
-              this.searched = true;
-              this.cdr.detectChanges();
+              this.finishLoading();
             },
           });
       },
@@ -106,16 +100,18 @@ export class SearchComponent implements OnInit {
       .subscribe({
         next: (pages) => {
           this.tagPages = pages || [];
-          this.loading = false;
-          this.searched = true;
-          this.cdr.detectChanges();
+          this.finishLoading();
         },
         error: () => {
           this.tagPages = [];
-          this.loading = false;
-          this.searched = true;
-          this.cdr.detectChanges();
+          this.finishLoading();
         },
       });
+  }
+
+  private finishLoading() {
+    this.loading = false;
+    this.searched = true;
+    this.cdr.detectChanges();
   }
 }

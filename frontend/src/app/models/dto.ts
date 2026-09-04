@@ -24,7 +24,6 @@ export interface PageDTO {
   revisions?: RevisionDTO[];
 }
 
-// Note: is just for the API curl
 export interface WikipediaDTO {
   title: string;
   extract: string;

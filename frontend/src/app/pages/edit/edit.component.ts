@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ServizioService } from '../../services/servizio.service';
 import { environment } from '../../../environments/environment';
 import { PageDTO, TagDTO } from '../../models/dto';
 import {
@@ -29,11 +30,11 @@ export class EditComponent implements OnInit {
   content = '';
   tagsInput = '';
 
-  public insertImageSettings: Object = {
+  insertImageSettings = {
     saveFormat: 'Base64',
   };
 
-  public customToolbar: Object = {
+  customToolbar = {
     items: [
       'Bold',
       'Italic',
@@ -50,13 +51,6 @@ export class EditComponent implements OnInit {
       '|',
       'Undo',
       'Redo',
-      '|',
-      {
-        tooltipText: 'Salva',
-        template:
-          '<button class="e-tbar-btn e-btn" id="save_btn"><span class="e-btn-icon e-icons e-save"></span> </button>',
-        click: this.onSave.bind(this),
-      },
     ],
   };
 
@@ -65,35 +59,38 @@ export class EditComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private snackBar: MatSnackBar,
+    private servizio: ServizioService,
     private cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit() {
+    if (!this.servizio.isLoggedIn()) {
+      this.router.navigate(['/login']);
+      return;
+    }
+
     this.route.queryParams.subscribe((params) => {
-      if (params['title']) {
-        const paramTitle = params['title'];
-        this.http
-          .get<PageDTO>(`${environment.apiUrl}/api/page/${encodeURIComponent(paramTitle)}`)
-          .subscribe({
-            next: (page) => {
-              if (page) {
-                this.id = page.id ?? null;
-                this.title = page.title || '';
-                this.content = page.content || '';
-                this.tagsInput = page.tags?.map((t) => t.name).join(', ') || '';
-              } else {
-                this.id = null;
-                this.title = paramTitle;
-              }
-              this.cdr.detectChanges();
-            },
-            error: () => {
-              this.id = null;
-              this.title = paramTitle;
-              this.cdr.detectChanges();
-            },
-          });
-      }
+      const paramTitle = params['title'];
+      if (!paramTitle) return;
+
+      this.title = paramTitle;
+      this.http
+        .get<PageDTO>(`${environment.apiUrl}/api/page/${encodeURIComponent(paramTitle)}`)
+        .subscribe({
+          next: (page) => {
+            if (page) {
+              this.id = page.id ?? null;
+              this.title = page.title || paramTitle;
+              this.content = page.content || '';
+              this.tagsInput = page.tags?.map((t) => t.name).join(', ') || '';
+            }
+            this.cdr.detectChanges();
+          },
+          error: () => {
+            this.id = null;
+            this.cdr.detectChanges();
+          },
+        });
     });
   }
 
