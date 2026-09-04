@@ -4,18 +4,27 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ServizioService {
-  login = false;
+  login = localStorage.getItem('isLoggedIn') === 'true';
   register = false;
   justLoggedIn = false;
   darkMode = false;
-  email = '';
-  admin = false;
+  email = localStorage.getItem('email') || '';
+  admin = localStorage.getItem('isAdmin') === 'true';
 
   setLogin(status: boolean, email = '', admin = false) {
     this.login = status;
     this.email = email;
     this.admin = admin;
-    if (status) this.justLoggedIn = true;
+    if (status) {
+      this.justLoggedIn = true;
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('email', email);
+      localStorage.setItem('isAdmin', String(admin));
+    } else {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('email');
+      localStorage.removeItem('isAdmin');
+    }
   }
 
   isLoggedIn() {
