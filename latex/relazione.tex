@@ -1,0 +1,89 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[top=1.2cm, bottom=1.2cm, left=1.6cm, right=1.6cm]{geometry}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{titlesec}
+
+% Setup collegamenti ipertestuali
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue!70!black
+}
+
+% Formattazione sezioni
+\titleformat{\section}
+  {\normalfont\large\bfseries\color{blue!40!black}}{\thesection.}{0.6em}{}
+  [\titlerule]
+\titlespacing*{\section}{0pt}{0.6ex plus 0.1ex minus .1ex}{0.2ex plus .1ex}
+
+% Spaziatura elenchi puntati
+\setlist[itemize]{leftmargin=1.2em, itemsep=0.3pt, topsep=0.3pt, parsep=0pt}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE \textbf{Relazione Individuale Progetto}}\\[1.2ex]
+    {\large \textbf{Corso di Web Applications (A.A. 2025/26) -- Progetto \textit{WikiWelp}}}\\[1.2ex]
+    \textbf{Matricola:} 250512 \quad\textbf{Cognome:} Ricca \quad\textbf{Nome:} Giovanni
+\end{center}
+
+\vspace{0.2em}
+\hrule height 0.8pt
+\vspace{0.4em}
+
+\section{Attività Svolte personalmente}
+Nel progetto ho strutturato lo sviluppo dell'architettura Backend e l'integrazione con il Frontend usando Angular:
+
+\begin{itemize}
+    \item \textbf{Lato Backend (Spring Boot \& Postgres):}
+    \begin{itemize}
+        \item Modellazione del database \textbf{Postgres su 5 tabelle}: \texttt{users}, \texttt{pages}, \texttt{tags}, \texttt{page\_revisions} e la tabella associativa \texttt{page\_tags}.
+        \item Implementazione del \textbf{pattern DAO} per l'accesso al database Postgres (\texttt{PageDao}, \texttt{UserDao}, \texttt{TagDao}, \texttt{RevisionDao}, \texttt{PageTagDao}) e gestione connessioni con \texttt{DBManager}.
+        \item Implementazione del \textbf{pattern Proxy} (\texttt{PageProxyDTO}) su relazioni 1:N (\texttt{page\_revisions}) e N:M (\texttt{page\_tags}) per il caricamento su richiesta.
+        \item Implementazione dei \textbf{@RestController} per la gestione delle richieste da Angular, con scambio dati in formato \textbf{JSON} e gestione degli errori SQL.
+    \end{itemize}
+    \item \textbf{Lato Frontend (Angular):}
+    \begin{itemize}
+        \item Costruzione del servizio \texttt{ServizioService} per la gestione multi-utente (sessioni, check privilegi admin).
+        \item Opportune chiamate \texttt{HttpClient} sul Backend per integrazione frontend (home, edit, admin, login, ...).
+        \item Integrazione dell'API di Wikipedia come fallback se una voce non è presente nel database Postgres.
+        \item Integrazione della libreria esterna \textbf{Syncfusion Rich Text Editor} in \texttt{edit.component.ts} per abilitare la formattazione WYSIWYG e il caricamento delle immagini.
+    \end{itemize}
+    \item \textbf{Supporto agli altri membri:}
+    \begin{itemize}
+        \item Setup dell'ambiente di sviluppo e supporto a Romualdo Tomaselli nell'interfacciamento tra template HTML/CSS dell'interfaccia responsive e codice Angular.
+    \end{itemize}
+\end{itemize}
+
+\section{Collaborazione con il gruppo}
+\begin{itemize}
+    \item \textbf{Coordinamento:} Gestione del codice su repository GitHub con branch dedicati e brevi allineamenti periodici sullo stato di avanzamento.
+    \item \textbf{Decisioni comuni:} Scelta congiunta dello stack (Spring Boot, Postgres, Angular), strutturazione delle 5 tabelle del DB e specifica dei contratti JSON dei \textbf{@RestController}.
+    \item \textbf{Supporto e revisione del lavoro altrui:} Code review periodiche con opportune ripetizioni per verificare l'integrazione e il corretto funzionamento complessivo.
+\end{itemize}
+
+\section{Problemi affrontati e soluzioni}
+\begin{itemize}
+    \item \textbf{Setup ambiente e testing veloce:} Risolto dockerizzando l'applicazione tramite Docker Compose, garantendo avvio immediato, riproducibilità e collaudo rapido tra i membri del gruppo.
+    \item \textbf{Salvataggio delle immagini nell'editor:} Risolto gestendo le immagini tramite codifica in \textbf{Base64} all'interno del contenuto, permettendo il salvataggio diretto nel database Postgres senza storage dedicati.
+    \item \textbf{Pattern Proxy sulle relazioni 1:N e N:M:} Risolto estendendo \texttt{PageDTO} con \texttt{PageProxyDTO}, posticipando l'invocazione di \texttt{PageTagDao} e \texttt{RevisionDao} alla chiamata dei rispettivi getter, ottimizzando le query su Postgres.
+    \item \textbf{Web App multi-utente e persistenza login:} Risolto centralizzando la gestione dello stato e dei permessi di amministratore nel \texttt{ServizioService}, sincronizzandoli con il \texttt{localStorage}.
+    \item \textbf{Cosa si sarebbe potuto fare diversamente:} Il salvataggio e il check della password degli utenti avrebbero potuto fare uso di un hashing (es. algoritmo SHA) invece di memorizzarla e verificarla in chiaro nel database.
+\end{itemize}
+
+\section{Impegno e partecipazione}
+\begin{itemize}
+    \item \textbf{Partecipazione:} Costante, continuativa e proattiva per tutta la durata del progetto.
+    \item \textbf{Rispetto delle scadenze:} Rispetto puntuale di tutte le scadenze, completando l'architettura backend (DAO, Proxy, @RestController) e la logica Angular in tempo per il collaudo della UI responsive.
+    \item \textbf{Criticità riscontrate:} Discrepanze iniziali sui formati JSON scambiati tra frontend e backend, risolte tempestivamente definendo e condividendo i contratti DTO.
+\end{itemize}
+
+\end{document}
