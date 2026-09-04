@@ -17,14 +17,16 @@ public class UserService implements IUserService {
 
     @Override
     public UserDTO createUser(UserDTO user) {
-        if (user.getEmail().isBlank()) {
+        if (user.getEmail() == null || user.getEmail().isBlank()) {
             throw new IllegalArgumentException("Email is required");
         }
 
-        if (user.getPassword().isBlank()) {
+        if (user.getPassword() == null || user.getPassword().isBlank()) {
             throw new IllegalArgumentException("Password is required");
         }
 
+        user.setEmail(user.getEmail().trim());
+        user.setAdmin(false);
         return userDao.createUser(user);
     }
 
