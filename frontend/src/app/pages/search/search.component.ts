@@ -64,23 +64,29 @@ export class SearchComponent implements OnInit {
         this.finishLoading();
       },
       error: () => {
+        // Fallback to WikiPedia
         this.foundPage = null;
-        this.http
-          .get<WikipediaDTO>(
-            `https://it.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(q)}`,
-          )
-          .subscribe({
-            next: (res) => {
-              this.wikipediaPage = res?.extract ? res : null;
-              this.finishLoading();
-            },
-            error: () => {
-              this.wikipediaPage = null;
-              this.finishLoading();
-            },
-          });
+        this.fetchWikipedia(q);
       },
     });
+  }
+
+  // WikiPedia external API fetch
+  private fetchWikipedia(q: string) {
+    this.http
+      .get<WikipediaDTO>(
+        `https://it.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(q)}`,
+      )
+      .subscribe({
+        next: (res) => {
+          this.wikipediaPage = res?.extract ? res : null;
+          this.finishLoading();
+        },
+        error: () => {
+          this.wikipediaPage = null;
+          this.finishLoading();
+        },
+      });
   }
 
   searchByTag(tagName: string) {
