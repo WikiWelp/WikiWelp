@@ -33,8 +33,6 @@ public record UserDao(Connection connection) implements IUserDao {
         return user;
     }
 
-    // TODO: We probably don't want to fetch the password as in ...
-    //       (We don't really care about security as for now)
     @Override
     public UserDTO findByEmail(String email) {
         String query = "SELECT id, email, password, admin FROM users WHERE email = ?";

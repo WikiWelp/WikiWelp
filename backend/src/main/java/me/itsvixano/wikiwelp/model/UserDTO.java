@@ -8,8 +8,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class UserDTO {
-    public Long id;
-    public String email;
-    public String password;
-    public Boolean admin = false;
+    private Long id;
+    private String email;
+    private String password;
+    private Boolean admin = false;
 }

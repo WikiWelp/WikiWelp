@@ -10,9 +10,9 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class PageDTO {
-    public Long id;
-    public String title;
-    public String content;
-    public List<TagDTO> tags;
-    public List<RevisionDTO> revisions;
+    private Long id;
+    private String title;
+    private String content;
+    private List<TagDTO> tags;
+    private List<RevisionDTO> revisions;
 }

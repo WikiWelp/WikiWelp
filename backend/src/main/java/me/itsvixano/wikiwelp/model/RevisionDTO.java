@@ -12,8 +12,8 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RevisionDTO {
-    public Long id;
-    public Long pageId;
-    public String content;
-    public Timestamp createdAt;
+    private Long id;
+    private Long pageId;
+    private String content;
+    private Timestamp createdAt;
 }
