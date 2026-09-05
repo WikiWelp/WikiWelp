@@ -50,7 +50,7 @@ export class EditComponent implements OnInit {
       'CreateTable',
       '|',
       'Undo',
-      'Redo',
+      'Redo'
     ],
   };
 

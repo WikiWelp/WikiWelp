@@ -1,0 +1,51 @@
+
+.editor-form-section .input-group,
+.editor-form-section .button-group {
+  display: flex;
+  flex-direction: row; 
+  gap: 15px;           
+  width: 100%;
+  max-width: 800px;    
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+.editor-form-section input {
+  flex: 1;             
+  padding: 10px;
+  border: 1px solid cornflowerblue;
+  border-radius: 4px;
+}
+
+/*Per Smartphone*/
+@media (max-width: 576px) {
+  .editor-form-section .input-group,
+  .editor-form-section .button-group {
+    flex-direction: column; 
+    align-items: stretch;   
+    gap: 12px;              
+  }
+
+  .editor-form-section input {
+    padding: 14px;          
+    font-size: 16px;
+  }
+
+  .editor-form-section .custom_button {
+    padding: 14px;          
+    font-size: 16px;
+  }
+}
+
+/*Per Tablet*/
+@media (max-width: 1280px) and (min-width: 768px) {
+  .editor-form-section input {
+    padding: 16px;     
+    font-size: 18px;   
+  }
+
+  .editor-form-section .custom_button {
+    padding: 14px 28px; 
+    font-size: 16px;
+  }
+}

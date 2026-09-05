@@ -2,42 +2,50 @@
   <h1 class="custom_h1">Crea Account</h1>
 </section>
 
-<mat-stepper [linear]="isLinear" [orientation]="'vertical'" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Inserisci la tua email</ng-template>
-      <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input matInput type="email" formControlName="email" required />
-      </mat-form-field>
-      <div>
-        <button class="custom_button" matStepperNext>>></button>
-      </div>
-    </form>
-  </mat-step>
 
-  <mat-step [stepControl]="secondFormGroup" label="Inserisci la tua password">
-    <form [formGroup]="secondFormGroup">
-      <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="password" required />
-      </mat-form-field>
-      <div>
-        <button class="custom_button" matStepperPrevious><<</button>
-        <button class="custom_button" matStepperNext>>></button>
-      </div>
-    </form>
-  </mat-step>
+<div class="register-container">
+  <mat-stepper [linear]="isLinear" [orientation]="stepperOrientation" class="responsive-stepper" #stepper>
+    
+    <!-- STEP 1: EMAIL -->
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Inserisci la tua email</ng-template>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email" required />
+        </mat-form-field>
+        <div class="button-group single-btn">
+          <button class="custom_button" matStepperNext>>></button>
+        </div>
+      </form>
+    </mat-step>
 
-  <mat-step>
-    <ng-template matStepLabel>Fatto!</ng-template>
-    <p>Clicca "Avanti" per completare la registrazione</p>
-    <div>
-      <button type="button" class="custom_button" matStepperPrevious><<</button>
-      <button type="button" class="custom_button" style="margin-right: 10px" (click)="goBack()">
-        Indietro
-      </button>
-      <button type="submit" class="custom_button" (click)="submitRegistration()">Avanti</button>
-    </div>
-  </mat-step>
-</mat-stepper>
+    <!-- STEP 2: PASSWORD -->
+    <mat-step [stepControl]="secondFormGroup" label="Inserisci la tua password">
+      <form [formGroup]="secondFormGroup">
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password" required />
+        </mat-form-field>
+        <div class="button-group code-arrows">
+          <button class="custom_button" matStepperPrevious><<</button>
+          <button class="custom_button" matStepperNext>>></button>
+        </div>
+      </form>
+    </mat-step>
+
+    <!-- STEP 3: CONFERMA -->
+    <mat-step>
+      <ng-template matStepLabel>Fatto!</ng-template>
+      <p class="step-text">Clicca "Avanti" per completare la registrazione</p>
+      <div class="button-group final-actions">
+        <button type="button" class="custom_button" matStepperPrevious><<</button>
+        <button type="button" class="custom_button" (click)="goBack()">Indietro</button>
+        <button type="submit" class="custom_button" (click)="submitRegistration()">Avanti</button>
+      </div>
+    </mat-step>
+
+  </mat-stepper>
+</div>
+
+<div class="spazio_vuoto"></div>

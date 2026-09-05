@@ -1,0 +1,179 @@
+h1{
+  font-family: 'Courier_Prime', sans-serif !important;
+}
+
+.title-link {
+  text-decoration: none; 
+  color: inherit;
+}
+
+.search-bar-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.search-group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 650px; 
+  gap: 10px;
+}
+
+.search-group input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid cornflowerblue;
+  border-radius: 4px;
+}
+
+.search-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.search-buttons .custom_button {
+  padding: 12px 20px;
+  font-size: 15px;
+}
+
+.contenitore-articolo, 
+.tag-results-container, 
+.not-found-container {
+  max-width: 800px;          
+  width: 100%;
+  margin: 20px auto 0;
+  box-sizing: border-box;        
+}
+
+.titolo-articolo, .area-tag, .corpo-articolo {
+  overflow-wrap: break-word;   
+  word-wrap: break-word;       
+  word-break: break-word;      
+}
+
+.titolo-articolo {
+  text-align: center;         
+  margin-bottom: 5px;        
+}
+
+.area-tag {
+  text-align: center;        
+  margin-bottom: 20px;  
+}
+
+.corpo-articolo {
+  text-align: left;           
+  line-height: 1.6;           
+  white-space: pre-wrap;    
+  font-size: clamp(16px, 1.5vw, 19px); 
+}
+
+.tag-link {
+  cursor: pointer; 
+  text-decoration: underline; 
+  color: inherit;
+}
+
+.tags-small {
+  font-size: 0.85em; 
+  color: gray;
+}
+
+.revision-container {
+  margin-top: 25px;
+  font-size: 0.9em;
+  color: gray;
+  text-align: center;
+}
+
+.revision-selector-box select {
+  padding: 6px 10px;
+  margin-left: 6px;
+  border: 1px solid cornflowerblue;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+}
+
+.article-actions, .create-prompt, .login-prompt {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.wikipedia-box {
+  margin: 25px 0;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.wiki-label { margin: 0 0 5px 0; font-size: 0.85em; color: gray; }
+.wiki-title { margin: 0 0 8px 0; color: dodgerblue; }
+.wiki-extract { margin: 0; line-height: 1.5; }
+
+/*Per Smartphone*/
+@media (max-width: 576px) {
+  .search-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .search-buttons {
+    display: flex;
+  }
+
+  .search-buttons .custom_button {
+    flex: 1; 
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .search-group input {
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .titolo-articolo {
+    font-size: 28px; 
+  }
+
+  .wikipedia-box {
+    padding: 12px; 
+  }
+
+  .article-actions .custom_button, 
+  .create-prompt .custom_button {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+  }
+}
+
+/*Per Tablet*/
+@media (max-width: 1280px) and (min-width: 768px) {
+  .search-group input {
+    padding: 16px; 
+    font-size: 18px;
+  }
+
+  .search-buttons .custom_button {
+    padding: 16px 24px;
+    font-size: 16px;
+  }
+
+  .revision-selector-box select {
+    padding: 12px; 
+    font-size: 16px;
+  }
+
+  .article-actions .custom_button, 
+  .create-prompt .custom_button {
+    padding: 14px 28px;
+    font-size: 16px;
+  }
+}

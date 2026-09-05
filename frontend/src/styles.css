@@ -1,4 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
 @import '@syncfusion/ej2-base/styles/material.css'; /**/
 @import '@syncfusion/ej2-icons/styles/material.css'; /*Icone grafiche dei pulsanti*/
 @import '@syncfusion/ej2-buttons/styles/material.css'; /*pulsanti classici*/
@@ -9,8 +8,53 @@
 @import '@syncfusion/ej2-popups/styles/material.css'; /*finestre a comparsa*/
 @import '@syncfusion/ej2-richtexteditor/styles/material.css'; /*stile del contenitore dell'editor*/
 
+@font-face {
+  font-family: 'Courier_Prime';
+  src: url('/font/Courier_Prime/CourierPrime-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*Font Inter - Regular*/
+@font-face {
+  font-family: 'Inter';
+  src: url('/font/Inter/Inter_Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*Font Inter - Italic*/
+@font-face {
+  font-family: 'Inter';
+  src: url('/font/Inter/Inter_Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic; /* Dice al browser che questo file gestisce il corsivo */
+  font-display: swap;
+}
+
+/*Font Inter - Bold*/
+@font-face {
+  font-family: 'Inter';
+  src: url('/font/Inter/Inter_Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body, input, select, textarea, button, h1, h2, h3, 
+.mat-mdc-form-field, .e-richtexteditor .e-content,
+.e-richtexteditor .e-content * {
+  font-family: 'Inter', sans-serif !important;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+}
+
 .spazio_vuoto {
-  height: 50px;
+  height: 3vh;
   visibility: hidden;
   clear: both;
 }
@@ -18,11 +62,13 @@
 body {
   background-color: white;
   color: cornflowerblue;
+  padding-top: 15px;
   padding-bottom: 50px;
   padding-left: 15px;
   padding-right: 15px;
   box-sizing: border-box;
   cursor: url('/images/Freccia.svg'), default !important;
+  font-family: 'Inter', sans-serif;
 }
 
 a,
@@ -33,7 +79,10 @@ button *,
 input[type='button'],
 input[type='submit'],
 [class*='toolbar'] *,
-[class*='dropdown'] * {
+[class*='dropdown'] *,
+img,
+.e-richtexteditor .e-content img
+{
   cursor: url('/images/Mano.svg'), pointer !important;
 }
 
@@ -44,12 +93,27 @@ textarea,
   cursor: url('/images/Scrivi.svg'), text !important;
 }
 
+.e-richtexteditor *[style*="cursor: nwse-resize"],
+.e-richtexteditor *[style*="cursor: nwse-resize"] *,
+.e-richtexteditor *[style*="cursor: nesw-resize"],
+.e-richtexteditor *[style*="cursor: nesw-resize"] *,
+.e-richtexteditor *[style*="cursor: ew-resize"],
+.e-richtexteditor *[style*="cursor: ns-resize"],
+.e-richtexteditor .e-rte-table-resize,
+.e-richtexteditor .e-column-resize,
+.e-richtexteditor .e-row-resize,
+.e-richtexteditor .e-table-box {
+  cursor: url('/images/Ridimensiona.svg'), nwse-resize !important;
+}
+
 section {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   margin: 20px 0;
+  width: 100%;
 }
 
 .custom_button {
@@ -57,6 +121,8 @@ section {
   color: white;
   background-color: cornflowerblue;
   border-color: dodgerblue;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .custom_h1 {
@@ -101,7 +167,34 @@ section {
 
 .e-richtexteditor .e-content {
   background-color: lightgray !important;
-  color: black !important;
+  color: cornflowerblue !important;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 25px;
+  color: cornflowerblue;
+}
+
+
+table th, 
+table td {
+  border: 1px solid cornflowerblue !important;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+table th{
+  background-color: cornflowerblue;
+  color: white;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 /**/
 
@@ -120,7 +213,9 @@ body.darkMode [role='button'],
 body.darkMode input[type='button'],
 body.darkMode input[type='submit'],
 body.darkMode [class*='toolbar'] *,
-body.darkMode [class*='dropdown'] * {
+body.darkMode [class*='dropdown'] *,
+body.darkMode img,
+body.darkMode .e-richtexteditor .e-content img {
   cursor: url('/images/Mano_dark.svg'), pointer !important;
 }
 
@@ -130,6 +225,20 @@ body.darkMode [contenteditable='true'],
 body.darkMode [contenteditable='true'] * {
   cursor: url('/images/Scrivi_dark.svg'), text !important;
 }
+
+body.darkMode .e-richtexteditor *[style*="cursor: nwse-resize"],
+body.darkMode .e-richtexteditor *[style*="cursor: nwse-resize"] *,
+body.darkMode .e-richtexteditor *[style*="cursor: nesw-resize"],
+body.darkMode .e-richtexteditor *[style*="cursor: nesw-resize"] *,
+body.darkMode .e-richtexteditor *[style*="cursor: ew-resize"],
+body.darkMode .e-richtexteditor *[style*="cursor: ns-resize"],
+body.darkMode .e-richtexteditor .e-rte-table-resize,
+body.darkMode .e-richtexteditor .e-column-resize,
+body.darkMode .e-richtexteditor .e-row-resize,
+body.darkMode .e-richtexteditor .e-table-box {
+  cursor: url('/images/Ridimensiona_dark.svg'), nwse-resize !important;
+}
+
 
 body.darkMode .custom_button {
   cursor: pointer;
@@ -188,7 +297,7 @@ body.darkMode .e-richtexteditor .e-toolbar .e-icons {
 /*Colore area di testo*/
 body.darkMode .e-richtexteditor .e-content {
   background-color: gray !important;
-  color: white !important;
+  color: #004455ff !important;
 }
 /**/
 /**/
@@ -205,6 +314,29 @@ body.darkMode .e-richtexteditor .e-content {
   background-color: black;
 }
 
+@media (max-width: 576px) {
+  .dark-toggle {
+    top: auto;        
+    bottom: 20px;     
+    right: 20px;      
+  }
+}
+
 .dark-toggle.dark {
   background-color: white;
+}
+
+body.darkMode table {
+  color: #004455ff;
+}
+
+
+body.darkMode table th, 
+body.darkMode table td {
+  border: 1px solid #004455ff !important;
+}
+
+body.darkMode table th{
+  background-color: #004455ff;
+  color: white;
 }

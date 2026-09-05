@@ -1,19 +1,88 @@
 h1 {
-  font-size: 50px;
+  font-family: 'Courier_Prime', sans-serif !important;
+  font-size: clamp(32px, 5vw, 65px);
+  margin-bottom: 20px;
 }
 
-img {
-  width: 200px;
+p {
+  font-size: clamp(16px, 1.5vw, 22px);
+  line-height: 1.6; 
+}
+
+.home-logo {
+  width: clamp(160px, 15vw, 300px);  
   height: auto;
-}
-
-.button-row {
-  max-width: 600px;
-  display: flex;
-  gap: 10px;
 }
 
 .search {
   display: flex;
   align-items: center;
+  width: 100%;
+  max-width: clamp(280px, 40vw, 650px);
+  gap: 10px;
+}
+
+.search input {
+  flex: 1; 
+  padding: 12px; 
+}
+
+.search .custom_button {
+  padding: 12px 24px; 
+  font-size: 16px;
+}
+
+.button-row {
+  width: 100%;          
+  max-width: clamp(280px, 45vw, 700px);
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Per Smartphone */
+@media (max-width: 576px) {
+  .button-row {
+    flex-direction: column; 
+    align-items: stretch;  
+  }
+  .search .custom_button {
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+}
+
+/*Per Tablet*/
+@media (max-width: 1280px) and (min-width: 768px) {
+  h1 {
+    font-size: 48px; 
+  }
+
+  .home-logo {
+    width: 220px;    
+  }
+
+  .search {
+    max-width: 550px; 
+  }
+
+  .search input {
+    padding: 16px;   
+    font-size: 18px; 
+  }
+
+  .search .custom_button {
+    padding: 16px 28px; 
+    font-size: 18px;
+  }
+
+  .button-row {
+    max-width: 600px;
+    gap: 15px;       
+  }
+
+  .button-row .custom_button {
+    padding: 14px 24px; 
+    font-size: 16px;
+  }
 }
