@@ -1,4 +1,4 @@
-# WikiWelp
+# Wikiwelp
 
 The wiki that _moves on_ with time.
 
